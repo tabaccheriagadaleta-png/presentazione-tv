@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,2637 +8,1116 @@
 
 <style>
 
-/* =========================================================
-   BASE
-========================================================= */
-
 *{
     box-sizing:border-box;
 }
 
-html,
-body{
+html,body{
     margin:0;
+    padding:0;
     width:100%;
     height:100%;
     overflow:hidden;
-
+    background:#fff;
     font-family:Arial,Helvetica,sans-serif;
-
-    background:#ffffff;
-    color:#073684;
+    color:#002b72;
 }
 
 body{
-    width:100vw;
-    height:100vh;
+    padding:0.3vw;
 }
-
 
 /* =========================================================
    STRUTTURA GENERALE
 ========================================================= */
 
 .schermo{
-
-    width:100vw;
-    height:100vh;
-
-    padding:
-        1vh
-        1vw
-        3vh;
-
+    width:100%;
+    height:calc(100vh - 1.6vw);
     display:grid;
-
-    grid-template-columns:
-        40% 60%;
-
-    gap:0.7vw;
+    grid-template-columns:40% 60%;
+    gap:0.6vw;
 }
-
 
 .sinistra{
-
-    min-height:0;
-
     display:grid;
-
-    grid-template-rows:
-        57% 43%;
-
-    gap:0.7vh;
+    grid-template-rows:57% 43%;
+    gap:0.45vw;
+    min-height:0;
 }
-
 
 .destra{
-
-    min-height:0;
-
     display:grid;
-
-    grid-template-rows:
-        74% 26%;
-
-    gap:0.7vh;
+    grid-template-rows:74% 26%;
+    gap:0.45vw;
+    min-height:0;
 }
-
 
 .box{
-
-    min-height:0;
-
-    border:
-        1.5px solid
-        #bdc8d8;
-
-    border-radius:14px;
-
-    background:#ffffff;
-
+    background:#fff;
+    border:1.5px solid #b8cbe8;
+    border-radius:0.75vw;
     overflow:hidden;
+    min-height:0;
 }
-
 
 /* =========================================================
    MILLIONDAY
 ========================================================= */
 
-.million{
-
-    padding:
-        0.6vh
-        0.8vw;
-
-    display:grid;
-
-    grid-template-rows:
-        13%
-        43.5%
-        43.5%;
+.millionday{
+    padding:0.25vw 0.75vw 0.45vw;
+    display:flex;
+    flex-direction:column;
 }
 
-
-.million-logo{
-
+.md-logo{
+    height:12%;
     display:flex;
-
     align-items:center;
     justify-content:center;
-
-    font-size:2.8vw;
-
-    line-height:1;
-
     font-weight:900;
     font-style:italic;
-
-    color:#ffb600;
+    font-size:2.75vw;
+    letter-spacing:-0.15vw;
 }
 
-
-.million-logo .o{
-
-    color:#087ed5;
+.md-milli{
+    color:#ffb000;
 }
 
+.md-on{
+    color:#087fc9;
+}
 
-.day{
-
-    margin-left:0.35vw;
-
-    color:#e62f25;
-
-    border:
-        3px solid
-        #16499c;
-
-    padding:
-        0
-        0.2vw;
-
+.md-day{
+    margin-left:0.15vw;
+    color:#d9362b;
+    border:0.15vw solid #174c91;
+    padding:0 0.2vw;
+    line-height:0.92;
     font-size:2vw;
+    background:white;
 }
 
-
-.estrazione{
-
+.md-box{
     position:relative;
-
-    margin-top:1.1vh;
-
-    border:
-        1.5px solid
-        #1688df;
-
-    border-radius:12px;
-
-    padding:
-        2.3vh
-        1vw
-        0.5vh;
+    border:1.5px solid #1487dd;
+    border-radius:0.7vw;
+    margin-top:0.45vw;
+    padding:1.15vw 1vw 0.45vw;
+    flex:1;
+    min-height:0;
 }
 
-
-.estrazione-titolo{
-
+.md-title{
     position:absolute;
-
-    top:-1.35vh;
-    left:50%;
-
-    transform:
-        translateX(-50%);
-
-    width:64%;
-
-    padding:
-        0.35vh
-        0;
-
-    text-align:center;
-
-    color:#ffffff;
-    background:#087bd3;
-
-    border-radius:7px;
-
-    font-size:1.05vw;
-
+    top:-0.7vw;
+    left:18%;
+    right:18%;
+    height:1.45vw;
+    background:#1182cf;
+    color:white;
+    border-radius:0.4vw;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     font-weight:900;
+    font-size:1.05vw;
 }
-
 
 .md-data{
-
     text-align:center;
-
-    font-size:1vw;
-
+    font-size:1.05vw;
     font-weight:900;
-
-    margin-bottom:0.5vh;
+    margin:0.05vw 0 0.35vw;
 }
-
 
 .md-numeri{
-
     display:flex;
-
-    justify-content:
-        space-evenly;
-
+    justify-content:space-around;
     align-items:center;
+    margin:0.1vw 2.5vw 0.35vw;
 }
-
 
 .md-num{
-
     width:3vw;
     height:3vw;
-
     border-radius:50%;
-
+    background:#0c82d4;
+    color:white;
     display:flex;
-
     align-items:center;
     justify-content:center;
-
-    background:#087bd3;
-
-    color:#ffffff;
-
-    font-size:1.35vw;
-
+    font-size:1.25vw;
     font-weight:900;
 }
-
-
-.divisore{
-
-    border-top:
-        1px dotted
-        #1688df;
-
-    margin:
-        0.55vh
-        0
-        0.35vh;
-}
-
-
-/* =========================================================
-   EXTRA MILLIONDAY
-========================================================= */
-
-.extra-riga{
-
-    width:100%;
-
-    display:grid;
-
-    grid-template-columns:
-        12% 88%;
-
-    align-items:center;
-}
-
-
-.extra-label{
-
-    color:#087bd3;
-
-    font-size:0.95vw;
-
-    font-weight:900;
-}
-
 
 .md-extra{
-
-    width:100%;
-
-    display:flex;
-
+    border-top:1.5px dotted #5e9bd1;
+    padding-top:0.35vw;
+    display:grid;
+    grid-template-columns:16% 84%;
     align-items:center;
-
-    justify-content:
-        space-evenly;
 }
 
+.md-extra-label{
+    color:#087bc6;
+    font-size:1vw;
+    font-weight:900;
+}
+
+.md-extra-numeri{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
 
 .md-extra-num{
-
     width:2.5vw;
     height:2.5vw;
-
-    border:
-        1.7px solid
-        #087bd3;
-
+    border:1.5px solid #1487dd;
     border-radius:50%;
-
     display:flex;
-
-    align-items:center;
     justify-content:center;
-
-    color:#073684;
-
-    background:#ffffff;
-
+    align-items:center;
     font-size:1.05vw;
-
     font-weight:900;
+    background:#fff;
 }
-
 
 /* =========================================================
-   10eLOTTO
+   10 E LOTTO
 ========================================================= */
 
-.dieci{
-
-    padding:
-        0.65vh
-        0.9vw;
-
-    display:grid;
-
-    grid-template-rows:
-        16%
-        7%
-        31%
-        22%
-        7%
-        17%;
+.diecilotto{
+    padding:0.45vw 0.9vw 0.35vw;
+    display:flex;
+    flex-direction:column;
 }
-
 
 .dieci-header{
-
+    height:18%;
     display:flex;
-
     align-items:center;
-
-    justify-content:
-        space-between;
+    justify-content:space-between;
 }
-
 
 .dieci-logo{
-
-    font-size:2.4vw;
-
+    font-size:2.5vw;
     font-weight:900;
-
     font-style:italic;
-
-    color:#073684;
+    letter-spacing:-0.12vw;
 }
 
-
-.dieci-logo span{
-
-    color:#ef6500;
+.dieci-logo .blu{
+    color:#073b82;
 }
 
+.dieci-logo .rosso{
+    color:#ed4b0b;
+}
 
 .collegato{
-
-    background:#073684;
-
-    color:#ffffff;
-
-    font-size:0.68vw;
-
+    background:#073b82;
+    color:#fff;
+    font-size:0.7vw;
     font-weight:900;
-
-    padding:
-        0.4vh
-        0.55vw;
-
-    border-radius:5px;
+    border-radius:0.25vw;
+    padding:0.25vw 0.55vw;
 }
 
-
-.titolo-piccolo{
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    font-size:0.75vw;
-
+.dieci-titolo{
+    text-align:center;
     font-weight:900;
+    font-size:0.78vw;
+    margin-bottom:0.3vw;
 }
-
-
-/* =========================================================
-   10eLOTTO - NUMERI PRINCIPALI
-   BLU CON NUMERO BIANCO
-========================================================= */
 
 .dieci-numeri{
-
-    height:100%;
-
     display:grid;
+    grid-template-columns:repeat(10,1fr);
+    gap:0.35vw;
+    padding-bottom:0.35vw;
 
-    grid-template-columns:
-        repeat(10,1fr);
-
-    grid-template-rows:
-        repeat(2,1fr);
-
-    gap:
-        0.4vh
-        0.38vw;
-
-    align-items:center;
+    /* divisore più evidente */
+    border-bottom:1.5px solid #7faee1;
 }
-
 
 .dieci-num{
-
-    width:100%;
-
-    height:90%;
-
-    border:
-        2px solid
-        #087bd3;
-
-    border-radius:999px;
-
+    width:2.55vw;
+    height:2.55vw;
+    margin:auto;
+    background:#0c82d4;
+    color:#fff;
+    border-radius:50%;
     display:flex;
-
-    align-items:center;
     justify-content:center;
-
-    background:#087bd3;
-
-    color:#ffffff;
-
-    font-size:1.05vw;
-
+    align-items:center;
     font-weight:900;
-
-    box-shadow:
-        0 1px 2px
-        rgba(0,0,0,0.10);
+    font-size:1.05vw;
 }
-
-
-/* =========================================================
-   ORO / DOPPIO ORO
-========================================================= */
 
 .oro-area{
-
-    height:100%;
-
     display:grid;
+    grid-template-columns:1fr 1fr;
+    min-height:3.8vw;
 
-    grid-template-columns:
-        1fr 1fr;
-
-    border-top:
-        1px solid
-        #9cb7db;
-
-    border-bottom:
-        1px solid
-        #9cb7db;
+    /* divisore più evidente */
+    border-bottom:1.5px solid #7faee1;
 }
 
-
-.oro-box{
-
+.oro-blocco{
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
     justify-content:center;
 }
 
-
-.oro-box:first-child{
-
-    border-right:
-        1px solid
-        #e7aa51;
+.oro-blocco:first-child{
+    border-right:1.5px solid #e0a64b;
 }
 
-
-.oro-titolo{
-
-    color:#dd7900;
-
-    font-size:0.72vw;
-
+.oro-label{
+    color:#d66b00;
+    font-size:0.7vw;
     font-weight:900;
-
-    margin-bottom:0.35vh;
+    margin-bottom:0.15vw;
 }
 
+.oro-numeri{
+    display:flex;
+    gap:0.25vw;
+}
 
 .oro-num{
-
-    display:inline-flex;
-
     width:2.25vw;
     height:2.25vw;
-
-    align-items:center;
-    justify-content:center;
-
-    margin:
-        0
-        0.1vw;
-
     border-radius:50%;
-
-    background:#df8a00;
-
-    color:#ffffff;
-
-    font-size:0.95vw;
-
-    font-weight:900;
-}
-
-
-/* =========================================================
-   EXTRA 10eLOTTO
-   BIANCHI CON BORDO BLU
-========================================================= */
-
-.extra15-titolo{
-
+    background:#e88b00;
+    color:white;
     display:flex;
-
-    align-items:center;
     justify-content:center;
-
-    font-size:0.7vw;
-
+    align-items:center;
+    font-size:0.9vw;
     font-weight:900;
 }
 
+.extra15-title{
+    text-align:center;
+    font-size:0.72vw;
+    font-weight:900;
+    margin:0.3vw 0;
+}
 
 .extra15{
-
-    height:100%;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(15,1fr);
-
+    display:flex;
+    justify-content:space-between;
     align-items:center;
-
-    gap:0.20vw;
+    gap:0.15vw;
 }
-
 
 .extra15 span{
-
-    width:100%;
-
-    aspect-ratio:1;
-
-    border:
-        1.5px solid
-        #7faee8;
-
+    width:2.15vw;
+    height:2.15vw;
+    border:1.5px solid #8bbcec;
     border-radius:50%;
-
     display:flex;
-
-    align-items:center;
     justify-content:center;
-
-    background:#ffffff;
-
-    color:#073684;
-
-    font-size:0.76vw;
-
+    align-items:center;
     font-weight:900;
+    font-size:0.76vw;
+    background:white;
 }
-
 
 /* =========================================================
    LOTTO
 ========================================================= */
 
 .lotto{
-
-    padding:
-        0.5vh
-        0.8vw;
-
-    display:grid;
-
-    grid-template-rows:
-        13%
-        77%
-        10%;
+    display:flex;
+    flex-direction:column;
+    padding:0.35vw 0.75vw 0.25vw;
 }
 
-
-/* =========================================================
-   HEADER LOTTO
-========================================================= */
-
-.lotto-header{
-
+.lotto-top{
+    height:12%;
     display:grid;
-
-    grid-template-columns:
-        55% 45%;
-
+    grid-template-columns:1fr auto 1fr;
     align-items:center;
 }
-
-
-/* =========================================================
-   LOGO LOTTO PIÙ GRANDE
-========================================================= */
 
 .lotto-logo{
-
+    grid-column:2;
     display:flex;
-
-    align-items:center;
-
     justify-content:center;
-
-    gap:0.14vw;
+    align-items:center;
+    line-height:1;
 }
-
 
 .lotto-letter{
-
-    color:#f26500;
-
+    color:#ef5b00;
     font-size:3.25vw;
-
-    line-height:1;
-
     font-weight:900;
 }
-
 
 .lotto-o{
-
     width:3.15vw;
     height:3.15vw;
-
+    border:0.18vw solid #ef5b00;
+    border-radius:50%;
+    color:#ef5b00;
     display:flex;
-
     align-items:center;
     justify-content:center;
-
-    border:
-        0.23vw solid
-        #f26500;
-
-    border-radius:50%;
-
-    color:#f26500;
-
     font-size:1.95vw;
-
     font-weight:900;
-
-    line-height:1;
+    margin:0 0.04vw;
 }
-
 
 .lotto-info{
-
+    grid-column:3;
+    justify-self:end;
     text-align:right;
-
-    padding-right:0.5vw;
-}
-
-
-.lotto-data{
-
-    font-size:1vw;
-
+    font-size:0.92vw;
     font-weight:900;
+    line-height:1.8;
 }
 
-
-.lotto-concorso{
-
-    margin-top:0.35vh;
-
-    font-size:0.86vw;
-
-    font-weight:900;
+.lotto-info .concorso{
+    color:#00357d;
 }
 
-
-.lotto-concorso span{
-
-    color:#ef6500;
-
-    font-size:1.2vw;
+.lotto-info .numero-concorso{
+    color:#ed5b00;
+    font-size:1.1vw;
 }
 
-
-/* =========================================================
-   TABELLA LOTTO
-========================================================= */
-
-.lotto-corpo{
-
-    height:100%;
-
+.tabella-lotto{
+    flex:1;
+    border:1.5px solid #174f9d;
     display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    border:
-        1px solid
-        #0b4398;
-}
-
-
-.lotto-colonna{
-
+    grid-template-rows:auto repeat(5,1fr) 0.72fr;
     min-height:0;
-
-    display:grid;
-
-    grid-template-rows:
-        9% 91%;
 }
 
-
-.lotto-colonna:first-child{
-
-    border-right:
-        1px solid
-        #7ba3df;
-}
-
-
-.lotto-intestazione{
-
+.lotto-head{
     display:grid;
-
-    grid-template-columns:
-        23% 62% 15%;
-
-    align-items:center;
-
+    grid-template-columns:1fr 4fr 1fr 1fr 4fr 1fr;
+    background:#0d4898;
+    color:#fff;
+    font-size:0.67vw;
+    font-weight:900;
     text-align:center;
-
-    background:#073d91;
-
-    color:#ffffff;
-
-    font-size:0.65vw;
-
-    font-weight:900;
+    align-items:center;
 }
 
+.riga-lotto{
+    display:grid;
+    grid-template-columns:1fr 4fr 1fr 1fr 4fr 1fr;
+    align-items:center;
 
-#lottoSinistra,
-#lottoDestra{
+    /* LINEE LOTTO PIÙ EVIDENTI */
+    border-top:1.5px solid #82aee0;
+}
 
+.riga-lotto > div:nth-child(3){
+    border-right:1.5px solid #82aee0;
     height:100%;
-
-    display:grid;
-
-    grid-template-rows:
-        repeat(5,1fr);
-}
-
-
-.ruota{
-
-    min-height:0;
-
-    display:grid;
-
-    grid-template-columns:
-        23% 62% 15%;
-
-    align-items:center;
-
-    border-top:
-        1px solid
-        #86a9dc;
-}
-
-
-/* NOMI RUOTE PIÙ GRANDI */
-
-.nome-ruota{
-
-    padding-left:0.6vw;
-
-    color:#073684;
-
-    font-size:0.94vw;
-
-    font-weight:900;
-}
-
-
-/* NUMERI LOTTO */
-
-.numeri-ruota{
-
-    width:100%;
-
     display:flex;
-
-    justify-content:
-        space-evenly;
-
     align-items:center;
-
-    color:#111111;
-
-    font-size:1.22vw;
-
-    font-weight:900;
-}
-
-
-.numeri-ruota span{
-
-    display:inline-flex;
-
-    min-width:2.3vw;
-
     justify-content:center;
 }
 
+.nome-ruota{
+    font-size:0.94vw;
+    font-weight:900;
+    padding-left:0.55vw;
+}
 
-.numero-oro{
-
-    text-align:center;
-
-    color:#e17e00;
-
-    font-size:1.2vw;
-
+.numeri-ruota{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    color:#000;
+    font-size:1.22vw;
     font-weight:900;
 }
 
-
-/* =========================================================
-   NAZIONALE
-========================================================= */
-
-.nazionale{
-
-    height:100%;
-
-    display:grid;
-
-    grid-template-columns:
-        15% 72% 13%;
-
-    align-items:center;
-
-    border:
-        1px solid
-        #0b4398;
-
-    border-top:none;
+.numeri-ruota span{
+    min-width:2.3vw;
+    text-align:center;
 }
 
+.oro-ruota{
+    text-align:center;
+    color:#e77c00;
+    font-size:1.15vw;
+    font-weight:900;
+}
+
+.nazionale{
+    display:grid;
+    grid-template-columns:1.4fr 8fr 1fr;
+    align-items:center;
+
+    /* linea Nazionale più evidente */
+    border-top:1.8px solid #5f96d4;
+}
 
 .nazionale .nome-ruota{
-
     font-size:0.94vw;
 }
 
-
 .nazionale .numeri-ruota{
-
     font-size:1.32vw;
 }
-
-
-.nazionale .numero-oro{
-
-    font-size:1.2vw;
-}
-
 
 /* =========================================================
    SIMBOLOTTO
 ========================================================= */
 
 .simbolotto{
-
-    padding:
-        0.45vh
-        1vw;
+    padding:0.3vw 0.75vw 0.25vw;
+    display:flex;
+    flex-direction:column;
 }
-
-
-/* HEADER SIMBOLOTTO */
 
 .simbolotto-header{
-
     height:20%;
-
     display:flex;
-
+    justify-content:space-between;
     align-items:center;
 
-    justify-content:space-between;
-
-    gap:1vw;
+    /* separazione più evidente */
+    border-bottom:1.5px solid #c39bd5;
 }
-
 
 .simbolotto-title{
-
-    display:flex;
-
-    align-items:center;
-
-    color:#61208d;
-
+    color:#6e248e;
     font-size:1.35vw;
-
     font-weight:900;
 }
-
-
-/* RUOTA DEL MESE */
 
 .simbolotto-ruota{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:0.35vw;
-
-    padding:
-        0.35vh
-        0.65vw;
-
-    border:
-        1.5px solid
-        #f08a00;
-
-    border-radius:999px;
-
-    color:#073684;
-
+    border:1.5px solid #ef8a00;
+    border-radius:1vw;
+    padding:0.2vw 0.55vw;
+    color:#00357d;
     font-size:0.72vw;
-
     font-weight:900;
-
-    white-space:nowrap;
 }
-
 
 .simbolotto-ruota span{
-
-    color:#e97800;
-
-    font-size:0.78vw;
+    color:#ed7100;
 }
-
 
 .simboli{
-
     height:80%;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
+    grid-template-columns:repeat(5,1fr);
+    align-items:center;
 }
-
 
 .simbolo{
-
+    height:100%;
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
     justify-content:center;
+    position:relative;
 }
 
-
+/* divisori Simbolotto più evidenti */
 .simbolo:not(:last-child){
-
-    border-right:
-        1px dotted
-        #926cb7;
+    border-right:1.5px dotted #b47cc9;
 }
 
-
-.sim-num{
-
-    margin-bottom:0.1vh;
-
-    color:#61208d;
-
-    font-size:0.9vw;
-
+.simbolo-numero{
+    color:#6d1a86;
     font-weight:900;
+    font-size:0.92vw;
+    margin-bottom:0.2vw;
 }
-
 
 .simbolo img{
-
-    width:3.8vw;
-    height:3.8vw;
-
+    max-width:5vw;
+    max-height:4.7vw;
     object-fit:contain;
 }
 
-
-.sim-emoji{
-
+/* Fallback se un'immagine non viene trovata */
+.simbolo-fallback{
     width:3.8vw;
     height:3.8vw;
-
-    display:flex;
-
     align-items:center;
     justify-content:center;
-
-    font-size:2.55vw;
+    font-size:2.3vw;
+    display:none;
 }
-
-
-.sim-nome{
-
-    margin-top:0.1vh;
-
-    color:#111111;
-
-    font-size:0.63vw;
-
-    font-weight:900;
-
-    text-align:center;
-
-    text-transform:uppercase;
-}
-
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 .footer{
-
     position:fixed;
-
-    left:1vw;
-    right:1vw;
-
-    bottom:0.35vh;
-
-    height:2vh;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    color:#073684;
-
-    font-size:0.62vw;
-
-    font-weight:900;
-}
-
-
-.footer::before,
-.footer::after{
-
-    content:"";
-
-    flex:1;
-
-    height:1px;
-
-    margin:
-        0
-        1vw;
-
-    background:#073684;
+    bottom:0.15vw;
+    right:0.6vw;
+    font-size:0.5vw;
+    color:#8a8a8a;
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <div class="schermo">
 
+    <!-- =====================================================
+         COLONNA SINISTRA
+    ====================================================== -->
 
-<!-- =====================================================
-     SINISTRA
-===================================================== -->
+    <div class="sinistra">
 
-<div class="sinistra">
+        <!-- MILLIONDAY -->
+        <section class="box millionday">
 
+            <div class="md-logo">
+                <span class="md-milli">Milli</span>
+                <span class="md-on">On</span>
+                <span class="md-day">DAY</span>
+            </div>
 
-<!-- =====================================================
-     MILLIONDAY
-===================================================== -->
+            <div class="md-box">
+                <div class="md-title">◷ ESTRAZIONE ORE 13:00</div>
 
-<section class="box million">
+                <div class="md-data" id="md13data">--</div>
 
+                <div class="md-numeri" id="md13numeri"></div>
 
-<div class="million-logo">
+                <div class="md-extra">
+                    <div class="md-extra-label">EXTRA</div>
+                    <div class="md-extra-numeri" id="md13extra"></div>
+                </div>
+            </div>
 
-    Milli
+            <div class="md-box">
+                <div class="md-title">◷ ESTRAZIONE ORE 20:30</div>
 
-    <span class="o">
-        ◉
-    </span>
+                <div class="md-data" id="md2030data">--</div>
 
-    n
+                <div class="md-numeri" id="md2030numeri"></div>
 
-    <span class="day">
-        DAY
-    </span>
+                <div class="md-extra">
+                    <div class="md-extra-label">EXTRA</div>
+                    <div class="md-extra-numeri" id="md2030extra"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- 10 E LOTTO -->
+        <section class="box diecilotto">
+
+            <div class="dieci-header">
+
+                <div class="dieci-logo">
+                    <span class="blu">10e</span><span class="rosso">LOTTO</span>
+                </div>
+
+                <div class="collegato">
+                    COLLEGATO AL LOTTO
+                </div>
+
+            </div>
+
+            <div class="dieci-titolo">
+                ESTRAZIONE PRINCIPALE
+            </div>
+
+            <div class="dieci-numeri" id="dieciNumeri"></div>
+
+            <div class="oro-area">
+
+                <div class="oro-blocco">
+                    <div class="oro-label">NUMERO ORO</div>
+                    <div class="oro-numeri" id="numeroOro"></div>
+                </div>
+
+                <div class="oro-blocco">
+                    <div class="oro-label">DOPPIO ORO</div>
+                    <div class="oro-numeri" id="doppioOro"></div>
+                </div>
+
+            </div>
+
+            <div class="extra15-title">
+                ESTRAZIONE EXTRA 15 NUMERI
+            </div>
+
+            <div class="extra15" id="extra15"></div>
+
+        </section>
+
+    </div>
+
+    <!-- =====================================================
+         COLONNA DESTRA
+    ====================================================== -->
+
+    <div class="destra">
+
+        <!-- LOTTO -->
+        <section class="box lotto">
+
+            <div class="lotto-top">
+
+                <div></div>
+
+                <div class="lotto-logo">
+                    <span class="lotto-letter">L</span>
+                    <span class="lotto-o">O</span>
+                    <span class="lotto-letter">T</span>
+                    <span class="lotto-letter">T</span>
+                    <span class="lotto-o">O</span>
+                </div>
+
+                <div class="lotto-info">
+                    <div id="lottoData">--</div>
+                    <div class="concorso">
+                        CONCORSO N.
+                        <span class="numero-concorso" id="lottoConcorso">--</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="tabella-lotto">
+
+                <div class="lotto-head">
+                    <div>RUOTA</div>
+                    <div>NUMERI ESTRATTI</div>
+                    <div>ORO</div>
+                    <div>RUOTA</div>
+                    <div>NUMERI ESTRATTI</div>
+                    <div>ORO</div>
+                </div>
+
+                <div class="riga-lotto" id="lottoRiga1"></div>
+                <div class="riga-lotto" id="lottoRiga2"></div>
+                <div class="riga-lotto" id="lottoRiga3"></div>
+                <div class="riga-lotto" id="lottoRiga4"></div>
+                <div class="riga-lotto" id="lottoRiga5"></div>
+
+                <div class="nazionale" id="lottoNazionale"></div>
+
+            </div>
+
+        </section>
+
+        <!-- SIMBOLOTTO -->
+        <section class="box simbolotto">
+
+            <div class="simbolotto-header">
+
+                <div class="simbolotto-title">
+                    ✿ SIMBOLOTTO
+                </div>
+
+                <div class="simbolotto-ruota" id="simbolottoRuota">
+                    RUOTA ASSOCIATA:
+                    <span>--</span>
+                </div>
+
+            </div>
+
+            <div class="simboli" id="simboli"></div>
+
+        </section>
+
+    </div>
 
 </div>
 
-
-
-<!-- ORE 13:00 -->
-
-<div class="estrazione">
-
-
-<div class="estrazione-titolo">
-
-    ◷ ESTRAZIONE ORE 13:00
-
-</div>
-
-
-<div
-class="md-data"
-id="md13data">
-
---
-
-</div>
-
-
-<div
-class="md-numeri"
-id="md13numeri">
-
-</div>
-
-
-<div class="divisore"></div>
-
-
-<div class="extra-riga">
-
-
-<div class="extra-label">
-
-EXTRA
-
-</div>
-
-
-<div
-class="md-extra"
-id="md13extra">
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-<!-- ORE 20:30 -->
-
-<div class="estrazione">
-
-
-<div class="estrazione-titolo">
-
-    ◷ ESTRAZIONE ORE 20:30
-
-</div>
-
-
-<div
-class="md-data"
-id="md20data">
-
---
-
-</div>
-
-
-<div
-class="md-numeri"
-id="md20numeri">
-
-</div>
-
-
-<div class="divisore"></div>
-
-
-<div class="extra-riga">
-
-
-<div class="extra-label">
-
-EXTRA
-
-</div>
-
-
-<div
-class="md-extra"
-id="md20extra">
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     10eLOTTO
-===================================================== -->
-
-<section class="box dieci">
-
-
-<div class="dieci-header">
-
-
-<div class="dieci-logo">
-
-10e<span>LOTTO</span>
-
-</div>
-
-
-<div class="collegato">
-
-COLLEGATO AL LOTTO
-
-</div>
-
-
-</div>
-
-
-
-<div class="titolo-piccolo">
-
-ESTRAZIONE PRINCIPALE
-
-</div>
-
-
-
-<div
-class="dieci-numeri"
-id="dieciNumeri">
-
-</div>
-
-
-
-<div class="oro-area">
-
-
-<div class="oro-box">
-
-
-<div class="oro-titolo">
-
-NUMERO ORO
-
-</div>
-
-
-<div id="numeroOro"></div>
-
-
-</div>
-
-
-
-<div class="oro-box">
-
-
-<div class="oro-titolo">
-
-DOPPIO ORO
-
-</div>
-
-
-<div id="doppioOro"></div>
-
-
-</div>
-
-
-</div>
-
-
-
-<div class="extra15-titolo">
-
-ESTRAZIONE EXTRA 15 NUMERI
-
-</div>
-
-
-<div
-class="extra15"
-id="extra15">
-
-</div>
-
-
-</section>
-
-
-</div>
-
-
-
-<!-- =====================================================
-     DESTRA
-===================================================== -->
-
-<div class="destra">
-
-
-<!-- =====================================================
-     LOTTO
-===================================================== -->
-
-<section class="box lotto">
-
-
-<div class="lotto-header">
-
-
-<div class="lotto-logo">
-
-
-<span class="lotto-letter">
-L
-</span>
-
-
-<span class="lotto-o">
-O
-</span>
-
-
-<span class="lotto-letter">
-T
-</span>
-
-
-<span class="lotto-letter">
-T
-</span>
-
-
-<span class="lotto-o">
-O
-</span>
-
-
-</div>
-
-
-
-<div class="lotto-info">
-
-
-<div
-class="lotto-data"
-id="lottoData">
-
---
-
-</div>
-
-
-<div class="lotto-concorso">
-
-CONCORSO N.
-
-<span id="lottoConcorso">
-
---
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-<div class="lotto-corpo">
-
-
-<!-- COLONNA SINISTRA -->
-
-<div class="lotto-colonna">
-
-
-<div class="lotto-intestazione">
-
-<span>RUOTA</span>
-
-<span>NUMERI ESTRATTI</span>
-
-<span>ORO</span>
-
-</div>
-
-
-<div id="lottoSinistra"></div>
-
-
-</div>
-
-
-
-<!-- COLONNA DESTRA -->
-
-<div class="lotto-colonna">
-
-
-<div class="lotto-intestazione">
-
-<span>RUOTA</span>
-
-<span>NUMERI ESTRATTI</span>
-
-<span>ORO</span>
-
-</div>
-
-
-<div id="lottoDestra"></div>
-
-
-</div>
-
-
-</div>
-
-
-
-<!-- NAZIONALE -->
-
-<div
-class="nazionale"
-id="nazionale">
-
-</div>
-
-
-</section>
-
-
-
-<!-- =====================================================
-     SIMBOLOTTO
-===================================================== -->
-
-<section class="box simbolotto">
-
-
-<div class="simbolotto-header">
-
-
-<div class="simbolotto-title">
-
-✿ SIMBOLOTTO
-
-</div>
-
-
-<div
-class="simbolotto-ruota"
-id="simbolottoRuota">
-
-RUOTA ASSOCIATA:
-
-<span>--</span>
-
-</div>
-
-
-</div>
-
-
-<div
-class="simboli"
-id="simboli">
-
-</div>
-
-
-</section>
-
-
-</div>
-
-
-</div>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<div
-class="footer"
-id="footer">
-
-AGGIORNATO AUTOMATICAMENTE
-
-</div>
-
-
+<div class="footer" id="aggiornamento"></div>
 
 <script>
-
-
-/* =========================================================
-   FORMATTA NUMERI
-========================================================= */
-
-function pad(n){
-
-    return String(n)
-        .padStart(2,"0");
-
-}
-
-
-
-/* =========================================================
-   FORMATTA DATA
-========================================================= */
-
-function dataEstrazione(o){
-
-    if(
-        !o
-        ||
-        !o.data
-    ){
-
-        return "--";
-
-    }
-
-
-    return (
-
-        (o.giorno || "")
-            .toUpperCase()
-
-        +
-
-        " "
-
-        +
-
-        o.data
-
-    );
-
-}
-
-
-
-/* =========================================================
-   RUOTA SIMBOLOTTO PER MESE
-
-   1  GENNAIO   = BARI
-   2  FEBBRAIO  = CAGLIARI
-   3  MARZO     = FIRENZE
-   4  APRILE    = GENOVA
-   5  MAGGIO    = MILANO
-   6  GIUGNO    = NAPOLI
-   7  LUGLIO    = NAZIONALE
-   8  AGOSTO    = NAZIONALE
-   9  SETTEMBRE = PALERMO
-   10 OTTOBRE   = ROMA
-   11 NOVEMBRE  = TORINO
-   12 DICEMBRE  = VENEZIA
-========================================================= */
-
-var RUOTE_SIMBOLOTTO = [
-
-    "",
-
-    "BARI",
-
-    "CAGLIARI",
-
-    "FIRENZE",
-
-    "GENOVA",
-
-    "MILANO",
-
-    "NAPOLI",
-
-    "NAZIONALE",
-
-    "NAZIONALE",
-
-    "PALERMO",
-
-    "ROMA",
-
-    "TORINO",
-
-    "VENEZIA"
-
-];
-
-
-
-function ruotaSimbolotto(){
-
-    var oggi =
-        new Date();
-
-    var mese =
-        oggi.getMonth() + 1;
-
-    return (
-        RUOTE_SIMBOLOTTO[mese]
-        ||
-        "--"
-    );
-
-}
-
-
-
-/* =========================================================
-   DATI RUOTA LOTTO
-========================================================= */
-
-function ruotaDati(v){
-
-
-    if(
-        Array.isArray(v)
-    ){
-
-        return{
-
-            numeri:v,
-
-            oro:v[4]
-
-        };
-
-    }
-
-
-    if(
-        v
-        &&
-        typeof v === "object"
-    ){
-
-        var nums =
-
-            Array.isArray(v.numeri)
-
-            ? v.numeri
-
-            : [];
-
-
-        return{
-
-            numeri:nums,
-
-            oro:
-
-                v.oro !== undefined
-
-                ? v.oro
-
-                : nums[4]
-
-        };
-
-    }
-
-
-    return{
-
-        numeri:[],
-
-        oro:""
-
-    };
-
-}
-
-
-
-/* =========================================================
-   CREA RUOTA LOTTO
-========================================================= */
-
-function creaRuota(
-    nome,
-    valore
-){
-
-
-    var r =
-        ruotaDati(
-            valore
-        );
-
-
-    var numeriHTML =
-
-        r.numeri
-
-        .map(function(n){
-
-            return `
-
-                <span>
-                    ${pad(n)}
-                </span>
-
-            `;
-
-        })
-
-        .join("");
-
-
-    return `
-
-        <div class="ruota">
-
-
-            <div class="nome-ruota">
-
-                ${nome.toUpperCase()}
-
-            </div>
-
-
-            <div class="numeri-ruota">
-
-                ${numeriHTML}
-
-            </div>
-
-
-            <div class="numero-oro">
-
-                ${
-                    r.oro !== ""
-
-                    ? pad(r.oro)
-
-                    : "--"
-                }
-
-            </div>
-
-
-        </div>
-
-    `;
-
-}
-
-
 
 /* =========================================================
    NOMI SIMBOLOTTO
 ========================================================= */
 
 var SIMBOLI = {
-
-
-1:["ITALIA","🇮🇹"],
-
-2:["MELA","🍎"],
-
-3:["GATTA","🐱"],
-
-4:["MAIALE","🐷"],
-
-5:["MANO","✋"],
-
-
-6:["LUNA","🌙"],
-
-7:["VASO","🏺"],
-
-8:["BRAGHE","👖"],
-
-9:["CULLA","🛏️"],
-
-10:["FAGIOLI","🫘"],
-
-
-11:["TOPI","🐭"],
-
-12:["SOLDATO","💂"],
-
-13:["RANA","🐸"],
-
-14:["BAULE","🧰"],
-
-15:["RAGAZZO","🧑"],
-
-
-16:["NASO","👃"],
-
-17:["SFORTUNA","🪜"],
-
-18:["CERINO","🔥"],
-
-19:["RISATA","😂"],
-
-20:["FESTA","🎉"],
-
-
-21:["LUPO","🐺"],
-
-22:["BALESTRA","🏹"],
-
-23:["AMO","🪝"],
-
-24:["PIZZA","🍕"],
-
-25:["NATALE","🎄"],
-
-
-26:["ELMO","🪖"],
-
-27:["SCALA","🪜"],
-
-28:["OMBRELLO","☂️"],
-
-29:["DIAMANTE","💎"],
-
-30:["CACIO","🧀"],
-
-
-31:["ANGURIA","🍉"],
-
-32:["DISCO","💿"],
-
-33:["ELICA","🌀"],
-
-34:["TESTA","🙂"],
-
-35:["UCCELLO","🐤"],
-
-
-36:["NACCHERE","🪘"],
-
-37:["PIANO","🎹"],
-
-38:["PIGNA","🌲"],
-
-39:["FORBICI","✂️"],
-
-40:["QUADRO","🖼️"],
-
-
-41:["BUFFONE","🤡"],
-
-42:["CAFFÈ","☕"],
-
-43:["FUNGHI","🍄"],
-
-44:["PRIGIONE","▥"],
-
-45:["RONDINE","🐦"]
-
-
+    1:"ITALIA",
+    2:"MELA",
+    3:"GATTA",
+    4:"MAIALE",
+    5:"MANO",
+    6:"LUNA",
+    7:"VASO",
+    8:"BRAGHE",
+    9:"CULLA",
+    10:"FAGIOLI",
+    11:"TOPI",
+    12:"SOLDATO",
+    13:"RANA",
+    14:"BAULE",
+    15:"RAGAZZO",
+    16:"NASO",
+    17:"SFORTUNA",
+    18:"CERINO",
+    19:"RISATA",
+    20:"FESTA",
+    21:"LUPO",
+    22:"BALESTRA",
+    23:"AMO",
+    24:"PIZZA",
+    25:"NATALE",
+    26:"ELMO",
+    27:"SCALA",
+    28:"OMBRELLO",
+    29:"DIAMANTE",
+    30:"CACIO",
+    31:"ANGURIA",
+    32:"DISCO",
+    33:"ELICA",
+    34:"TESTA",
+    35:"UCCELLO",
+    36:"NACCHERE",
+    37:"PIANO",
+    38:"PIGNA",
+    39:"FORBICI",
+    40:"QUADRO",
+    41:"BUFFONE",
+    42:"CAFFÈ",
+    43:"FUNGHI",
+    44:"PRIGIONE",
+    45:"RONDINE"
 };
 
-
-
 /* =========================================================
-   CARICAMENTO DATA.JSON
+   RUOTA SIMBOLOTTO PER MESE
 ========================================================= */
 
-async function carica(){
+var RUOTE_SIMBOLOTTO = [
+    "",
+    "BARI",
+    "CAGLIARI",
+    "FIRENZE",
+    "GENOVA",
+    "MILANO",
+    "NAPOLI",
+    "NAZIONALE",
+    "NAZIONALE",
+    "PALERMO",
+    "ROMA",
+    "TORINO",
+    "VENEZIA"
+];
 
+function ruotaSimbolotto(){
 
-try{
+    var oggi = new Date();
+    var mese = oggi.getMonth() + 1;
 
+    return RUOTE_SIMBOLOTTO[mese] || "--";
+}
 
-var response =
+/* =========================================================
+   FUNZIONI UTILI
+========================================================= */
 
-    await fetch(
+function dueCifre(numero){
 
-        "data.json?t="
-        +
-        Date.now(),
+    var n = parseInt(numero,10);
 
-        {
-            cache:"no-store"
-        }
+    if(isNaN(n)){
+        return "--";
+    }
 
-    );
+    return n < 10 ? "0" + n : String(n);
+}
 
+function creaCerchi(lista, classe){
 
-var d =
-    await response.json();
+    if(!Array.isArray(lista)){
+        return "";
+    }
 
+    return lista.map(function(n){
+        return '<div class="' + classe + '">' + dueCifre(n) + '</div>';
+    }).join("");
+}
 
+function creaSpan(lista){
+
+    if(!Array.isArray(lista)){
+        return "";
+    }
+
+    return lista.map(function(n){
+        return "<span>" + dueCifre(n) + "</span>";
+    }).join("");
+}
 
 /* =========================================================
    MILLIONDAY
 ========================================================= */
 
-var m13 =
+function mostraMillionDay(idPrefix, estrazione){
 
-    d.millionday
-    &&
-    d.millionday["13"]
+    estrazione = estrazione || {};
 
-    ? d.millionday["13"]
+    var data = "--";
 
-    : {};
+    if(estrazione.data){
+        data = estrazione.giorno
+            ? estrazione.giorno.toUpperCase() + " " + estrazione.data
+            : estrazione.data;
+    }
 
+    document.getElementById(idPrefix + "data").textContent = data;
 
+    document.getElementById(idPrefix + "numeri").innerHTML =
+        creaCerchi(estrazione.numeri || [], "md-num");
 
-var m20 =
-
-    d.millionday
-    &&
-    d.millionday["2030"]
-
-    ? d.millionday["2030"]
-
-    : {};
-
-
-
-document.getElementById(
-    "md13data"
-).textContent =
-
-    dataEstrazione(
-        m13
-    );
-
-
-
-document.getElementById(
-    "md20data"
-).textContent =
-
-    dataEstrazione(
-        m20
-    );
-
-
-
-document.getElementById(
-    "md13numeri"
-).innerHTML =
-
-    (m13.numeri || [])
-
-    .map(function(n){
-
-        return `
-
-        <div class="md-num">
-
-            ${pad(n)}
-
-        </div>
-
-        `;
-
-    })
-
-    .join("");
-
-
-
-document.getElementById(
-    "md20numeri"
-).innerHTML =
-
-    (m20.numeri || [])
-
-    .map(function(n){
-
-        return `
-
-        <div class="md-num">
-
-            ${pad(n)}
-
-        </div>
-
-        `;
-
-    })
-
-    .join("");
-
-
-
-document.getElementById(
-    "md13extra"
-).innerHTML =
-
-    (m13.extra || [])
-
-    .map(function(n){
-
-        return `
-
-        <div class="md-extra-num">
-
-            ${pad(n)}
-
-        </div>
-
-        `;
-
-    })
-
-    .join("");
-
-
-
-document.getElementById(
-    "md20extra"
-).innerHTML =
-
-    (m20.extra || [])
-
-    .map(function(n){
-
-        return `
-
-        <div class="md-extra-num">
-
-            ${pad(n)}
-
-        </div>
-
-        `;
-
-    })
-
-    .join("");
-
-
-
-/* =========================================================
-   10eLOTTO
-========================================================= */
-
-var dieci =
-    d["10elotto"]
-    || {};
-
-
-
-document.getElementById(
-    "dieciNumeri"
-).innerHTML =
-
-    (dieci.numeri || [])
-
-    .map(function(n){
-
-        return `
-
-        <div class="dieci-num">
-
-            ${pad(n)}
-
-        </div>
-
-        `;
-
-    })
-
-    .join("");
-
-
-
-/* NUMERO ORO */
-
-document.getElementById(
-    "numeroOro"
-).innerHTML =
-
-    dieci.oro !== undefined
-    &&
-    dieci.oro !== ""
-
-    ?
-
-    `
-
-    <span class="oro-num">
-
-        ${pad(dieci.oro)}
-
-    </span>
-
-    `
-
-    :
-
-    "--";
-
-
-
-/* DOPPIO ORO */
-
-document.getElementById(
-    "doppioOro"
-).innerHTML =
-
-    (dieci.doppio_oro || [])
-
-    .map(function(n){
-
-        return `
-
-        <span class="oro-num">
-
-            ${pad(n)}
-
-        </span>
-
-        `;
-
-    })
-
-    .join("");
-
-
-
-/* EXTRA 15 */
-
-document.getElementById(
-    "extra15"
-).innerHTML =
-
-    (dieci.extra || [])
-
-    .map(function(n){
-
-        return `
-
-        <span>
-
-            ${pad(n)}
-
-        </span>
-
-        `;
-
-    })
-
-    .join("");
-
-
+    document.getElementById(idPrefix + "extra").innerHTML =
+        creaCerchi(estrazione.extra || [], "md-extra-num");
+}
 
 /* =========================================================
    LOTTO
 ========================================================= */
 
-var lotto =
-    d.lotto
-    || {};
+function creaRuota(nome, valori){
 
+    valori = valori || [];
 
+    var numeri = valori.slice(0,5);
+    var oro = valori.length ? valori[valori.length - 1] : "";
 
-document.getElementById(
-    "lottoData"
-).textContent =
+    /*
+       Nel JSON attuale ogni ruota può essere:
+       [n1,n2,n3,n4,n5,oro]
+       oppure semplicemente i 5 numeri.
 
-    dataEstrazione(
-        lotto
-    );
+       Se ci sono solo 5 numeri, l'Oro corrisponde
+       all'ultimo valore fornito dal backend.
+    */
 
+    if(valori.length >= 6){
+        oro = valori[5];
+    }
 
-
-document.getElementById(
-    "lottoConcorso"
-).textContent =
-
-    lotto.concorso
-    ||
-    "--";
-
-
-
-var ruote =
-    lotto.ruote
-    || {};
-
-
-
-var sinistra = [
-
-    "Bari",
-
-    "Cagliari",
-
-    "Milano",
-
-    "Palermo",
-
-    "Torino"
-
-];
-
-
-
-var destra = [
-
-    "Firenze",
-
-    "Genova",
-
-    "Napoli",
-
-    "Roma",
-
-    "Venezia"
-
-];
-
-
-
-document.getElementById(
-    "lottoSinistra"
-).innerHTML =
-
-    sinistra
-
-    .map(function(nome){
-
-        return creaRuota(
-
-            nome,
-
-            ruote[nome]
-
-        );
-
-    })
-
-    .join("");
-
-
-
-document.getElementById(
-    "lottoDestra"
-).innerHTML =
-
-    destra
-
-    .map(function(nome){
-
-        return creaRuota(
-
-            nome,
-
-            ruote[nome]
-
-        );
-
-    })
-
-    .join("");
-
-
-
-/* =========================================================
-   NAZIONALE
-========================================================= */
-
-var naz =
-
-    ruotaDati(
-
-        ruote["Nazionale"]
-
-    );
-
-
-
-var nazionaliHTML =
-
-    naz.numeri
-
-    .map(function(n){
-
-        return `
-
-        <span>
-
-            ${pad(n)}
-
-        </span>
-
-        `;
-
-    })
-
-    .join("");
-
-
-
-document.getElementById(
-    "nazionale"
-).innerHTML = `
-
-
-<div class="nome-ruota">
-
-NAZIONALE
-
-</div>
-
-
-<div class="numeri-ruota">
-
-${nazionaliHTML}
-
-</div>
-
-
-<div class="numero-oro">
-
-${
-    naz.oro !== ""
-
-    ? pad(naz.oro)
-
-    : "--"
+    return '' +
+        '<div class="nome-ruota">' + nome + '</div>' +
+        '<div class="numeri-ruota">' + creaSpan(numeri) + '</div>' +
+        '<div class="oro-ruota">' + dueCifre(oro) + '</div>';
 }
 
-</div>
+function mostraLotto(lotto){
 
+    lotto = lotto || {};
+    var ruote = lotto.ruote || {};
 
-`;
+    var data = "--";
 
+    if(lotto.data){
+        data = lotto.giorno
+            ? lotto.giorno.toUpperCase() + " " + lotto.data
+            : lotto.data;
+    }
 
+    document.getElementById("lottoData").textContent = data;
+    document.getElementById("lottoConcorso").textContent =
+        lotto.concorso || "--";
+
+    var coppie = [
+        ["BARI","FIRENZE"],
+        ["CAGLIARI","GENOVA"],
+        ["MILANO","NAPOLI"],
+        ["PALERMO","ROMA"],
+        ["TORINO","VENEZIA"]
+    ];
+
+    coppie.forEach(function(coppia,indice){
+
+        var sx = coppia[0];
+        var dx = coppia[1];
+
+        document.getElementById("lottoRiga" + (indice+1)).innerHTML =
+            creaRuota(sx,ruote[sx] || []) +
+            creaRuota(dx,ruote[dx] || []);
+    });
+
+    var nazionale = ruote["NAZIONALE"] || [];
+
+    document.getElementById("lottoNazionale").innerHTML =
+        '<div class="nome-ruota">NAZIONALE</div>' +
+        '<div class="numeri-ruota">' +
+            creaSpan(nazionale.slice(0,5)) +
+        '</div>' +
+        '<div class="oro-ruota">' +
+            dueCifre(nazionale.length >= 6 ? nazionale[5] : nazionale[nazionale.length-1]) +
+        '</div>';
+}
 
 /* =========================================================
-   RUOTA SIMBOLOTTO
+   10 E LOTTO
 ========================================================= */
 
-var ruotaDelMese =
-    ruotaSimbolotto();
+function mostra10eLotto(dieci){
 
+    dieci = dieci || {};
 
-document.getElementById(
-    "simbolottoRuota"
-).innerHTML =
+    document.getElementById("dieciNumeri").innerHTML =
+        creaCerchi(dieci.numeri || [], "dieci-num");
 
-    `RUOTA ASSOCIATA:
-    <span>${ruotaDelMese}</span>`;
+    var oro = [];
 
+    if(dieci.oro !== "" &&
+       dieci.oro !== null &&
+       dieci.oro !== undefined){
+        oro = [dieci.oro];
+    }
 
+    document.getElementById("numeroOro").innerHTML =
+        creaCerchi(oro,"oro-num");
+
+    document.getElementById("doppioOro").innerHTML =
+        creaCerchi(dieci.doppio_oro || [],"oro-num");
+
+    var extra = dieci.extra || [];
+
+    document.getElementById("extra15").innerHTML =
+        extra.map(function(n){
+            return "<span>" + dueCifre(n) + "</span>";
+        }).join("");
+}
 
 /* =========================================================
    SIMBOLOTTO
 ========================================================= */
 
-var sn =
+function mostraSimbolotto(simbolotto){
 
-    d.simbolotto
-    &&
-    d.simbolotto.numeri
+    simbolotto = simbolotto || {};
 
-    ? d.simbolotto.numeri
+    document.querySelector("#simbolottoRuota span").textContent =
+        ruotaSimbolotto();
 
-    : [];
+    var numeri = simbolotto.numeri || [];
 
+    var html = "";
 
+    numeri.forEach(function(n){
 
-var nomi =
+        n = parseInt(n,10);
 
-    d.simbolotto
-    &&
-    d.simbolotto.simboli
+        var nome = SIMBOLI[n] || "";
 
-    ? d.simbolotto.simboli
+        /*
+           Trasforma:
+           MAIALE -> Maiale
+           CACIO  -> Cacio
+           CAFFÈ  -> Caffè
 
-    : [];
+           In questo modo corrisponde ai nomi
+           dei PNG caricati su GitHub.
+        */
 
+        var nomeFile = nome.charAt(0).toUpperCase() +
+                       nome.slice(1).toLowerCase();
 
+        html +=
+            '<div class="simbolo">' +
 
-document.getElementById(
-    "simboli"
-).innerHTML =
+                '<div class="simbolo-numero">' +
+                    dueCifre(n) +
+                '</div>' +
 
-    sn
+                '<img src="simboli/' +
+                    n + ' ' + nomeFile + '.png"' +
+                    ' onerror="' +
+                        "this.style.display='none';" +
+                        "this.nextElementSibling.style.display='flex';" +
+                    '">' +
 
-    .map(function(n,i){
+                '<div class="simbolo-fallback">✿</div>' +
 
+            '</div>';
+    });
 
-        var info =
+    document.getElementById("simboli").innerHTML = html;
+}
 
-            SIMBOLI[n]
+/* =========================================================
+   CARICAMENTO DATA.JSON
+========================================================= */
 
-            || [
+function aggiorna(){
 
-                "",
+    fetch("data.json?t=" + Date.now(),{
+        cache:"no-store"
+    })
 
-                "❖"
+    .then(function(response){
 
-            ];
+        if(!response.ok){
+            throw new Error("Errore caricamento data.json");
+        }
 
+        return response.json();
+    })
 
+    .then(function(data){
 
-        var nome =
+        mostraMillionDay(
+            "md13",
+            data.millionday && data.millionday["13"]
+                ? data.millionday["13"]
+                : {}
+        );
 
-            nomi[i]
+        mostraMillionDay(
+            "md2030",
+            data.millionday && data.millionday["2030"]
+                ? data.millionday["2030"]
+                : {}
+        );
 
-            || info[0];
+        mostraLotto(data.lotto || {});
 
+        mostra10eLotto(data["10elotto"] || {});
 
+        mostraSimbolotto(data.simbolotto || {});
 
-        return `
+        if(data.ultimo_aggiornamento){
 
-
-        <div class="simbolo">
-
-
-            <div class="sim-num">
-
-                ${pad(n)}
-
-            </div>
-
-
-
-         <img
-
-    src="simboli/${n} ${info[0].charAt(0).toUpperCase() + info[0].slice(1).toLowerCase()}.png"
-
-    onerror="
-
-        this.style.display='none';
-
-        this.nextElementSibling.style.display='flex';
-
-    "
-
->
-
-
-
-            <div
-
-                class="sim-emoji"
-
-                style="display:none"
-
-            >
-
-                ${info[1]}
-
-            </div>
-
-
-
-            <div class="sim-nome">
-
-                ${nome}
-
-            </div>
-
-
-        </div>
-
-
-        `;
-
+            document.getElementById("aggiornamento").textContent =
+                "Aggiornato: " + data.ultimo_aggiornamento;
+        }
 
     })
 
-    .join("");
+    .catch(function(error){
 
+        console.error(error);
 
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-document.getElementById(
-    "footer"
-).textContent =
-
-    "AGGIORNATO AUTOMATICAMENTE  |  "
-
-    +
-
-    (
-
-        d.ultimo_aggiornamento
-
-        || "--"
-
-    );
-
-
+        document.getElementById("aggiornamento").textContent =
+            "Errore aggiornamento dati";
+    });
 }
 
-catch(e){
+/* primo caricamento */
+aggiorna();
 
-
-    console.log(
-
-        "Errore caricamento:",
-
-        e
-
-    );
-
-
-}
-
-
-}
-
-
-
-/* =========================================================
-   AVVIO
-========================================================= */
-
-carica();
-
-
-
-/* RICARICA DATA.JSON OGNI MINUTO */
-
-setInterval(
-
-    carica,
-
-    60000
-
-);
-
+/* aggiornamento automatico ogni minuto */
+setInterval(aggiorna,60000);
 
 </script>
 
-
 </body>
-
 </html>
