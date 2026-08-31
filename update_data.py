@@ -169,7 +169,10 @@ def get_text(url, params=None):
 def aggiorna_millionday(dati):
     try:
         html = get_text(URL_MILLIONDAY)
-
+Path("debug_millionday_page.html").write_text(
+    html,
+    encoding="utf-8"
+)
         soup = BeautifulSoup(
             html,
             "html.parser"
