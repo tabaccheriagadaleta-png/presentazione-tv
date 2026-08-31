@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+
+    #presentazione {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <img id="presentazione" src="foto1.jpg">
+
+  <script>
+    const immagini = [
+      "foto1.jpg",
+      "foto2.jpg"
+    ];
+
+    let posizione = 0;
+    const schermo = document.getElementById("presentazione");
+
+    setInterval(function() {
+      posizione = (posizione + 1) % immagini.length;
+      schermo.src = immagini[posizione] + "?v=" + Date.now();
+    }, 35000);
+  </script>
+
+</body>
+</html>
