@@ -23,8 +23,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Installa dipendenze
-        run: pip install requests
+      - name: Installa Playwright
+        run: |
+          pip install playwright
+          playwright install chromium
 
       - name: Esegui aggiornamento
         run: python update_data.py
@@ -33,6 +35,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add debug_lotto.html debug_millionday.html
+          git add debug_rendered_lotto.txt debug_rendered_lotto.html debug_rendered_millionday.txt debug_rendered_millionday.html
           git diff --cached --quiet || git commit -m "Aggiornamento automatico estrazioni"
           git push
