@@ -2461,13 +2461,22 @@ var RUOTE_SIMBOLOTTO = [
 
 
 
-function ruotaSimbolotto(){
+function ruotaSimbolotto(dataEstrazione){
 
-    var oggi =
-        new Date();
+    if(!dataEstrazione){
+        return "--";
+    }
+
+    /* Data prevista: 29/08/2026 */
+    var parti =
+        dataEstrazione.split("/");
+
+    if(parti.length !== 3){
+        return "--";
+    }
 
     var mese =
-        oggi.getMonth() + 1;
+        parseInt(parti[1], 10);
 
     return (
         RUOTE_SIMBOLOTTO[mese]
@@ -3207,7 +3216,7 @@ ${
 ========================================================= */
 
 var ruotaDelMese =
-    ruotaSimbolotto();
+    ruotaSimbolotto(lotto.data);
 
 
 document.getElementById(
