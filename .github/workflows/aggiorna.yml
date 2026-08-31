@@ -1,0 +1,38 @@
+name: Aggiorna estrazioni
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0,5,10,15,20,25,30,35,40,45,50,55 11-12 * * *"
+    - cron: "0,5,10,15,20,25,30,35,40,45,50,55 18-19 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Scarica repository
+        uses: actions/checkout@v4
+
+      - name: Imposta Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installa dipendenze
+        run: pip install requests
+
+      - name: Esegui aggiornamento
+        run: python update_data.py
+
+      - name: Salva risultati
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add debug_lotto.html debug_millionday.html
+          git diff --cached --quiet || git commit -m "Aggiornamento automatico estrazioni"
+          git push
