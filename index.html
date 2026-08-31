@@ -890,8 +890,8 @@ border-right:
 .nazionale{
     display:grid;
 
-    grid-template-columns:
-        34% 32% 34%;
+grid-template-columns:
+    40% 32% 28%;
 
     align-items:center;
 
@@ -946,7 +946,7 @@ border-right:
 .nazionale .numero-oro{
     justify-self:start !important;
 
-    margin-left:0.55vw !important;
+    margin-left:0.20vw !important;
 
     width:2.25vw !important;
     height:2.25vw !important;
@@ -1477,23 +1477,35 @@ body{
     font-weight:900 !important;
 }
 
-/* =====================================================
-   10eLOTTO - ORO E DOPPIO ORO PIÙ GRANDI
-===================================================== */
+/* 10eLOTTO - ORO E DOPPIO ORO PIÙ GRANDI SENZA TOCCARE EXTRA */
 
 .box.dieci .oro-num{
-    width:2.8vw !important;
-    height:2.8vw !important;
-    min-width:2.8vw !important;
+    width:2.35vw !important;
+    height:2.35vw !important;
+    min-width:2.35vw !important;
+    min-height:2.35vw !important;
 
-    font-size:1.15vw !important;
-    font-weight:900 !important;
+    flex-shrink:0 !important;
+
+    border-radius:50% !important;
 
     display:flex !important;
     align-items:center !important;
     justify-content:center !important;
 
-    border-radius:50% !important;
+    font-size:1.05vw !important;
+    line-height:1 !important;
+}
+
+/* DOPPIO ORO AFFIANCATO */
+
+.box.dieci .oro-numeri{
+    display:flex !important;
+    flex-direction:row !important;
+    justify-content:center !important;
+    align-items:center !important;
+
+    gap:0.25vw !important;
 }
    
 </style>
