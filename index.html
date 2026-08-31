@@ -3,669 +3,2104 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Estrazioni TV</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+    box-sizing:border-box;
+}
+
 html,body{
-  margin:0;
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  background:#fff;
-  font-family:Arial,Helvetica,sans-serif;
-  color:#082b73;
-}
-body{width:100vw;height:100vh}
-
-:root{
-  --blu:#083a93;
-  --blu2:#0b78e3;
-  --azz:#eaf6ff;
-  --oro:#e78700;
-  --arancio:#f06a00;
-  --viola:#5a189a;
-  --bordo:#bfc9d8;
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Arial,Helvetica,sans-serif;
+    background:white;
+    color:#073684;
 }
 
-.board{
-  width:100vw;
-  height:100vh;
-  padding:.9vh .9vw 2.8vh;
-  display:grid;
-  grid-template-columns:39% 61%;
-  gap:.8vw;
-  background:#fff;
+body{
+    width:100vw;
+    height:100vh;
 }
 
-/* ================= LEFT ================= */
-.left{
-  min-width:0;
-  display:grid;
-  grid-template-rows:61% 39%;
-  gap:.8vh;
+
+/* =====================================================
+   STRUTTURA GENERALE
+===================================================== */
+
+.schermo{
+
+    width:100vw;
+    height:100vh;
+
+    padding:1vh 1vw 3vh;
+
+    display:grid;
+
+    grid-template-columns:
+        40% 60%;
+
+    gap:0.8vw;
+
 }
 
-.card{
-  border:1.6px solid #b8c1ce;
-  border-radius:1.1vw;
-  background:#fff;
-  overflow:hidden;
+
+.sinistra{
+
+    min-height:0;
+
+    display:grid;
+
+    grid-template-rows:
+        58% 42%;
+
+    gap:0.8vh;
+
 }
 
-/* MILLIONDAY */
-.md{
-  padding:.45vh .65vw .55vh;
+
+.destra{
+
+    min-height:0;
+
+    display:grid;
+
+    grid-template-rows:
+        72% 28%;
+
+    gap:0.8vh;
+
 }
 
-.md-logo{
-  height:12%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:3.6vw;
-  line-height:1;
-  font-weight:900;
-  font-style:italic;
-  letter-spacing:-.11em;
-  color:#ffc000;
-}
-.md-logo .o{
-  color:#147fd1;
-  letter-spacing:-.18em;
-}
-.md-logo .day{
-  margin-left:.35vw;
-  color:#e13221;
-  letter-spacing:-.06em;
-  font-size:2.45vw;
-  border:3px solid #123f9c;
-  padding:.03em .14em;
-  transform:rotate(-2deg);
-}
-.md-sub{
-  margin-top:-.2vh;
-  text-align:center;
-  font-size:.78vw;
-  font-weight:900;
-  color:#1281df;
-  letter-spacing:.06em;
+
+.box{
+
+    border:1.5px solid #bfc8d4;
+
+    border-radius:14px;
+
+    background:white;
+
+    overflow:hidden;
+
+    min-height:0;
+
 }
 
-.md-draw{
-  height:42%;
-  margin-top:.45vh;
-  border:1.5px solid #0b80e7;
-  border-radius:.8vw;
-  position:relative;
-  padding:2.7vh .8vw .45vh;
+
+
+/* =====================================================
+   MILLIONDAY
+===================================================== */
+
+.million{
+
+    padding:
+        0.8vh
+        0.8vw;
+
+    display:grid;
+
+    grid-template-rows:
+        14% 43% 43%;
+
 }
-.md-title{
-  position:absolute;
-  top:-1.55vh;
-  left:50%;
-  transform:translateX(-50%);
-  width:63%;
-  background:linear-gradient(#1188ed,#0069c8);
-  color:#fff;
-  text-align:center;
-  border-radius:.45vw;
-  font-size:1.15vw;
-  font-weight:900;
-  padding:.28vh .25vw;
-  box-shadow:0 .15vh .25vh rgba(0,0,0,.16);
+
+
+.million-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:900;
+
+    font-style:italic;
+
+    font-size:3vw;
+
+    color:#ffb900;
+
 }
-.md-date{
-  text-align:center;
-  color:#0b3c96;
-  font-size:1.03vw;
-  font-weight:900;
-  margin-bottom:.25vh;
+
+
+.million-logo span{
+
+    color:#087fd4;
+
 }
-.md-main{
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  gap:.45vw;
-  margin:.1vh 1vw .35vh;
+
+
+.day{
+
+    margin-left:0.4vw;
+
+    color:#e52d24 !important;
+
+    border:3px solid #17489d;
+
+    padding:
+        0
+        0.2vw;
+
+    font-size:2vw;
+
 }
-.md-ball{
-  width:3.1vw;
-  height:3.1vw;
-  min-width:3.1vw;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:1.45vw;
-  font-weight:900;
-  color:#fff;
-  background:linear-gradient(#158ee8,#0466c8);
-  box-shadow:inset 0 .15vw .2vw rgba(255,255,255,.25);
+
+
+.estrazione{
+
+    position:relative;
+
+    border:
+        1.5px solid
+        #1688df;
+
+    border-radius:12px;
+
+    margin-top:1.3vh;
+
+    padding:
+        2.3vh
+        1vw
+        0.5vh;
+
 }
-.md-sep{
-  border-top:1.3px dotted #1180df;
-  margin:.1vh .2vw .25vh;
+
+
+.estrazione-titolo{
+
+    position:absolute;
+
+    top:-1.4vh;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:64%;
+
+    text-align:center;
+
+    padding:
+        0.35vh
+        0;
+
+    color:white;
+
+    background:#087bd3;
+
+    border-radius:7px;
+
+    font-size:1.05vw;
+
+    font-weight:900;
+
 }
-.md-extra-row{
-  display:grid;
-  grid-template-columns:18% 82%;
-  align-items:center;
+
+
+.md-data{
+
+    text-align:center;
+
+    font-size:1vw;
+
+    font-weight:900;
+
+    margin-bottom:0.5vh;
+
 }
-.md-extra-label{
-  font-size:1.08vw;
-  font-weight:900;
-  color:#1781d4;
-  padding-left:.55vw;
+
+
+.md-numeri{
+
+    display:flex;
+
+    justify-content:
+        space-evenly;
+
+    align-items:center;
+
 }
+
+
+.md-num{
+
+    width:3.1vw;
+
+    height:3.1vw;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#087bd3;
+
+    color:white;
+
+    font-size:1.45vw;
+
+    font-weight:900;
+
+}
+
+
+.divisore{
+
+    border-top:
+        1px dotted
+        #1688df;
+
+    margin:
+        0.6vh
+        0;
+
+}
+
+
+.extra-riga{
+
+    display:grid;
+
+    grid-template-columns:
+        15% 85%;
+
+    align-items:center;
+
+}
+
+
+.extra-label{
+
+    font-size:0.9vw;
+
+    font-weight:900;
+
+    color:#087bd3;
+
+}
+
+
 .md-extra{
-  display:flex;
-  justify-content:space-around;
-  gap:.38vw;
-}
-.md-extra .xball{
-  width:2.05vw;
-  height:2.05vw;
-  border-radius:50%;
-  border:1.4px solid #0b7ee2;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:.95vw;
-  font-weight:900;
-  color:#083a93;
-  background:#fff;
+
+    display:flex;
+
+    justify-content:
+        space-evenly;
+
 }
 
-/* 10ELOTTO */
+
+.md-extra-num{
+
+    width:2vw;
+
+    height:2vw;
+
+    border-radius:50%;
+
+    border:
+        1.5px solid
+        #087bd3;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#073684;
+
+    font-size:0.85vw;
+
+    font-weight:900;
+
+}
+
+
+
+/* =====================================================
+   10eLOTTO
+===================================================== */
+
 .dieci{
-  padding:.55vh .7vw .5vh;
+
+    padding:
+        0.7vh
+        0.9vw;
+
 }
-.dieci-head{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  margin-bottom:.15vh;
+
+
+.dieci-header{
+
+    height:16%;
+
+    display:flex;
+
+    justify-content:
+        space-between;
+
+    align-items:center;
+
 }
+
+
 .dieci-logo{
-  font-size:2.65vw;
-  font-style:italic;
-  font-weight:900;
-  letter-spacing:-.09em;
-  color:#04398d;
+
+    font-size:2.3vw;
+
+    font-weight:900;
+
+    font-style:italic;
+
+    color:#073684;
+
 }
-.dieci-logo .e{color:#f07900;font-size:1.8vw}
-.dieci-logo .lotto{color:#f05a00}
-.linked{
-  margin-top:.2vh;
-  background:#123d93;
-  color:white;
-  font-weight:900;
-  font-size:.72vw;
-  padding:.35vh .55vw;
-  border-radius:.3vw;
+
+
+.dieci-logo span{
+
+    color:#ef6500;
+
 }
-.princ-title{
-  text-align:center;
-  font-size:.72vw;
-  font-weight:900;
-  color:#123c92;
-  margin:-.15vh 0 .15vh;
+
+
+.collegato{
+
+    background:#073684;
+
+    color:white;
+
+    font-weight:900;
+
+    font-size:0.65vw;
+
+    padding:
+        0.35vh
+        0.5vw;
+
+    border-radius:5px;
+
 }
-.dieci-grid{
-  display:grid;
-  grid-template-columns:repeat(10,1fr);
-  gap:.2vw .23vw;
+
+
+.titolo-piccolo{
+
+    text-align:center;
+
+    font-weight:900;
+
+    font-size:0.65vw;
+
+    margin-bottom:0.3vh;
+
 }
-.dball{
-  aspect-ratio:1;
-  border-radius:50%;
-  border:1.2px solid #a6c4f6;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:.78vw;
-  font-weight:900;
-  color:#0b3a91;
-  background:#fff;
+
+
+.dieci-numeri{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(10,1fr);
+
+    gap:
+        0.25vh
+        0.25vw;
+
 }
-.oro-zone{
-  margin-top:.25vh;
-  border-top:1px solid #9cb2d8;
-  border-bottom:1px solid #9cb2d8;
-  display:grid;
-  grid-template-columns:1fr 1fr;
+
+
+.dieci-num{
+
+    width:100%;
+
+    aspect-ratio:1;
+
+    max-height:3.4vh;
+
+    border-radius:50%;
+
+    border:
+        1.2px solid
+        #a4c4ee;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:0.72vw;
+
+    font-weight:900;
+
 }
+
+
+.oro-area{
+
+    margin-top:0.5vh;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    border-top:
+        1px solid
+        #9cb7db;
+
+    border-bottom:
+        1px solid
+        #9cb7db;
+
+}
+
+
 .oro-box{
-  text-align:center;
-  padding:.25vh .2vw .2vh;
-  min-height:4.5vh;
+
+    text-align:center;
+
+    padding:
+        0.35vh
+        0;
+
 }
-.oro-box:first-child{border-right:1px solid #e6b15d}
-.oro-title{
-  color:#e07a00;
-  font-size:.62vw;
-  font-weight:900;
-  margin-bottom:.12vh;
+
+
+.oro-box:first-child{
+
+    border-right:
+        1px solid
+        #e7aa51;
+
 }
-.oro-ball{
-  display:inline-flex;
-  width:1.45vw;height:1.45vw;
-  align-items:center;justify-content:center;
-  border-radius:50%;
-  background:#e59000;
-  color:white;
-  font-size:.63vw;
-  font-weight:900;
-  margin:0 .08vw;
+
+
+.oro-titolo{
+
+    color:#dd7900;
+
+    font-size:0.62vw;
+
+    font-weight:900;
+
 }
-.extra15-title{
-  text-align:center;
-  color:#173d90;
-  font-size:.66vw;
-  font-weight:900;
-  margin:.25vh 0 .18vh;
+
+
+.oro-num{
+
+    display:inline-flex;
+
+    width:1.6vw;
+
+    height:1.6vw;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:#df8a00;
+
+    color:white;
+
+    font-size:0.65vw;
+
+    font-weight:900;
+
+    margin-top:0.2vh;
+
 }
+
+
+.extra15-titolo{
+
+    text-align:center;
+
+    margin:
+        0.45vh
+        0
+        0.25vh;
+
+    font-size:0.62vw;
+
+    font-weight:900;
+
+}
+
+
 .extra15{
-  display:grid;
-  grid-template-columns:repeat(15,1fr);
-  gap:.12vw;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(15,1fr);
+
+    gap:0.15vw;
+
 }
+
+
 .extra15 span{
-  aspect-ratio:1.1;
-  border:1px solid #a5bce7;
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:.57vw;
-  font-weight:900;
-  color:#133b91;
-  background:#fff;
+
+    border:
+        1px solid
+        #a6bfe4;
+
+    border-radius:50%;
+
+    height:2.2vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:0.55vw;
+
+    font-weight:900;
+
 }
 
-/* ================= RIGHT ================= */
-.right{
-  min-width:0;
-  display:grid;
-  grid-template-rows:74% 26%;
-  gap:.8vh;
+
+
+/* =====================================================
+   LOTTO
+===================================================== */
+
+.lotto{
+
+    padding:
+        0.8vh
+        0.8vw;
+
+    display:grid;
+
+    grid-template-rows:
+        14% 76% 10%;
+
 }
 
-/* LOTTO */
-.lotto-card{
-  padding:.5vh .7vw .55vh;
+
+.lotto-header{
+
+    display:grid;
+
+    grid-template-columns:
+        55% 45%;
+
+    align-items:center;
+
 }
-.lotto-top{
-  display:grid;
-  grid-template-columns:52% 48%;
-  align-items:center;
-  min-height:11%;
-}
+
+
 .lotto-logo{
-  text-align:center;
-  font-size:3.4vw;
-  line-height:1;
-  font-weight:900;
-  letter-spacing:.07em;
-  color:#073891;
+
+    text-align:center;
+
+    font-size:3vw;
+
+    font-weight:900;
+
+    letter-spacing:0.08em;
+
 }
-.lotto-meta{
-  text-align:right;
-  padding-right:.35vw;
+
+
+.lotto-info{
+
+    text-align:right;
+
+    padding-right:0.5vw;
+
 }
-.lotto-date{
-  font-size:1.15vw;
-  font-weight:900;
-  color:#0a388f;
+
+
+.lotto-data{
+
+    font-size:1vw;
+
+    font-weight:900;
+
 }
-.lotto-conc{
-  font-size:.95vw;
-  margin-top:.5vh;
-  font-weight:900;
+
+
+.lotto-concorso{
+
+    font-size:0.85vw;
+
+    font-weight:900;
+
+    margin-top:0.4vh;
+
 }
-.lotto-conc strong{
-  color:#ef5c00;
-  font-size:1.35vw;
+
+
+.lotto-concorso span{
+
+    color:#ef6500;
+
+    font-size:1.15vw;
+
 }
-.lotto-table{
-  height:88%;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  border:1px solid #0f3e99;
-  border-radius:.65vw;
-  overflow:hidden;
+
+
+.lotto-corpo{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    border:
+        1px solid
+        #0b4398;
+
 }
-.col{
-  display:grid;
-  grid-template-rows:auto repeat(5,1fr);
-  min-width:0;
+
+
+.lotto-colonna{
+
+    display:grid;
+
+    grid-template-rows:
+        10% repeat(5,18%);
+
 }
-.col:first-child{border-right:1px solid #7ca3de}
-.col-head{
-  background:#0a3891;
-  color:white;
-  display:grid;
-  grid-template-columns:24% 62% 14%;
-  text-align:center;
-  font-size:.72vw;
-  font-weight:900;
-  padding:.35vh .2vw;
+
+
+.lotto-colonna:first-child{
+
+    border-right:
+        1px solid
+        #7ba3df;
+
 }
-.ruota-row{
-  display:grid;
-  grid-template-columns:24% 62% 14%;
-  align-items:center;
-  border-top:1px solid #7ea5df;
-  min-width:0;
+
+
+.lotto-intestazione{
+
+    display:grid;
+
+    grid-template-columns:
+        25% 60% 15%;
+
+    background:#073d91;
+
+    color:white;
+
+    align-items:center;
+
+    text-align:center;
+
+    font-size:0.62vw;
+
+    font-weight:900;
+
 }
-.ruota-name{
-  padding-left:.55vw;
-  font-size:.84vw;
-  font-weight:900;
-  color:#0b398f;
+
+
+.ruota{
+
+    display:grid;
+
+    grid-template-columns:
+        25% 60% 15%;
+
+    align-items:center;
+
+    border-top:
+        1px solid
+        #86a9dc;
+
 }
-.ruota-nums{
-  display:flex;
-  align-items:center;
-  justify-content:space-around;
-  color:#111;
-  font-size:1.28vw;
-  font-weight:900;
-  letter-spacing:.02em;
+
+
+.nome-ruota{
+
+    padding-left:0.6vw;
+
+    font-size:0.75vw;
+
+    font-weight:900;
+
 }
-.ruota-oro{
-  text-align:center;
-  font-size:1.18vw;
-  font-weight:900;
-  color:#e57f00;
+
+
+.numeri-ruota{
+
+    display:flex;
+
+    justify-content:
+        space-around;
+
+    font-size:1vw;
+
+    font-weight:900;
+
+    color:#111;
+
 }
+
+
+.numero-oro{
+
+    text-align:center;
+
+    color:#e17e00;
+
+    font-size:1vw;
+
+    font-weight:900;
+
+}
+
+
 .nazionale{
-  grid-column:1/3;
-  border-top:1px solid #7ea5df;
-  display:grid;
-  grid-template-columns:17% 70% 13%;
-  align-items:center;
-  min-height:10%;
-}
-.nazionale .ruota-name{font-size:.82vw}
-.nazionale .ruota-nums{font-size:1.55vw}
 
-/* SIMBOLOTTO */
+    display:grid;
+
+    grid-template-columns:
+        15% 72% 13%;
+
+    align-items:center;
+
+    border:
+        1px solid
+        #0b4398;
+
+    border-top:none;
+
+}
+
+
+.nazionale
+.nome-ruota{
+
+    font-size:0.78vw;
+
+}
+
+
+.nazionale
+.numeri-ruota{
+
+    font-size:1.25vw;
+
+}
+
+
+
+/* =====================================================
+   SIMBOLOTTO
+===================================================== */
+
 .simbolotto{
-  padding:.5vh .75vw;
-}
-.sim-title{
-  font-size:1.55vw;
-  font-weight:900;
-  color:#5b1b98;
-  margin-bottom:.35vh;
-}
-.sim-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  height:79%;
-}
-.sim-item{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:.08vh;
-}
-.sim-item:not(:last-child){
-  border-right:1px dotted #8a69ba;
-}
-.sim-num{
-  font-size:1.05vw;
-  font-weight:900;
-  color:#5b1b98;
-}
-.sim-img{
-  width:3.1vw;
-  height:3.1vw;
-  object-fit:contain;
-  display:block;
-}
-.sim-emoji{
-  width:3.1vw;
-  height:3.1vw;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:2.2vw;
-}
-.sim-name{
-  font-size:.63vw;
-  font-weight:900;
-  color:#161616;
-  text-align:center;
-  text-transform:uppercase;
+
+    padding:
+        0.7vh
+        1vw;
+
 }
 
-/* FOOTER */
+
+.simbolotto-title{
+
+    font-size:1.4vw;
+
+    font-weight:900;
+
+    color:#61208d;
+
+    height:22%;
+
+}
+
+
+.simboli{
+
+    height:78%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+}
+
+
+.simbolo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+.simbolo:not(:last-child){
+
+    border-right:
+        1px dotted
+        #926cb7;
+
+}
+
+
+.sim-num{
+
+    color:#61208d;
+
+    font-size:0.9vw;
+
+    font-weight:900;
+
+}
+
+
+.simbolo img{
+
+    width:3.5vw;
+
+    height:3.5vw;
+
+    object-fit:contain;
+
+}
+
+
+.sim-emoji{
+
+    width:3.5vw;
+
+    height:3.5vw;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:2.4vw;
+
+}
+
+
+.sim-nome{
+
+    font-size:0.58vw;
+
+    font-weight:900;
+
+    color:#111;
+
+    text-transform:uppercase;
+
+}
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
 .footer{
-  position:fixed;
-  left:1vw;
-  right:1vw;
-  bottom:.32vh;
-  height:2vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#0b3b92;
-  font-weight:900;
-  font-size:.73vw;
+
+    position:fixed;
+
+    bottom:0.35vh;
+
+    left:1vw;
+
+    right:1vw;
+
+    height:2vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:0.66vw;
+
+    font-weight:900;
+
+    color:#073684;
+
 }
-.footer:before,.footer:after{
-  content:"";
-  flex:1;
-  height:1px;
-  background:#0b3b92;
-  margin:0 1vw;
+
+
+.footer::before,
+.footer::after{
+
+    content:"";
+
+    height:1px;
+
+    background:#073684;
+
+    flex:1;
+
+    margin:
+        0
+        1vw;
+
 }
+
 </style>
+
 </head>
+
+
 <body>
 
-<div class="board">
 
-  <div class="left">
-    <section class="card md">
-      <div class="md-logo">Milli<span class="o">◉</span>n <span class="day">DAY</span></div>
-      <div class="md-sub">IL MILIONE CHE VORREI</div>
+<div class="schermo">
 
-      <div class="md-draw">
-        <div class="md-title">◷ &nbsp; ESTRAZIONE ORE 13:00</div>
-        <div class="md-date" id="md13date">--</div>
-        <div class="md-main" id="md13nums"></div>
-        <div class="md-sep"></div>
-        <div class="md-extra-row">
-          <div class="md-extra-label">EXTRA</div>
-          <div class="md-extra" id="md13extra"></div>
-        </div>
-      </div>
 
-      <div class="md-draw">
-        <div class="md-title">◷ &nbsp; ESTRAZIONE ORE 20:30</div>
-        <div class="md-date" id="md20date">--</div>
-        <div class="md-main" id="md20nums"></div>
-        <div class="md-sep"></div>
-        <div class="md-extra-row">
-          <div class="md-extra-label">EXTRA</div>
-          <div class="md-extra" id="md20extra"></div>
-        </div>
-      </div>
-    </section>
+<!-- ==================================================
+     SINISTRA
+================================================== -->
 
-    <section class="card dieci">
-      <div class="dieci-head">
-        <div class="dieci-logo">10<span class="e">e</span><span class="lotto">LOTTO</span></div>
-        <div class="linked">COLLEGATO AL LOTTO</div>
-      </div>
-      <div class="princ-title">ESTRAZIONE PRINCIPALE</div>
-      <div class="dieci-grid" id="dieciNums"></div>
+<div class="sinistra">
 
-      <div class="oro-zone">
-        <div class="oro-box">
-          <div class="oro-title">NUMERO ORO</div>
-          <div id="oro"></div>
-        </div>
-        <div class="oro-box">
-          <div class="oro-title">DOPPIO ORO</div>
-          <div id="doppioOro"></div>
-        </div>
-      </div>
 
-      <div class="extra15-title">ESTRAZIONE EXTRA 15 NUMERI</div>
-      <div class="extra15" id="extra15"></div>
-    </section>
-  </div>
+<section class="box million">
 
-  <div class="right">
-    <section class="card lotto-card">
-      <div class="lotto-top">
-        <div class="lotto-logo">Ⓛ◎ⓉⓉ●</div>
-        <div class="lotto-meta">
-          <div class="lotto-date" id="lottoDate">--</div>
-          <div class="lotto-conc">CONCORSO N. <strong id="lottoConc">--</strong></div>
-        </div>
-      </div>
 
-      <div class="lotto-table">
-        <div class="col">
-          <div class="col-head"><span>RUOTA</span><span>NUMERI ESTRATTI</span><span>ORO</span></div>
-          <div id="colLeft"></div>
-        </div>
-        <div class="col">
-          <div class="col-head"><span>RUOTA</span><span>NUMERI ESTRATTI</span><span>ORO</span></div>
-          <div id="colRight"></div>
-        </div>
-        <div class="nazionale" id="nazionale"></div>
-      </div>
-    </section>
+<div class="million-logo">
 
-    <section class="card simbolotto">
-      <div class="sim-title">✿ SIMBOLOTTO</div>
-      <div class="sim-grid" id="simGrid"></div>
-    </section>
-  </div>
+    Milli<span>◉</span>n
+
+    <b class="day">
+        DAY
+    </b>
+
 </div>
 
-<div class="footer" id="footer">AGGIORNATO AUTOMATICAMENTE</div>
+
+
+<!-- 13:00 -->
+
+<div class="estrazione">
+
+
+<div class="estrazione-titolo">
+
+    ◷ ESTRAZIONE ORE 13:00
+
+</div>
+
+
+<div
+    class="md-data"
+    id="md13data">
+
+    --
+
+</div>
+
+
+<div
+    class="md-numeri"
+    id="md13numeri">
+
+</div>
+
+
+<div class="divisore"></div>
+
+
+<div class="extra-riga">
+
+
+<div class="extra-label">
+
+    EXTRA
+
+</div>
+
+
+<div
+    class="md-extra"
+    id="md13extra">
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- 20:30 -->
+
+<div class="estrazione">
+
+
+<div class="estrazione-titolo">
+
+    ◷ ESTRAZIONE ORE 20:30
+
+</div>
+
+
+<div
+    class="md-data"
+    id="md20data">
+
+    --
+
+</div>
+
+
+<div
+    class="md-numeri"
+    id="md20numeri">
+
+</div>
+
+
+<div class="divisore"></div>
+
+
+<div class="extra-riga">
+
+
+<div class="extra-label">
+
+    EXTRA
+
+</div>
+
+
+<div
+    class="md-extra"
+    id="md20extra">
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- ==================================================
+     10eLOTTO
+================================================== -->
+
+<section class="box dieci">
+
+
+<div class="dieci-header">
+
+
+<div class="dieci-logo">
+
+    10e<span>LOTTO</span>
+
+</div>
+
+
+<div class="collegato">
+
+    COLLEGATO AL LOTTO
+
+</div>
+
+
+</div>
+
+
+<div class="titolo-piccolo">
+
+    ESTRAZIONE PRINCIPALE
+
+</div>
+
+
+<div
+    class="dieci-numeri"
+    id="dieciNumeri">
+
+</div>
+
+
+
+<div class="oro-area">
+
+
+<div class="oro-box">
+
+<div class="oro-titolo">
+
+NUMERO ORO
+
+</div>
+
+<div id="numeroOro"></div>
+
+</div>
+
+
+
+<div class="oro-box">
+
+<div class="oro-titolo">
+
+DOPPIO ORO
+
+</div>
+
+<div id="doppioOro"></div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="extra15-titolo">
+
+ESTRAZIONE EXTRA 15 NUMERI
+
+</div>
+
+
+<div
+    class="extra15"
+    id="extra15">
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+
+
+<!-- ==================================================
+     DESTRA
+================================================== -->
+
+<div class="destra">
+
+
+<!-- LOTTO -->
+
+<section class="box lotto">
+
+
+<div class="lotto-header">
+
+
+<div class="lotto-logo">
+
+    Ⓛ◎ⓉⓉ●
+
+</div>
+
+
+<div class="lotto-info">
+
+
+<div
+    class="lotto-data"
+    id="lottoData">
+
+    --
+
+</div>
+
+
+<div class="lotto-concorso">
+
+    CONCORSO N.
+    <span id="lottoConcorso">
+        --
+    </span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="lotto-corpo">
+
+
+<!-- SINISTRA -->
+
+<div class="lotto-colonna">
+
+
+<div class="lotto-intestazione">
+
+<span>RUOTA</span>
+<span>NUMERI ESTRATTI</span>
+<span>ORO</span>
+
+</div>
+
+
+<div id="lottoSinistra"></div>
+
+
+</div>
+
+
+
+
+<!-- DESTRA -->
+
+<div class="lotto-colonna">
+
+
+<div class="lotto-intestazione">
+
+<span>RUOTA</span>
+<span>NUMERI ESTRATTI</span>
+<span>ORO</span>
+
+</div>
+
+
+<div id="lottoDestra"></div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div
+    class="nazionale"
+    id="nazionale">
+
+</div>
+
+
+</section>
+
+
+
+
+<!-- ==================================================
+     SIMBOLOTTO
+================================================== -->
+
+<section class="box simbolotto">
+
+
+<div class="simbolotto-title">
+
+✿ SIMBOLOTTO
+
+</div>
+
+
+<div
+    class="simboli"
+    id="simboli">
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div
+    class="footer"
+    id="footer">
+
+AGGIORNATO AUTOMATICAMENTE
+
+</div>
+
+
+
 
 <script>
-const GIORNI = {
-  Monday:"LUNEDÌ", Tuesday:"MARTEDÌ", Wednesday:"MERCOLEDÌ",
-  Thursday:"GIOVEDÌ", Friday:"VENERDÌ", Saturday:"SABATO", Sunday:"DOMENICA"
+
+
+function pad(n){
+
+    return String(n)
+        .padStart(2,"0");
+
+}
+
+
+
+function dataEstrazione(o){
+
+    if(!o || !o.data){
+
+        return "--";
+
+    }
+
+    return (
+
+        (o.giorno || "")
+        .toUpperCase()
+
+        + " "
+
+        + o.data
+
+    );
+
+}
+
+
+
+function ruotaDati(v){
+
+    if(Array.isArray(v)){
+
+        return {
+
+            numeri:v,
+
+            oro:v[4]
+
+        };
+
+    }
+
+
+    if(v){
+
+        var nums =
+            Array.isArray(v.numeri)
+            ? v.numeri
+            : [];
+
+
+        return {
+
+            numeri:nums,
+
+            oro:
+                v.oro !== undefined
+                ? v.oro
+                : nums[4]
+
+        };
+
+    }
+
+
+    return {
+
+        numeri:[],
+
+        oro:""
+
+    };
+
+}
+
+
+
+function creaRuota(nome,valore){
+
+    var r =
+        ruotaDati(valore);
+
+
+    return `
+
+    <div class="ruota">
+
+        <div class="nome-ruota">
+
+            ${nome.toUpperCase()}
+
+        </div>
+
+
+        <div class="numeri-ruota">
+
+            ${
+                r.numeri
+                .map(function(n){
+
+                    return pad(n);
+
+                })
+                .join(" ")
+            }
+
+        </div>
+
+
+        <div class="numero-oro">
+
+            ${
+                r.oro !== ""
+                ? pad(r.oro)
+                : "--"
+            }
+
+        </div>
+
+
+    </div>
+
+    `;
+
+}
+
+
+
+var SIMBOLI = {
+
+1:["ITALIA","🇮🇹"],
+2:["MELA","🍎"],
+3:["GATTA","🐱"],
+4:["MAIALE","🐷"],
+5:["MANO","✋"],
+
+6:["LUNA","🌙"],
+7:["VASO","🏺"],
+8:["BRAGHE","👖"],
+9:["CULLA","🛏️"],
+10:["FAGIOLI","🫘"],
+
+11:["TOPI","🐭"],
+12:["SOLDATO","💂"],
+13:["RANA","🐸"],
+14:["BAULE","🧰"],
+15:["RAGAZZO","🧑"],
+
+16:["NASO","👃"],
+17:["SFORTUNA","🪜"],
+18:["CERINO","🔥"],
+19:["RISATA","😂"],
+20:["FESTA","🎉"],
+
+21:["LUPO","🐺"],
+22:["BALESTRA","🏹"],
+23:["AMO","🪝"],
+24:["PIZZA","🍕"],
+25:["NATALE","🎄"],
+
+26:["ELMO","🪖"],
+27:["SCALA","🪜"],
+28:["OMBRELLO","☂️"],
+29:["DIAMANTE","💎"],
+30:["CACIO","🧀"],
+
+31:["ANGURIA","🍉"],
+32:["DISCO","💿"],
+33:["ELICA","🌀"],
+34:["TESTA","🙂"],
+35:["UCCELLO","🐤"],
+
+36:["NACCHERE","🪘"],
+37:["PIANO","🎹"],
+38:["PIGNA","🌲"],
+39:["FORBICI","✂️"],
+40:["QUADRO","🖼️"],
+
+41:["BUFFONE","🤡"],
+42:["CAFFÈ","☕"],
+43:["FUNGHI","🍄"],
+44:["PRIGIONE","▥"],
+45:["RONDINE","🐦"]
+
 };
 
-const SIMBOLI = {
-  1:["ITALIA","🇮🇹"],2:["MELA","🍎"],3:["GATTA","🐈"],4:["MAIALE","🐷"],5:["MANO","✋"],
-  6:["LUNA","🌙"],7:["VASO","🏺"],8:["BRAGHE","👖"],9:["CULLA","🛏️"],10:["FAGIOLI","🫘"],
-  11:["TOPI","🐭"],12:["SOLDATO","💂"],13:["RANA","🐸"],14:["BAULE","🧰"],15:["RAGAZZO","🧑"],
-  16:["NASO","👃"],17:["SFORTUNA","☠️"],18:["CERINO","🔥"],19:["RISATA","😂"],20:["FESTA","🎉"],
-  21:["LUPO","🐺"],22:["BALESTRA","🏹"],23:["AMO","🪝"],24:["PIZZA","🍕"],25:["NATALE","🎄"],
-  26:["ELMO","🪖"],27:["SCALA","🪜"],28:["OMBRELLO","☂️"],29:["DIAMANTE","💎"],30:["CACIO","🧀"],
-  31:["ANGURIA","🍉"],32:["DISCO","💿"],33:["ELICA","🌀"],34:["TESTA","🙂"],35:["UCCELLO","🐦"],
-  36:["NACCHERE","🎵"],37:["PIANO","🎹"],38:["PIGNA","🌲"],39:["FORBICI","✂️"],40:["QUADRO","🖼️"],
-  41:["BUFFONE","🤡"],42:["CAFFÈ","☕"],43:["FUNGHI","🍄"],44:["PRIGIONE","⛓️"],45:["RONDINE","🐦"]
-};
 
-function pad(n){ return String(n).padStart(2,"0"); }
 
-function prettyDate(obj){
-  if(!obj || !obj.data) return "--";
-  return `${(obj.giorno||"").toUpperCase()} ${obj.data}`;
+async function carica(){
+
+
+try{
+
+
+var response =
+    await fetch(
+
+        "data.json?t="
+        + Date.now(),
+
+        {
+
+            cache:"no-store"
+
+        }
+
+    );
+
+
+var d =
+    await response.json();
+
+
+
+/* =====================================================
+   MILLIONDAY
+===================================================== */
+
+
+var m13 =
+
+    d.millionday
+    && d.millionday["13"]
+
+    ? d.millionday["13"]
+
+    : {};
+
+
+
+var m20 =
+
+    d.millionday
+    && d.millionday["2030"]
+
+    ? d.millionday["2030"]
+
+    : {};
+
+
+
+document.getElementById(
+    "md13data"
+).textContent =
+    dataEstrazione(m13);
+
+
+
+document.getElementById(
+    "md20data"
+).textContent =
+    dataEstrazione(m20);
+
+
+
+document.getElementById(
+    "md13numeri"
+).innerHTML =
+
+    (m13.numeri || [])
+    .map(function(n){
+
+        return `
+
+        <div class="md-num">
+
+            ${pad(n)}
+
+        </div>
+
+        `;
+
+    })
+    .join("");
+
+
+
+document.getElementById(
+    "md20numeri"
+).innerHTML =
+
+    (m20.numeri || [])
+    .map(function(n){
+
+        return `
+
+        <div class="md-num">
+
+            ${pad(n)}
+
+        </div>
+
+        `;
+
+    })
+    .join("");
+
+
+
+document.getElementById(
+    "md13extra"
+).innerHTML =
+
+    (m13.extra || [])
+    .map(function(n){
+
+        return `
+
+        <div class="md-extra-num">
+
+            ${pad(n)}
+
+        </div>
+
+        `;
+
+    })
+    .join("");
+
+
+
+document.getElementById(
+    "md20extra"
+).innerHTML =
+
+    (m20.extra || [])
+    .map(function(n){
+
+        return `
+
+        <div class="md-extra-num">
+
+            ${pad(n)}
+
+        </div>
+
+        `;
+
+    })
+    .join("");
+
+
+
+/* =====================================================
+   10eLOTTO
+===================================================== */
+
+
+var dieci =
+    d["10elotto"]
+    || {};
+
+
+
+document.getElementById(
+    "dieciNumeri"
+).innerHTML =
+
+    (dieci.numeri || [])
+    .map(function(n){
+
+        return `
+
+        <div class="dieci-num">
+
+            ${pad(n)}
+
+        </div>
+
+        `;
+
+    })
+    .join("");
+
+
+
+document.getElementById(
+    "numeroOro"
+).innerHTML =
+
+    dieci.oro !== undefined
+
+    ? `
+
+        <span class="oro-num">
+
+            ${pad(dieci.oro)}
+
+        </span>
+
+      `
+
+    : "--";
+
+
+
+document.getElementById(
+    "doppioOro"
+).innerHTML =
+
+    (dieci.doppio_oro || [])
+    .map(function(n){
+
+        return `
+
+        <span class="oro-num">
+
+            ${pad(n)}
+
+        </span>
+
+        `;
+
+    })
+    .join("");
+
+
+
+document.getElementById(
+    "extra15"
+).innerHTML =
+
+    (dieci.extra || [])
+    .map(function(n){
+
+        return `
+
+        <span>
+
+            ${pad(n)}
+
+        </span>
+
+        `;
+
+    })
+    .join("");
+
+
+
+/* =====================================================
+   LOTTO
+===================================================== */
+
+
+var lotto =
+    d.lotto
+    || {};
+
+
+
+document.getElementById(
+    "lottoData"
+).textContent =
+    dataEstrazione(lotto);
+
+
+
+document.getElementById(
+    "lottoConcorso"
+).textContent =
+    lotto.concorso
+    || "--";
+
+
+
+var ruote =
+    lotto.ruote
+    || {};
+
+
+
+var sinistra = [
+
+    "Bari",
+    "Cagliari",
+    "Milano",
+    "Palermo",
+    "Torino"
+
+];
+
+
+
+var destra = [
+
+    "Firenze",
+    "Genova",
+    "Napoli",
+    "Roma",
+    "Venezia"
+
+];
+
+
+
+document.getElementById(
+    "lottoSinistra"
+).innerHTML =
+
+    sinistra
+    .map(function(nome){
+
+        return creaRuota(
+            nome,
+            ruote[nome]
+        );
+
+    })
+    .join("");
+
+
+
+document.getElementById(
+    "lottoDestra"
+).innerHTML =
+
+    destra
+    .map(function(nome){
+
+        return creaRuota(
+            nome,
+            ruote[nome]
+        );
+
+    })
+    .join("");
+
+
+
+var naz =
+    ruotaDati(
+        ruote["Nazionale"]
+    );
+
+
+
+document.getElementById(
+    "nazionale"
+).innerHTML = `
+
+<div class="nome-ruota">
+
+NAZIONALE
+
+</div>
+
+
+<div class="numeri-ruota">
+
+${
+    naz.numeri
+    .map(function(n){
+
+        return pad(n);
+
+    })
+    .join(" ")
 }
 
-function drawBalls(id, nums, extra=false){
-  const el=document.getElementById(id);
-  el.innerHTML=(nums||[]).map(n =>
-    extra ? `<div class="xball">${pad(n)}</div>` : `<div class="md-ball">${pad(n)}</div>`
-  ).join("");
+</div>
+
+
+<div class="numero-oro">
+
+${
+    naz.oro !== ""
+    ? pad(naz.oro)
+    : "--"
 }
 
-function ruotaObj(val){
-  if(Array.isArray(val)) return {numeri:val, oro:val[4]};
-  if(val && typeof val==="object"){
-    const nums=Array.isArray(val.numeri)?val.numeri:[];
-    return {numeri:nums, oro:val.oro ?? nums[4]};
-  }
-  return {numeri:[],oro:""};
+</div>
+
+`;
+
+
+
+/* =====================================================
+   SIMBOLOTTO
+===================================================== */
+
+
+var sn =
+    d.simbolotto
+    && d.simbolotto.numeri
+
+    ? d.simbolotto.numeri
+
+    : [];
+
+
+
+var nomi =
+    d.simbolotto
+    && d.simbolotto.simboli
+
+    ? d.simbolotto.simboli
+
+    : [];
+
+
+
+document.getElementById(
+    "simboli"
+).innerHTML =
+
+    sn
+    .map(function(n,i){
+
+
+        var info =
+            SIMBOLI[n]
+            || [
+                "",
+                "❖"
+            ];
+
+
+        var nome =
+            nomi[i]
+            || info[0];
+
+
+        return `
+
+
+        <div class="simbolo">
+
+
+            <div class="sim-num">
+
+                ${pad(n)}
+
+            </div>
+
+
+            <img
+
+                src="simboli/${n}.png"
+
+                onerror="
+                    this.style.display='none';
+                    this.nextElementSibling.style.display='flex';
+                "
+
+            >
+
+
+            <div
+
+                class="sim-emoji"
+
+                style="display:none">
+
+                ${info[1]}
+
+            </div>
+
+
+            <div class="sim-nome">
+
+                ${nome}
+
+            </div>
+
+
+        </div>
+
+
+        `;
+
+
+    })
+    .join("");
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+
+document.getElementById(
+    "footer"
+).textContent =
+
+    "AGGIORNATO AUTOMATICAMENTE  |  "
+
+    +
+
+    (
+        d.ultimo_aggiornamento
+        || "--"
+    );
+
+
+
 }
 
-function makeRuota(nome,val){
-  const r=ruotaObj(val);
-  return `
-    <div class="ruota-row">
-      <div class="ruota-name">${nome.toUpperCase()}</div>
-      <div class="ruota-nums">${r.numeri.map(n=>pad(n)).join(" &nbsp; ")}</div>
-      <div class="ruota-oro">${r.oro!==""?pad(r.oro):"--"}</div>
-    </div>`;
+
+catch(e){
+
+    console.log(e);
+
 }
 
-async function loadData(){
-  try{
-    const res=await fetch("data.json?t="+Date.now(),{cache:"no-store"});
-    const d=await res.json();
 
-    const md13=d.millionday?.["13"]||{};
-    const md20=d.millionday?.["2030"]||{};
-
-    document.getElementById("md13date").textContent=prettyDate(md13);
-    document.getElementById("md20date").textContent=prettyDate(md20);
-    drawBalls("md13nums",md13.numeri);
-    drawBalls("md20nums",md20.numeri);
-    drawBalls("md13extra",md13.extra,true);
-    drawBalls("md20extra",md20.extra,true);
-
-    const dl=d["10elotto"]||{};
-    document.getElementById("dieciNums").innerHTML=(dl.numeri||[]).map(n=>`<div class="dball">${pad(n)}</div>`).join("");
-    document.getElementById("oro").innerHTML=dl.oro!==undefined && dl.oro!==""?`<span class="oro-ball">${pad(dl.oro)}</span>`:"--";
-    document.getElementById("doppioOro").innerHTML=(dl.doppio_oro||[]).map(n=>`<span class="oro-ball">${pad(n)}</span>`).join("");
-    document.getElementById("extra15").innerHTML=(dl.extra||[]).map(n=>`<span>${pad(n)}</span>`).join("");
-
-    const lotto=d.lotto||{};
-    document.getElementById("lottoDate").textContent=prettyDate(lotto);
-    document.getElementById("lottoConc").textContent=lotto.concorso||"--";
-
-    const ruote=lotto.ruote||{};
-    const left=["Bari","Cagliari","Milano","Palermo","Torino"];
-    const right=["Firenze","Genova","Napoli","Roma","Venezia"];
-    document.getElementById("colLeft").innerHTML=left.map(n=>makeRuota(n,ruote[n])).join("");
-    document.getElementById("colRight").innerHTML=right.map(n=>makeRuota(n,ruote[n])).join("");
-
-    const naz=ruotaObj(ruote["Nazionale"]);
-    document.getElementById("nazionale").innerHTML=`
-      <div class="ruota-name">NAZIONALE</div>
-      <div class="ruota-nums">${naz.numeri.map(n=>pad(n)).join(" &nbsp; ")}</div>
-      <div class="ruota-oro">${naz.oro!==""?pad(naz.oro):"--"}</div>`;
-
-    const snums=d.simbolotto?.numeri||[];
-    const snomi=d.simbolotto?.simboli||[];
-    document.getElementById("simGrid").innerHTML=snums.map((n,i)=>{
-      const info=SIMBOLI[n]||[snomi[i]||"", "❖"];
-      const name=(snomi[i]||info[0]).toUpperCase();
-      return `
-        <div class="sim-item">
-          <div class="sim-num">${pad(n)}</div>
-          <img class="sim-img" src="simboli/${n}.png"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="sim-emoji" style="display:none">${info[1]}</div>
-          <div class="sim-name">${name}</div>
-        </div>`;
-    }).join("");
-
-    document.getElementById("footer").textContent=
-      "AGGIORNATO AUTOMATICAMENTE  |  "+(d.ultimo_aggiornamento||"--");
-
-  }catch(e){
-    console.error(e);
-  }
 }
 
-loadData();
-setInterval(loadData,60000);
+
+
+carica();
+
+
+setInterval(
+
+    carica,
+
+    60000
+
+);
+
+
 </script>
+
+
 </body>
 </html>
