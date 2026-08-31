@@ -17,11 +17,7 @@ HEADERS = {
 
 DATA_FILE = Path("data.json")
 
-URL_MILLIONDAY = (
-    "https://www.lotto-italia.it/md/estrazioni-e-vincite/"
-    "ultime-estrazioni-millionDay.json"
-)
-
+URL_MILLIONDAY = "https://www.estrazioni.it/millionday/"
 ADM_BASE = (
     "https://www.adm.gov.it/portale/monopoli/giochi/"
     "gioco-del-lotto/lotto_g/lotto_estr"
@@ -172,25 +168,145 @@ def get_text(url, params=None):
 
 def aggiorna_millionday(dati):
     try:
-        raw = get_json(URL_MILLIONDAY)
+        html = get_text(URL_MILLIONDAY)
 
-        # DEBUG: ci permette di vedere esattamente
-        # cosa restituisce l'endpoint ufficiale
-        Path("debug_millionday.json").write_text(
-            json.dumps(
-                raw,
-                ensure_ascii=False,
-                indent=2
-            ),
-            encoding="utf-8"
+        soup = BeautifulSoup(
+            html,
+            "html.parser"
         )
 
-        print("Tipo risposta MillionDAY:", type(raw).__name__)
+        estrazioni = []
 
-        if isinstance(raw, dict):
-            print("Chiavi MillionDAY:", list(raw.keys()))
+        for riga in soup.find_all("tr"):
+            celle = [
+                c.get_text(" ", strip=True)
+                for c in riga.find_all(["td", "th"])
+            ]
 
-        print("MillionDAY scaricato correttamente")
+            if len(celle) < 4:
+                continue
+
+            data_match = re.search(
+                r"\b(\d{2}/\d{2}/\d{4})\b",
+                celle[0]
+            )
+
+            if not data_match:
+                continue
+
+            data_it = data_match.group(1)
+
+            concorso_match = re.search(
+                r"\b(\d{1,4})\b",
+                celle[1]
+            )
+
+            if not concorso_match:
+                continue
+
+            concorso = int(
+                concorso_match.group(1)
+            )
+
+            numeri = [
+                int(x)
+                for x in re.findall(
+                    r"\b\d{1,2}\b",
+                    celle[2]
+                )
+            ]
+
+            extra = [
+                int(x)
+                for x in re.findall(
+                    r"\b\d{1,2}\b",
+                    celle[3]
+                )
+            ]
+
+            if (
+                len(numeri) != 5
+                or len(extra) != 5
+            ):
+                continue
+
+            estrazioni.append({
+                "data": data_it,
+                "concorso": concorso,
+                "numeri": numeri,
+                "extra": extra
+            })
+
+        if not estrazioni:
+            raise RuntimeError(
+                "Nessuna estrazione MillionDAY trovata"
+            )
+
+        # Ordiniamo dal concorso più recente
+        estrazioni.sort(
+            key=lambda x: x["concorso"],
+            reverse=True
+        )
+
+        # Cerchiamo la data più recente disponibile
+        data_recente = max(
+            datetime.strptime(
+                e["data"],
+                "%d/%m/%Y"
+            )
+            for e in estrazioni
+        ).strftime("%d/%m/%Y")
+
+        stesso_giorno = [
+            e
+            for e in estrazioni
+            if e["data"] == data_recente
+        ]
+
+        stesso_giorno.sort(
+            key=lambda x: x["concorso"]
+        )
+
+        dati.setdefault(
+            "millionday",
+            {}
+        )
+
+        # Il concorso più basso della giornata
+        # è quello delle 13:00
+        if len(stesso_giorno) >= 1:
+            e13 = stesso_giorno[0]
+
+            dati["millionday"]["13"] = {
+                "giorno": giorno_italiano(
+                    e13["data"]
+                ),
+                "data": e13["data"],
+                "concorso": e13["concorso"],
+                "numeri": e13["numeri"],
+                "extra": e13["extra"]
+            }
+
+        # Il secondo concorso è quello delle 20:30
+        if len(stesso_giorno) >= 2:
+            e20 = stesso_giorno[1]
+
+            dati["millionday"]["2030"] = {
+                "giorno": giorno_italiano(
+                    e20["data"]
+                ),
+                "data": e20["data"],
+                "concorso": e20["concorso"],
+                "numeri": e20["numeri"],
+                "extra": e20["extra"]
+            }
+
+        print(
+            "MillionDAY aggiornato:",
+            data_recente,
+            "- estrazioni trovate:",
+            len(stesso_giorno)
+        )
 
     except Exception as e:
         print(
