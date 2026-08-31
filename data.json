@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "",
+  "ultimo_aggiornamento": "31/08/2026 18:39:42",
   "millionday": {
     "13": {
       "giorno": "",
@@ -15,19 +15,166 @@
     }
   },
   "lotto": {
-    "giorno": "",
-    "data": "",
-    "concorso": "",
-    "ruote": {}
+    "giorno": "Sabato",
+    "data": "29/08/2026",
+    "concorso": "139",
+    "ruote": {
+      "Bari": {
+        "numeri": [
+          65,
+          47,
+          4,
+          89,
+          30
+        ],
+        "oro": 30
+      },
+      "Cagliari": {
+        "numeri": [
+          72,
+          57,
+          10,
+          2,
+          43
+        ],
+        "oro": 43
+      },
+      "Firenze": {
+        "numeri": [
+          32,
+          5,
+          71,
+          73,
+          41
+        ],
+        "oro": 41
+      },
+      "Genova": {
+        "numeri": [
+          33,
+          86,
+          65,
+          40,
+          14
+        ],
+        "oro": 14
+      },
+      "Milano": {
+        "numeri": [
+          9,
+          52,
+          43,
+          1,
+          45
+        ],
+        "oro": 45
+      },
+      "Napoli": {
+        "numeri": [
+          76,
+          53,
+          69,
+          64,
+          50
+        ],
+        "oro": 50
+      },
+      "Palermo": {
+        "numeri": [
+          39,
+          8,
+          61,
+          57,
+          18
+        ],
+        "oro": 18
+      },
+      "Roma": {
+        "numeri": [
+          25,
+          40,
+          52,
+          75,
+          57
+        ],
+        "oro": 57
+      },
+      "Torino": {
+        "numeri": [
+          86,
+          71,
+          17,
+          70,
+          79
+        ],
+        "oro": 79
+      },
+      "Venezia": {
+        "numeri": [
+          16,
+          50,
+          79,
+          27,
+          48
+        ],
+        "oro": 48
+      },
+      "Nazionale": {
+        "numeri": [
+          88,
+          68,
+          50,
+          43,
+          6
+        ],
+        "oro": 6
+      }
+    }
   },
   "10elotto": {
-    "numeri": [],
-    "oro": "",
-    "doppio_oro": [],
+    "numeri": [
+      4,
+      5,
+      8,
+      9,
+      16,
+      25,
+      32,
+      33,
+      39,
+      40,
+      47,
+      50,
+      52,
+      53,
+      57,
+      65,
+      71,
+      72,
+      76,
+      86
+    ],
+    "oro": 65,
+    "doppio_oro": [
+      65,
+      47
+    ],
     "extra": []
   },
   "simbolotto": {
-    "numeri": [],
-    "simboli": []
+    "numeri": [
+      4,
+      30,
+      7,
+      12,
+      38
+    ],
+    "simboli": [
+      "Maiale",
+      "Cacio",
+      "Vaso",
+      "Soldato",
+      "Pigna"
+    ]
   }
 }
