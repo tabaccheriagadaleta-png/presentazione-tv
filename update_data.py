@@ -170,11 +170,6 @@ def aggiorna_millionday(dati):
     try:
         html = get_text(URL_MILLIONDAY)
 
-        Path("debug_millionday_page.html").write_text(
-            html,
-            encoding="utf-8"
-        )
-
         soup = BeautifulSoup(
             html,
             "html.parser"
@@ -182,50 +177,42 @@ def aggiorna_millionday(dati):
 
         estrazioni = []
 
-        for riga in soup.find_all("tr"):
-            celle = [
-                c.get_text(" ", strip=True)
-                for c in riga.find_all(["td", "th"])
-            ]
+        for riga in soup.select("table.dati tbody tr"):
+            celle = riga.find_all("td")
 
             if len(celle) < 4:
                 continue
 
-            data_match = re.search(
-                r"\b(\d{2}/\d{2}/\d{4})\b",
-                celle[0]
+            data_it = celle[0].get_text(
+                " ",
+                strip=True
             )
 
-            if not data_match:
+            concorso_txt = celle[1].get_text(
+                " ",
+                strip=True
+            )
+
+            if not re.fullmatch(
+                r"\d{2}/\d{2}/\d{4}",
+                data_it
+            ):
                 continue
 
-            data_it = data_match.group(1)
-
-            concorso_match = re.search(
-                r"\b(\d{1,4})\b",
-                celle[1]
-            )
-
-            if not concorso_match:
+            if not concorso_txt.isdigit():
                 continue
-
-            concorso = int(
-                concorso_match.group(1)
-            )
 
             numeri = [
-                int(x)
-                for x in re.findall(
-                    r"\b\d{1,2}\b",
-                    celle[2]
+                int(x.get_text(strip=True))
+                for x in celle[2].select(
+                    ".pallina"
                 )
             ]
 
             extra = [
-                int(x)
-                for x in re.findall(
-                    r"\b\d{1,2}\b",
-                    celle[3]
+                int(x.get_text(strip=True))
+                for x in celle[3].select(
+                    ".pallina"
                 )
             ]
 
@@ -237,7 +224,9 @@ def aggiorna_millionday(dati):
 
             estrazioni.append({
                 "data": data_it,
-                "concorso": concorso,
+                "concorso": int(
+                    concorso_txt
+                ),
                 "numeri": numeri,
                 "extra": extra
             })
@@ -247,13 +236,12 @@ def aggiorna_millionday(dati):
                 "Nessuna estrazione MillionDAY trovata"
             )
 
-        # Ordiniamo dal concorso più recente
-        estrazioni.sort(
-            key=lambda x: x["concorso"],
-            reverse=True
+        dati.setdefault(
+            "millionday",
+            {}
         )
 
-        # Cerchiamo la data più recente disponibile
+        # Trova la data più recente
         data_recente = max(
             datetime.strptime(
                 e["data"],
@@ -262,25 +250,21 @@ def aggiorna_millionday(dati):
             for e in estrazioni
         ).strftime("%d/%m/%Y")
 
-        stesso_giorno = [
+        oggi = [
             e
             for e in estrazioni
             if e["data"] == data_recente
         ]
 
-        stesso_giorno.sort(
-            key=lambda x: x["concorso"]
+        # Ordine concorso crescente:
+        # primo = 13:00
+        # secondo = 20:30
+        oggi.sort(
+            key=lambda e: e["concorso"]
         )
 
-        dati.setdefault(
-            "millionday",
-            {}
-        )
-
-        # Il concorso più basso della giornata
-        # è quello delle 13:00
-        if len(stesso_giorno) >= 1:
-            e13 = stesso_giorno[0]
+        if len(oggi) >= 1:
+            e13 = oggi[0]
 
             dati["millionday"]["13"] = {
                 "giorno": giorno_italiano(
@@ -292,9 +276,8 @@ def aggiorna_millionday(dati):
                 "extra": e13["extra"]
             }
 
-        # Il secondo concorso è quello delle 20:30
-        if len(stesso_giorno) >= 2:
-            e20 = stesso_giorno[1]
+        if len(oggi) >= 2:
+            e20 = oggi[1]
 
             dati["millionday"]["2030"] = {
                 "giorno": giorno_italiano(
@@ -307,10 +290,10 @@ def aggiorna_millionday(dati):
             }
 
         print(
-            "MillionDAY aggiornato:",
+            "MillionDAY:",
             data_recente,
-            "- estrazioni trovate:",
-            len(stesso_giorno)
+            "- estrazioni disponibili:",
+            len(oggi)
         )
 
     except Exception as e:
