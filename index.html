@@ -1195,6 +1195,153 @@ border-right:
     font-size:1.05vw !important;
     font-weight:900 !important;
 }
+
+   /* =====================================================
+   NUOVA GRAFICA TABACCHERIA GADALETA
+===================================================== */
+
+
+/* SFONDO GENERALE VERDE SCURO */
+
+html,
+body{
+    background:#082716 !important;
+}
+
+
+/* =====================================================
+   INTESTAZIONE SUPERIORE
+===================================================== */
+
+.testata-gadaleta{
+    height:7.5vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:0.8vw;
+
+    background:#082716;
+
+    color:white;
+}
+
+
+/* LOGO */
+
+.logo-gadaleta{
+    width:3.8vw;
+    height:3.8vw;
+
+    object-fit:contain;
+
+    border-radius:50%;
+}
+
+
+/* CONTENITORE TESTI */
+
+.testata-testi{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+
+/* TABACCHERIA GADALETA */
+
+.nome-tabaccheria{
+    color:#ffffff;
+
+    font-size:1.45vw;
+    font-weight:900;
+
+    letter-spacing:0.08vw;
+
+    line-height:1;
+}
+
+
+/* BACHECA ESTRAZIONI */
+
+.titolo-bacheca{
+    color:#e5b84d;
+
+    font-size:0.78vw;
+    font-weight:800;
+
+    letter-spacing:0.18vw;
+
+    margin-top:0.25vw;
+
+    text-align:center;
+}
+
+
+/* =====================================================
+   RIDIMENSIONAMENTO SCHERMO
+   PER FARE SPAZIO ALL'INTESTAZIONE
+===================================================== */
+
+.schermo{
+    height:91.5vh !important;
+}
+
+
+/* =====================================================
+   MILLIONDAY - CELESTE CHIARO
+===================================================== */
+
+.millionday{
+    background:#eaf7ff !important;
+}
+
+.millionday .md-box{
+    background:#f3faff !important;
+}
+
+
+/* =====================================================
+   LOTTO - ARANCIONE CHIARO
+===================================================== */
+
+.lotto{
+    background:#fff2df !important;
+}
+
+.lotto .lotto-header,
+.lotto .lotto-corpo,
+.lotto .lotto-colonna,
+.lotto .ruota,
+.lotto .nazionale{
+    background:#fff2df !important;
+}
+
+
+/* =====================================================
+   10eLOTTO - ARANCIONE CHIARO
+===================================================== */
+
+.diecilotto{
+    background:#fff2df !important;
+}
+
+
+/* =====================================================
+   SIMBOLOTTO - ARANCIONE CHIARO
+===================================================== */
+
+.simbolotto{
+    background:#fff2df !important;
+}
+
+.simbolotto-header,
+.simboli,
+.simbolo{
+    background:#fff2df !important;
+}
+   
 </style>
 
 </head>
@@ -1202,6 +1349,29 @@ border-right:
 
 <body>
 
+   <!-- INTESTAZIONE TABACCHERIA -->
+
+<header class="testata-gadaleta">
+
+    <img
+        src="logo-gadaleta.png"
+        class="logo-gadaleta"
+        alt="TG"
+    >
+
+    <div class="testata-testi">
+
+        <div class="nome-tabaccheria">
+            TABACCHERIA GADALETA
+        </div>
+
+        <div class="titolo-bacheca">
+            BACHECA ESTRAZIONI
+        </div>
+
+    </div>
+
+</header>
 
 <div class="schermo">
 
