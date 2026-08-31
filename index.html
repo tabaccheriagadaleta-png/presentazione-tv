@@ -2529,18 +2529,12 @@ document.getElementById(
 
 
             <img
-
-                src="simboli/${n}.png"
-
-                onerror="
-
-                    this.style.display='none';
-
-                    this.nextElementSibling.style.display='flex';
-
-                "
-
-            >
+    src="simboli/${n} ${info[0].charAt(0).toUpperCase() + info[0].slice(1).toLowerCase()}.png"
+    onerror="
+        this.style.display='none';
+        this.nextElementSibling.style.display='flex';
+    "
+>
 
 
 
