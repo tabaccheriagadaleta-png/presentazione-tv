@@ -1873,6 +1873,382 @@ body{
     font-size:1.65vw !important;
     font-weight:900 !important;
 }
+
+/* =====================================================
+   SCHERMATA 2
+===================================================== */
+
+.schermo2{
+    display:grid;
+
+    height:90vh;
+
+    padding:
+        1vh
+        1vw;
+
+    box-sizing:border-box;
+
+    grid-template-rows:
+        38%
+        29%
+        29%;
+
+    gap:1vh;
+
+    background:#082716;
+}
+
+
+/* SUPERENALOTTO */
+
+.superenalotto{
+
+    background:#f7f3ff;
+
+    padding:
+        1vh
+        1.2vw;
+}
+
+
+.se-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+
+.se-logo{
+
+    font-size:2.1vw;
+
+    font-weight:900;
+
+    color:#1b3f9b;
+}
+
+
+.se-info{
+
+    text-align:right;
+
+    color:#222;
+
+    font-weight:900;
+}
+
+
+.se-data{
+
+    font-size:1.35vw;
+}
+
+
+.se-concorso{
+
+    margin-top:0.25vh;
+
+    font-size:0.9vw;
+}
+
+
+.se-numeri{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:1.2vw;
+
+    margin-top:1.8vh;
+}
+
+
+.se-numeri span{
+
+    width:4vw;
+
+    height:4vw;
+
+    border-radius:50%;
+
+    background:#1b3f9b;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.8vw;
+
+    font-weight:900;
+}
+
+
+.se-speciali{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:4vw;
+
+    margin-top:1.4vh;
+}
+
+
+.se-speciale-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+}
+
+
+.se-speciale-titolo{
+
+    font-size:0.8vw;
+
+    font-weight:900;
+
+    margin-bottom:0.4vh;
+}
+
+
+.se-speciale-box span{
+
+    width:2.9vw;
+
+    height:2.9vw;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.25vw;
+
+    font-weight:900;
+}
+
+
+/* CENTRO E BASSO */
+
+.schermo2-centro,
+.schermo2-basso{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:1vw;
+}
+
+
+/* BOX GIOCHI */
+
+.superwinforlife,
+.sivincetutto,
+.vincicasa,
+.eurojackpot{
+
+    background:#ffffff;
+
+    padding:
+        0.8vh
+        1vw;
+}
+
+
+.gioco-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    border-bottom:
+        1px solid
+        #cccccc;
+
+    padding-bottom:0.5vh;
+}
+
+
+.gioco-titolo{
+
+    font-size:1.35vw;
+
+    font-weight:900;
+}
+
+
+.gioco-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    text-align:right;
+
+    font-size:0.78vw;
+
+    font-weight:800;
+}
+
+
+.gioco-numeri{
+
+    height:75%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:0.75vw;
+}
+
+
+.gioco-numeri span{
+
+    width:3vw;
+
+    height:3vw;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.25vw;
+
+    font-weight:900;
+}
+
+
+/* COLORI GIOCHI */
+
+.superwinforlife .gioco-titolo{
+    color:#e77700;
+}
+
+.superwinforlife .gioco-numeri span{
+    background:#e77700;
+    color:#fff;
+}
+
+
+.sivincetutto .gioco-titolo{
+    color:#4b2584;
+}
+
+.sivincetutto .gioco-numeri span{
+    background:#4b2584;
+    color:#fff;
+}
+
+
+.vincicasa .gioco-titolo{
+    color:#258a50;
+}
+
+.vincicasa .gioco-numeri span{
+    background:#258a50;
+    color:#fff;
+}
+
+
+.eurojackpot .gioco-titolo{
+    color:#183d8a;
+}
+
+.eurojackpot .gioco-numeri span{
+    background:#183d8a;
+    color:#fff;
+}
+
+
+/* EURONUMERI */
+
+.eurostelle{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:0.8vw;
+}
+
+
+.eurostelle-titolo{
+
+    font-size:0.8vw;
+
+    font-weight:900;
+
+    color:#183d8a;
+}
+
+
+.eurostelle-numeri{
+
+    display:flex;
+
+    gap:0.45vw;
+}
+
+
+.eurostelle-numeri span{
+
+    width:2.3vw;
+
+    height:2.3vw;
+
+    border-radius:50%;
+
+    background:#ffd600;
+
+    color:#183d8a;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1vw;
+
+    font-weight:900;
+}
+
+/* NASCONDE TEMPORANEAMENTE LA SCHERMATA 1 */
+body > .schermo:first-of-type{
+    display:none !important;
+}
    
 </style>
 
@@ -2351,7 +2727,243 @@ id="simboli">
 
 </div>
 
+<!-- =====================================================
+     SCHERMATA 2
+     SUPERENALOTTO - SUPER WIN FOR LIFE - SIVINCETUTTO
+     VINCICASA - EUROJACKPOT
+===================================================== -->
 
+<div class="schermo schermo2" id="schermo2">
+
+
+<!-- =====================================================
+     SUPERENALOTTO
+===================================================== -->
+
+<section class="box superenalotto">
+
+    <div class="se-header">
+
+        <div class="se-logo">
+            SUPERENALOTTO
+        </div>
+
+        <div class="se-info">
+
+            <div
+                class="se-data"
+                id="seData">
+                --
+            </div>
+
+            <div class="se-concorso">
+                CONCORSO N.
+                <span id="seConcorso">--</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="se-numeri" id="seNumeri"></div>
+
+
+    <div class="se-speciali">
+
+        <div class="se-speciale-box">
+
+            <div class="se-speciale-titolo">
+                JOLLY
+            </div>
+
+            <div id="seJolly"></div>
+
+        </div>
+
+
+        <div class="se-speciale-box">
+
+            <div class="se-speciale-titolo">
+                SUPERSTAR
+            </div>
+
+            <div id="seSuperstar"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CENTRO
+===================================================== -->
+
+<div class="schermo2-centro">
+
+
+<!-- SUPER WIN FOR LIFE -->
+
+<section class="box superwinforlife">
+
+    <div class="gioco-header">
+
+        <div class="gioco-titolo">
+            SUPER WIN FOR LIFE
+        </div>
+
+        <div class="gioco-info">
+
+            <span id="swflData">--</span>
+
+            <span>
+                CONCORSO N.
+                <b id="swflConcorso">--</b>
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="gioco-numeri"
+        id="swflNumeri">
+    </div>
+
+</section>
+
+
+
+<!-- SI VINCETUTTO -->
+
+<section class="box sivincetutto">
+
+    <div class="gioco-header">
+
+        <div class="gioco-titolo">
+            SI VINCETUTTO
+        </div>
+
+        <div class="gioco-info">
+
+            <span id="svtData">--</span>
+
+            <span>
+                CONCORSO N.
+                <b id="svtConcorso">--</b>
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="gioco-numeri"
+        id="svtNumeri">
+    </div>
+
+</section>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     BASSO
+===================================================== -->
+
+<div class="schermo2-basso">
+
+
+<!-- VINCICASA -->
+
+<section class="box vincicasa">
+
+    <div class="gioco-header">
+
+        <div class="gioco-titolo">
+            VINCICASA
+        </div>
+
+        <div class="gioco-info">
+
+            <span id="vcData">--</span>
+
+            <span>
+                CONCORSO N.
+                <b id="vcConcorso">--</b>
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="gioco-numeri"
+        id="vcNumeri">
+    </div>
+
+</section>
+
+
+
+<!-- EUROJACKPOT -->
+
+<section class="box eurojackpot">
+
+    <div class="gioco-header">
+
+        <div class="gioco-titolo">
+            EUROJACKPOT
+        </div>
+
+        <div class="gioco-info">
+
+            <span id="ejData">--</span>
+
+            <span>
+                CONCORSO N.
+                <b id="ejConcorso">--</b>
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="gioco-numeri"
+        id="ejNumeri">
+    </div>
+
+
+    <div class="eurostelle">
+
+        <div class="eurostelle-titolo">
+            EURNUMERI
+        </div>
+
+        <div
+            class="eurostelle-numeri"
+            id="ejEuronumeri">
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+
+
+</div>
 
 <!-- =====================================================
      FOOTER
