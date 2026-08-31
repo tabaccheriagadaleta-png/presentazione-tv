@@ -637,20 +637,10 @@ def aggiorna_lotto_adm(
 # 10ELOTTO CALCOLATO DAL LOTTO
 # --------------------------------------------------
 
-def calcola_10elotto(
-    dati
-):
-    lotto = dati.get(
-        "lotto",
-        {}
-    )
+def calcola_10elotto(dati):
+    ruote = dati.get("lotto", {}).get("ruote", {})
 
-    ruote = lotto.get(
-        "ruote",
-        {}
-    )
-
-    cittadine = [
+    ruote_citta = [
         "Bari",
         "Cagliari",
         "Firenze",
@@ -663,83 +653,120 @@ def calcola_10elotto(
         "Venezia"
     ]
 
-    if any(
-        r not in ruote
-        for r in cittadine
-    ):
-        print(
-            "10eLotto non calcolato:"
-            " Lotto incompleto"
-        )
-        return
+    # Percorso ufficiale:
+    # 1ª colonna di tutte le ruote,
+    # poi 2ª colonna,
+    # poi 3ª, ecc.
+    percorso = []
 
-    estratti = {
-        r: ruote[r]["numeri"]
-        for r in cittadine
-    }
+    for colonna in range(5):
+        for ruota in ruote_citta:
+            numeri_ruota = ruote.get(ruota, [])
+
+            if isinstance(numeri_ruota, dict):
+                numeri_ruota = numeri_ruota.get(
+                    "numeri",
+                    []
+                )
+
+            if len(numeri_ruota) > colonna:
+                percorso.append(
+                    numeri_ruota[colonna]
+                )
 
     principali = []
+    indice_ultimo = -1
 
-    # prima e seconda colonna,
-    # poi successive se ci sono duplicati
-    for colonna in range(5):
-
-        for ruota in cittadine:
-
-            n = estratti[ruota][
-                colonna
-            ]
-
-            if n not in principali:
-                principali.append(n)
-
-            if len(principali) == 20:
-                break
+    # Trova i 20 numeri principali senza duplicati
+    for i, numero in enumerate(percorso):
+        if numero not in principali:
+            principali.append(numero)
 
         if len(principali) == 20:
+            indice_ultimo = i
             break
 
-    principali = sorted(
-        principali[:20]
-    )
+    if len(principali) != 20:
+        raise RuntimeError(
+            "Impossibile calcolare i 20 numeri 10eLotto"
+        )
 
-    bari = estratti["Bari"]
+    # Numero Oro e Doppio Oro:
+    # primi due estratti della ruota di Bari
+    bari = ruote.get("Bari", [])
+
+    if isinstance(bari, dict):
+        bari = bari.get("numeri", [])
+
+    if len(bari) < 2:
+        raise RuntimeError(
+            "Numeri Bari insufficienti"
+        )
 
     oro = bari[0]
-
     doppio_oro = [
         bari[0],
         bari[1]
     ]
 
-    # Gli Extra li lasciamo invariati
-    # se già presenti, finché non
-    # validiamo definitivamente la
-    # regola automatica.
-    vecchio = dati.get(
-        "10elotto",
-        {}
-    )
+    # EXTRA:
+    # si continua dal numero immediatamente
+    # successivo a quello che ha completato i 20 principali
+    extra = []
 
-    dati["10elotto"] = {
-        "numeri":
-            principali,
+    for numero in percorso[indice_ultimo + 1:]:
+        if (
+            numero not in principali
+            and numero not in extra
+        ):
+            extra.append(numero)
 
-        "oro":
-            oro,
+        if len(extra) == 15:
+            break
 
-        "doppio_oro":
-            doppio_oro,
+    # Se non bastano, si continua sulla Nazionale
+    if len(extra) < 15:
+        nazionale = ruote.get(
+            "Nazionale",
+            []
+        )
 
-        "extra":
-            vecchio.get(
-                "extra",
+        if isinstance(nazionale, dict):
+            nazionale = nazionale.get(
+                "numeri",
                 []
             )
+
+        for numero in nazionale:
+            if (
+                numero not in principali
+                and numero not in extra
+            ):
+                extra.append(numero)
+
+            if len(extra) == 15:
+                break
+
+    if len(extra) < 15:
+        print(
+            "ATTENZIONE: trovati solo",
+            len(extra),
+            "numeri Extra"
+        )
+
+    dati["10elotto"] = {
+        "numeri": sorted(principali),
+        "oro": oro,
+        "doppio_oro": doppio_oro,
+        "extra": sorted(extra)
     }
 
     print(
-        "10eLotto principali calcolati"
+        "10eLotto completo:",
+        len(principali),
+        "principali -",
+        len(extra),
+        "Extra"
     )
 
 
