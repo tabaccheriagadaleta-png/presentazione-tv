@@ -888,21 +888,16 @@ border-right:
 ========================================================= */
 
 .nazionale{
-
-    height:100%;
-
     display:grid;
 
     grid-template-columns:
-        15% 72% 13%;
+        1fr 4fr 1fr;
 
     align-items:center;
 
-    border:
-        1px solid
-        #0b4398;
-
-    border-top:none;
+    border-top:
+        1.6px solid
+        #6f9ed8;
 }
 
 
@@ -913,16 +908,34 @@ border-right:
 
 
 .nazionale .numeri-ruota{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
 
-    font-size:1.32vw;
+    width:100%;
+
+    font-size:1.22vw;
+    font-weight:900;
 }
 
+   .nazionale .numeri-ruota span{
+    width:2.25vw;
+    height:2.25vw;
+    min-width:2.25vw;
 
-.nazionale .numero-oro{
+    border-radius:50%;
 
-    font-size:1.2vw;
+    background:#ef7b00;
+    color:#ffffff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:1.05vw;
+    font-weight:900;
 }
-
+   
 
 /* =========================================================
    SIMBOLOTTO
