@@ -1,62 +1,69 @@
-import requests
+from playwright.sync_api import sync_playwright
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
-
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/130.0 Safari/537.36"
-    ),
-    "Accept-Language": "it-IT,it;q=0.9,en;q=0.8"
-}
 
 URLS = {
     "lotto": "https://www.lotto-italia.it/lotto/estratti-ruote",
     "millionday": "https://www.lotto-italia.it/millionday/estratti"
 }
 
-def scarica(nome, url):
-    print(f"Scarico {nome}: {url}")
+def acquisisci(page, nome, url):
+    print(f"Apro {nome}: {url}")
 
-    risposta = requests.get(
-        url,
-        headers=HEADERS,
-        timeout=30
-    )
+    page.goto(url, wait_until="domcontentloaded", timeout=90000)
 
-    print(f"{nome}: HTTP {risposta.status_code}")
-    print(f"{nome}: {len(risposta.text)} caratteri ricevuti")
+    # aspettiamo che il sito carichi i risultati dinamici
+    page.wait_for_timeout(10000)
 
-    risposta.raise_for_status()
+    testo = page.locator("body").inner_text()
 
-    Path(f"debug_{nome}.html").write_text(
-        risposta.text,
+    Path(f"debug_rendered_{nome}.txt").write_text(
+        testo,
         encoding="utf-8"
     )
 
-    return risposta.text
+    html = page.content()
+
+    Path(f"debug_rendered_{nome}.html").write_text(
+        html,
+        encoding="utf-8"
+    )
+
+    print(f"{nome}: pagina caricata correttamente")
 
 
 def main():
     ora = datetime.now(ZoneInfo("Europe/Rome"))
-    print("Avvio aggiornamento:", ora.strftime("%d/%m/%Y %H:%M:%S"))
 
-    lotto_html = scarica(
-        "lotto",
-        URLS["lotto"]
+    print(
+        "Avvio:",
+        ora.strftime("%d/%m/%Y %H:%M:%S")
     )
 
-    millionday_html = scarica(
-        "millionday",
-        URLS["millionday"]
-    )
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
 
-    print("Download completato correttamente.")
-    print("Creati:")
-    print("- debug_lotto.html")
-    print("- debug_millionday.html")
+        page = browser.new_page(
+            viewport={"width": 1920, "height": 1080},
+            locale="it-IT"
+        )
+
+        acquisisci(
+            page,
+            "lotto",
+            URLS["lotto"]
+        )
+
+        acquisisci(
+            page,
+            "millionday",
+            URLS["millionday"]
+        )
+
+        browser.close()
+
+    print("Acquisizione completata.")
 
 
 if __name__ == "__main__":
