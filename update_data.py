@@ -174,125 +174,29 @@ def aggiorna_millionday(dati):
     try:
         raw = get_json(URL_MILLIONDAY)
 
-        records = []
-
-        if isinstance(raw, list):
-            records = raw
-
-        elif isinstance(raw, dict):
-            for valore in raw.values():
-                if isinstance(valore, list):
-                    records.extend(valore)
-
-        validi = []
-
-        for record in records:
-            if not isinstance(record, dict):
-                continue
-
-            data_raw = (
-                record.get("date")
-                or record.get("data")
-                or ""
-            )
-
-            ora_raw = (
-                record.get("time")
-                or record.get("ora")
-                or record.get("slot")
-                or ""
-            )
-
-            numeri = (
-                record.get("numbers")
-                or record.get("numeri")
-                or []
-            )
-
-            extra = (
-                record.get("extra_numbers")
-                or record.get("extra")
-                or []
-            )
-
-            if len(numeri) != 5:
-                continue
-
-            validi.append(
-                {
-                    "data_raw": data_raw,
-                    "ora_raw": str(ora_raw),
-                    "numeri": [
-                        int(x)
-                        for x in numeri
-                    ],
-                    "extra": [
-                        int(x)
-                        for x in extra
-                    ]
-                }
-            )
-
-        if not validi:
-            raise RuntimeError(
-                "Nessuna estrazione MillionDAY valida"
-            )
-
-        for r in validi:
-            data_raw = r["data_raw"]
-
-            if re.match(
-                r"\d{4}-\d{2}-\d{2}",
-                data_raw
-            ):
-                data_it = datetime.strptime(
-                    data_raw[:10],
-                    "%Y-%m-%d"
-                ).strftime("%d/%m/%Y")
-            else:
-                data_it = data_raw
-
-            ora = r["ora_raw"].lower()
-
-            if (
-                "13" in ora
-                or "midday" in ora
-            ):
-                chiave = "13"
-
-            elif (
-                "20" in ora
-                or "evening" in ora
-            ):
-                chiave = "2030"
-
-            else:
-                continue
-
-            dati.setdefault(
-                "millionday",
-                {}
-            )
-
-            dati["millionday"][chiave] = {
-                "giorno": giorno_italiano(
-                    data_it
-                ),
-                "data": data_it,
-                "numeri": r["numeri"],
-                "extra": r["extra"]
-            }
-
-        print(
-            "MillionDAY aggiornato"
+        # DEBUG: ci permette di vedere esattamente
+        # cosa restituisce l'endpoint ufficiale
+        Path("debug_millionday.json").write_text(
+            json.dumps(
+                raw,
+                ensure_ascii=False,
+                indent=2
+            ),
+            encoding="utf-8"
         )
+
+        print("Tipo risposta MillionDAY:", type(raw).__name__)
+
+        if isinstance(raw, dict):
+            print("Chiavi MillionDAY:", list(raw.keys()))
+
+        print("MillionDAY scaricato correttamente")
 
     except Exception as e:
         print(
             "ATTENZIONE MillionDAY:",
             repr(e)
         )
-
 
 # --------------------------------------------------
 # CALCOLO NUMERO CONCORSO LOTTO
