@@ -33,6 +33,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add data.json debug_millionday_page.html
+          git add data.json
           git diff --cached --quiet || git commit -m "Aggiornamento estrazioni"
           git push
