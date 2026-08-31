@@ -169,15 +169,35 @@ def get_text(url, params=None):
 def aggiorna_millionday(dati):
     try:
         html = get_text(URL_MILLIONDAY)
+        soup = BeautifulSoup(html, "html.parser")
 
-        soup = BeautifulSoup(
-            html,
-            "html.parser"
-        )
+        tabella = None
+
+        for t in soup.find_all("table"):
+            intestazioni = [
+                th.get_text(" ", strip=True).lower()
+                for th in t.find_all("th")
+            ]
+
+            testo_intestazioni = " ".join(intestazioni)
+
+            if (
+                "data" in testo_intestazioni
+                and "concorso" in testo_intestazioni
+                and "numeri estratti" in testo_intestazioni
+                and "extra" in testo_intestazioni
+            ):
+                tabella = t
+                break
+
+        if tabella is None:
+            raise RuntimeError(
+                "Tabella estrazioni MillionDAY non trovata"
+            )
 
         estrazioni = []
 
-        for riga in soup.select("table.dati tbody tr"):
+        for riga in tabella.select("tbody tr"):
             celle = riga.find_all("td")
 
             if len(celle) < 4:
@@ -193,6 +213,16 @@ def aggiorna_millionday(dati):
                 strip=True
             )
 
+            numeri = [
+                int(x.get_text(strip=True))
+                for x in celle[2].select(".pallina")
+            ]
+
+            extra = [
+                int(x.get_text(strip=True))
+                for x in celle[3].select(".pallina")
+            ]
+
             if not re.fullmatch(
                 r"\d{2}/\d{2}/\d{4}",
                 data_it
@@ -202,82 +232,68 @@ def aggiorna_millionday(dati):
             if not concorso_txt.isdigit():
                 continue
 
-            numeri = [
-                int(x.get_text(strip=True))
-                for x in celle[2].select(
-                    ".pallina"
-                )
-            ]
-
-            extra = [
-                int(x.get_text(strip=True))
-                for x in celle[3].select(
-                    ".pallina"
-                )
-            ]
-
-            if (
-                len(numeri) != 5
-                or len(extra) != 5
-            ):
+            if len(numeri) != 5 or len(extra) != 5:
                 continue
 
             estrazioni.append({
                 "data": data_it,
-                "concorso": int(
-                    concorso_txt
-                ),
+                "concorso": int(concorso_txt),
                 "numeri": numeri,
                 "extra": extra
             })
 
         if not estrazioni:
             raise RuntimeError(
-                "Nessuna estrazione MillionDAY trovata"
+                "Nessuna estrazione MillionDAY valida"
             )
+
+        # Raggruppiamo per data
+        per_data = {}
+
+        for e in estrazioni:
+            per_data.setdefault(
+                e["data"],
+                []
+            ).append(e)
+
+        # Data più recente
+        data_recente = max(
+            per_data.keys(),
+            key=lambda d: datetime.strptime(
+                d,
+                "%d/%m/%Y"
+            )
+        )
+
+        estrazioni_oggi = per_data[
+            data_recente
+        ]
+
+        estrazioni_oggi.sort(
+            key=lambda e: e["concorso"]
+        )
 
         dati.setdefault(
             "millionday",
             {}
         )
 
-        # Trova la data più recente
-        data_recente = max(
-            datetime.strptime(
-                e["data"],
-                "%d/%m/%Y"
-            )
-            for e in estrazioni
-        ).strftime("%d/%m/%Y")
+        # 13:00 = primo concorso della giornata
+        e13 = estrazioni_oggi[0]
 
-        oggi = [
-            e
-            for e in estrazioni
-            if e["data"] == data_recente
-        ]
+        dati["millionday"]["13"] = {
+            "giorno": giorno_italiano(
+                e13["data"]
+            ),
+            "data": e13["data"],
+            "concorso": e13["concorso"],
+            "numeri": e13["numeri"],
+            "extra": e13["extra"]
+        }
 
-        # Ordine concorso crescente:
-        # primo = 13:00
-        # secondo = 20:30
-        oggi.sort(
-            key=lambda e: e["concorso"]
-        )
-
-        if len(oggi) >= 1:
-            e13 = oggi[0]
-
-            dati["millionday"]["13"] = {
-                "giorno": giorno_italiano(
-                    e13["data"]
-                ),
-                "data": e13["data"],
-                "concorso": e13["concorso"],
-                "numeri": e13["numeri"],
-                "extra": e13["extra"]
-            }
-
-        if len(oggi) >= 2:
-            e20 = oggi[1]
+        # 20:30
+        if len(estrazioni_oggi) >= 2:
+            e20 = estrazioni_oggi[1]
 
             dati["millionday"]["2030"] = {
                 "giorno": giorno_italiano(
@@ -290,10 +306,13 @@ def aggiorna_millionday(dati):
             }
 
         print(
-            "MillionDAY:",
+            "MillionDAY OK:",
             data_recente,
-            "- estrazioni disponibili:",
-            len(oggi)
+            "- concorsi:",
+            [
+                e["concorso"]
+                for e in estrazioni_oggi
+            ]
         )
 
     except Exception as e:
