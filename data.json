@@ -1,0 +1,33 @@
+{
+  "ultimo_aggiornamento": "",
+  "millionday": {
+    "13": {
+      "giorno": "",
+      "data": "",
+      "numeri": [],
+      "extra": []
+    },
+    "2030": {
+      "giorno": "",
+      "data": "",
+      "numeri": [],
+      "extra": []
+    }
+  },
+  "lotto": {
+    "giorno": "",
+    "data": "",
+    "concorso": "",
+    "ruote": {}
+  },
+  "10elotto": {
+    "numeri": [],
+    "oro": "",
+    "doppio_oro": [],
+    "extra": []
+  },
+  "simbolotto": {
+    "numeri": [],
+    "simboli": []
+  }
+}
