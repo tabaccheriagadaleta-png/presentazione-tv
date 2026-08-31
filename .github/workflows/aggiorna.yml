@@ -23,18 +23,16 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Installa Playwright
-        run: |
-          pip install playwright
-          playwright install chromium
+      - name: Installa dipendenze
+        run: pip install requests beautifulsoup4
 
       - name: Esegui aggiornamento
         run: python update_data.py
 
-      - name: Salva risultati
+      - name: Salva data.json
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add debug_rendered_lotto.txt debug_rendered_lotto.html debug_rendered_millionday.txt debug_rendered_millionday.html
-          git diff --cached --quiet || git commit -m "Aggiornamento automatico estrazioni"
+          git add data.json
+          git diff --cached --quiet || git commit -m "Aggiornamento estrazioni"
           git push
