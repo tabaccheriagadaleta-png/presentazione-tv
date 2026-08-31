@@ -1801,6 +1801,71 @@ body{
 
     font-size:0.95vw !important;
 }
+
+/* =====================================================
+   10eLOTTO - CORREZIONE USCITA DAL RIQUADRO
+===================================================== */
+
+/* tutto deve restare dentro il riquadro */
+.box.dieci{
+    overflow:hidden !important;
+}
+
+
+/* 20 NUMERI PRINCIPALI */
+
+.box.dieci .dieci-numeri{
+    display:grid !important;
+    grid-template-columns:repeat(10, minmax(0, 1fr)) !important;
+
+    width:100% !important;
+
+    gap:0.15vw !important;
+
+    padding-left:0.25vw !important;
+    padding-right:0.25vw !important;
+}
+
+.box.dieci .dieci-num{
+    width:2.30vw !important;
+    height:2.30vw !important;
+
+    min-width:2.30vw !important;
+    min-height:2.30vw !important;
+
+    margin:auto !important;
+
+    font-size:1.05vw !important;
+}
+
+
+/* EXTRA 15 */
+
+.box.dieci .extra15{
+    width:100% !important;
+
+    display:flex !important;
+
+    justify-content:space-between !important;
+    align-items:center !important;
+
+    gap:0.05vw !important;
+
+    padding-left:0.20vw !important;
+    padding-right:0.20vw !important;
+}
+
+.box.dieci .extra15 span{
+    width:2.20vw !important;
+    height:2.20vw !important;
+
+    min-width:2.20vw !important;
+    min-height:2.20vw !important;
+
+    font-size:0.90vw !important;
+
+    flex-shrink:0 !important;
+}
    
 </style>
 
