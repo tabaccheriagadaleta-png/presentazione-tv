@@ -8,6 +8,98 @@
 
 <title>Estrazioni TV</title>
 
+/* =====================================================
+   SCHERMATA 2 - RIFINITURA GRAFICA
+===================================================== */
+
+/* SUPERENALOTTO: numeri un po' più grandi */
+.schermo2 .se-numeri span{
+    width:4.35vw !important;
+    height:4.35vw !important;
+    font-size:1.95vw !important;
+}
+
+/* JOLLY E SUPERSTAR COME PALLINE */
+#seJolly,
+#seSuperstar{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+}
+
+#seJolly span{
+    width:2.8vw !important;
+    height:2.8vw !important;
+    border-radius:50% !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    background:#f3b000 !important;
+    color:#ffffff !important;
+    font-size:1.15vw !important;
+    font-weight:900 !important;
+}
+
+#seSuperstar span{
+    width:2.8vw !important;
+    height:2.8vw !important;
+    border-radius:50% !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    background:#d82828 !important;
+    color:#ffffff !important;
+    font-size:1.15vw !important;
+    font-weight:900 !important;
+}
+
+/* SPAZIATURA SUPERENALOTTO */
+.schermo2 .se-speciali{
+    margin-top:0.8vh !important;
+    gap:3vw !important;
+}
+
+/* NUMERI GIOCHI CENTRALI E BASSI PIÙ GRANDI */
+.schermo2 .gioco-numeri span{
+    width:3.25vw !important;
+    height:3.25vw !important;
+    font-size:1.35vw !important;
+}
+
+/* EUROJACKPOT: lascia spazio agli EURONUMERI */
+.schermo2 .eurojackpot .gioco-numeri{
+    height:58% !important;
+}
+
+/* EURONUMERI PIÙ IN ALTO */
+.schermo2 .eurostelle{
+    position:relative !important;
+    bottom:1.3vh !important;
+    margin-top:0 !important;
+}
+
+/* TITOLO EURONUMERI */
+.schermo2 .eurostelle-titolo{
+    font-size:0.9vw !important;
+    font-weight:900 !important;
+}
+
+/* PALLINE EURONUMERI */
+.schermo2 .eurostelle-numeri span{
+    width:2.4vw !important;
+    height:2.4vw !important;
+    font-size:1.05vw !important;
+}
+
+/* FOOTER NON TAGLIATO */
+.footer{
+    position:relative !important;
+    z-index:20 !important;
+    min-height:2.5vh !important;
+    line-height:2.5vh !important;
+    font-size:0.72vw !important;
+}
+   
 <style>
 
 /* =========================================================
@@ -3041,9 +3133,7 @@ id="simboli">
 
     <div class="eurostelle">
 
-        <div class="eurostelle-titolo">
-            EURNUMERI
-        </div>
+        <div class="eurostelle-titolo">EURONUMERI</div>
 
         <div
             class="eurostelle-numeri"
