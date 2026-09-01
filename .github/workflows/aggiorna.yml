@@ -4,10 +4,21 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: "0 5 * * *"
-    - cron: "0,5,10,15,20,25,30,35,40,45,50,55 11-12 * * *"
-    - cron: "30 14 * * *"
-    - cron: "0,5,10,15,20,25,30,35,40,45,50,55 18-19 * * *"
+    # Controllo mattutino:
+    # 07:00 ora italiana sia solare che legale
+    - cron: "0 5,6 * * *"
+
+    # Fascia MillionDAY 13:00:
+    # copre ora solare + ora legale
+    - cron: "0,5,10,15,20,25,30,35,40,45,50,55 11-13 * * *"
+
+    # Controllo di sicurezza pomeridiano:
+    # 16:30 ora italiana sia solare che legale
+    - cron: "30 14,15 * * *"
+
+    # Fascia serale:
+    # copre ora solare + ora legale
+    - cron: "0,5,10,15,20,25,30,35,40,45,50,55 18-20 * * *"
 
 permissions:
   contents: write
