@@ -19,6 +19,7 @@ DATA_FILE = Path("data.json")
 
 URL_MILLIONDAY = "https://www.estrazioni.it/millionday/"
 URL_SUPERENALOTTO = "https://www.superenalotto.it/archivio-estrazioni"
+URL_SUPERWINFORLIFE = "https://www.winforlife.it/super/archivio-estrazioni"
 
 ADM_BASE = (
     "https://www.adm.gov.it/portale/monopoli/giochi/"
@@ -917,6 +918,151 @@ def aggiorna_superenalotto(dati):
         )
 
 # --------------------------------------------------
+# SUPER WIN FOR LIFE
+# --------------------------------------------------
+
+def aggiorna_superwinforlife(dati):
+    try:
+        html = get_text(URL_SUPERWINFORLIFE)
+
+        soup = BeautifulSoup(
+            html,
+            "html.parser"
+        )
+
+        estrazioni = []
+
+        mesi = {
+            "gennaio": 1,
+            "febbraio": 2,
+            "marzo": 3,
+            "aprile": 4,
+            "maggio": 5,
+            "giugno": 6,
+            "luglio": 7,
+            "agosto": 8,
+            "settembre": 9,
+            "ottobre": 10,
+            "novembre": 11,
+            "dicembre": 12
+        }
+
+        for riga in soup.find_all("tr"):
+
+            testo = riga.get_text(
+                " ",
+                strip=True
+            )
+
+            m = re.search(
+                r"Concorso\s*N[º°]?\s*"
+                r"(\d+)\s+del\s+"
+                r"(\d{1,2})\s+"
+                r"([A-Za-zÀ-ÿ]+)\s+"
+                r"(\d{4})",
+                testo,
+                re.I
+            )
+
+            if not m:
+                continue
+
+            concorso = int(m.group(1))
+            giorno = int(m.group(2))
+            mese_nome = m.group(3).lower()
+            anno = int(m.group(4))
+
+            if mese_nome not in mesi:
+                continue
+
+            data_dt = date(
+                anno,
+                mesi[mese_nome],
+                giorno
+            )
+
+            # Togliamo dalla riga la parte
+            # con concorso e data
+            restante = testo[
+                m.end():
+            ]
+
+            numeri = [
+                int(x)
+                for x in re.findall(
+                    r"\b\d{1,2}\b",
+                    restante
+                )
+            ]
+
+            # Super Win for Life deve avere
+            # esattamente 8 numeri estratti
+            if len(numeri) < 8:
+                continue
+
+            numeri = numeri[:8]
+
+            if not all(
+                1 <= n <= 90
+                for n in numeri
+            ):
+                continue
+
+            oggi = datetime.now(
+                ZoneInfo("Europe/Rome")
+            ).date()
+
+            if data_dt > oggi:
+                continue
+
+            estrazioni.append({
+                "data_dt": data_dt,
+                "concorso": concorso,
+                "numeri": numeri
+            })
+
+        if not estrazioni:
+            raise RuntimeError(
+                "Nessuna estrazione Super Win for Life valida trovata"
+            )
+
+        ultima = max(
+            estrazioni,
+            key=lambda x: (
+                x["data_dt"],
+                x["concorso"]
+            )
+        )
+
+        data_it = ultima[
+            "data_dt"
+        ].strftime(
+            "%d/%m/%Y"
+        )
+
+        dati["superwinforlife"] = {
+            "giorno": giorno_italiano(
+                data_it
+            ),
+            "data": data_it,
+            "concorso": ultima["concorso"],
+            "numeri": ultima["numeri"]
+        }
+
+        print(
+            "Super Win for Life OK:",
+            dati["superwinforlife"]["concorso"],
+            dati["superwinforlife"]["data"],
+            dati["superwinforlife"]["numeri"]
+        )
+
+    except Exception as e:
+        print(
+            "ATTENZIONE Super Win for Life:",
+            repr(e)
+        )
+
+# --------------------------------------------------
 # SCHERMATA 2 - STRUTTURA DATI
 # --------------------------------------------------
 
@@ -988,15 +1134,19 @@ def main():
         "=== AGGIORNAMENTO ESTRAZIONI ==="
     )
 
-    aggiorna_millionday(
-        dati
-    )
+   aggiorna_millionday(
+    dati
+)
 
-    aggiorna_superenalotto(
-        dati
-    )
+aggiorna_superenalotto(
+    dati
+)
 
-    try:
+aggiorna_superwinforlife(
+    dati
+)
+
+try:
         aggiorna_lotto_adm(
             dati
         )
