@@ -1216,7 +1216,7 @@ def aggiorna_sivincetutto(dati):
             ]
         }
 
-         print(
+        print(
             "SiVinceTutto OK:",
             dati["sivincetutto"]["concorso"],
             dati["sivincetutto"]["data"],
