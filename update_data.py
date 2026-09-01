@@ -1310,12 +1310,12 @@ def main():
     )
 
     aggiorna_superwinforlife(
-    dati
-)
+        dati
+    )
 
-aggiorna_sivincetutto(
-    dati
-)
+    aggiorna_sivincetutto(
+        dati
+    )
 
     try:
         aggiorna_lotto_adm(
