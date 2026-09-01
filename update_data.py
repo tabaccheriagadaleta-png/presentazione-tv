@@ -22,6 +22,7 @@ URL_SUPERENALOTTO = "https://www.superenalotto.it/archivio-estrazioni"
 URL_SUPERWINFORLIFE = "https://www.winforlife.it/super/archivio-estrazioni"
 URL_SIVINCETUTTO = "https://www.sivincetutto.it/archivio-estrazioni"
 URL_VINCICASA = "https://www.vincicasa.it/archivio-estrazioni"
+URL_EUROJACKPOT = "https://www.eurojackpot.it/archivio-estrazioni"
 
 ADM_BASE = (
     "https://www.adm.gov.it/portale/monopoli/giochi/"
@@ -1382,6 +1383,165 @@ def aggiorna_vincicasa(dati):
         )
 
 # --------------------------------------------------
+# EUROJACKPOT
+# --------------------------------------------------
+
+def aggiorna_eurojackpot(dati):
+    try:
+        html = get_text(
+            URL_EUROJACKPOT
+        )
+
+        soup = BeautifulSoup(
+            html,
+            "html.parser"
+        )
+
+        testo = soup.get_text(
+            " ",
+            strip=True
+        )
+
+        mesi = {
+            "gennaio": 1,
+            "febbraio": 2,
+            "marzo": 3,
+            "aprile": 4,
+            "maggio": 5,
+            "giugno": 6,
+            "luglio": 7,
+            "agosto": 8,
+            "settembre": 9,
+            "ottobre": 10,
+            "novembre": 11,
+            "dicembre": 12
+        }
+
+        pattern = re.compile(
+            r"Concorso\s*N[º°]?\s*"
+            r"(\d+)\s+del\s+"
+            r"(\d{1,2})\s+"
+            r"([A-Za-zÀ-ÿ]+)\s+"
+            r"(\d{4})\s+"
+            r"(\d{1,2})\s+"
+            r"(\d{1,2})\s+"
+            r"(\d{1,2})\s+"
+            r"(\d{1,2})\s+"
+            r"(\d{1,2})\s+"
+            r"EURONUMERI\s+"
+            r"(\d{1,2})\s+"
+            r"(\d{1,2})",
+            re.I
+        )
+
+        estrazioni = []
+
+        oggi = datetime.now(
+            ZoneInfo("Europe/Rome")
+        ).date()
+
+        for m in pattern.finditer(testo):
+
+            concorso = int(
+                m.group(1)
+            )
+
+            giorno = int(
+                m.group(2)
+            )
+
+            mese_nome = (
+                m.group(3)
+                .lower()
+            )
+
+            anno = int(
+                m.group(4)
+            )
+
+            if mese_nome not in mesi:
+                continue
+
+            data_dt = date(
+                anno,
+                mesi[mese_nome],
+                giorno
+            )
+
+            if data_dt > oggi:
+                continue
+
+            numeri = [
+                int(m.group(5)),
+                int(m.group(6)),
+                int(m.group(7)),
+                int(m.group(8)),
+                int(m.group(9))
+            ]
+
+            euronumeri = [
+                int(m.group(10)),
+                int(m.group(11))
+            ]
+
+            estrazioni.append({
+                "data_dt": data_dt,
+                "concorso": concorso,
+                "numeri": numeri,
+                "euronumeri": euronumeri
+            })
+
+        if not estrazioni:
+            raise RuntimeError(
+                "Nessuna estrazione Eurojackpot valida trovata"
+            )
+
+        ultima = max(
+            estrazioni,
+            key=lambda x: (
+                x["data_dt"],
+                x["concorso"]
+            )
+        )
+
+        data_it = ultima[
+            "data_dt"
+        ].strftime(
+            "%d/%m/%Y"
+        )
+
+        dati["eurojackpot"] = {
+            "giorno": giorno_italiano(
+                data_it
+            ),
+            "data": data_it,
+            "concorso": ultima[
+                "concorso"
+            ],
+            "numeri": ultima[
+                "numeri"
+            ],
+            "euronumeri": ultima[
+                "euronumeri"
+            ]
+        }
+
+        print(
+            "Eurojackpot OK:",
+            dati["eurojackpot"]["concorso"],
+            dati["eurojackpot"]["data"],
+            dati["eurojackpot"]["numeri"],
+            "Euronumeri:",
+            dati["eurojackpot"]["euronumeri"]
+        )
+
+    except Exception as e:
+        print(
+            "ATTENZIONE Eurojackpot:",
+            repr(e)
+        )
+
+# --------------------------------------------------
 # SCHERMATA 2 - STRUTTURA DATI
 # --------------------------------------------------
 
@@ -1470,6 +1630,10 @@ def main():
     )
 
     aggiorna_vincicasa(
+        dati
+    )
+
+    aggiorna_eurojackpot(
         dati
     )
 
