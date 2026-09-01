@@ -2595,6 +2595,98 @@ body > .schermo:first-of-type{
 .schermo2 .eurostelle-titolo{
     font-size:1.05vw !important;
 }
+
+/* =====================================================
+   SUPERENALOTTO - TUTTO SU UNA SOLA RIGA
+===================================================== */
+
+/* Il box SuperEnalotto diventa il riferimento */
+.superenalotto{
+    position:relative !important;
+}
+
+/* Riga dei 6 numeri spostata leggermente a sinistra */
+.schermo2 .se-numeri{
+    position:absolute !important;
+    left:24vw !important;
+    top:8.2vh !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+
+    gap:1.15vw !important;
+    margin:0 !important;
+}
+
+/* 6 numeri principali */
+.schermo2 .se-numeri span{
+    width:5.3vw !important;
+    height:5.3vw !important;
+    min-width:5.3vw !important;
+    min-height:5.3vw !important;
+
+    font-size:2.35vw !important;
+}
+
+
+/* CONTENITORE JOLLY + SUPERSTAR */
+.schermo2 .se-speciali{
+    position:absolute !important;
+
+    left:62.8vw !important;
+    top:6.5vh !important;
+
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:flex-start !important;
+    justify-content:flex-start !important;
+
+    gap:1.15vw !important;
+    margin:0 !important;
+}
+
+
+/* JOLLY E SUPERSTAR */
+.schermo2 .se-speciale-box{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+}
+
+
+/* ETICHETTE */
+.schermo2 .se-speciale-titolo{
+    height:1.7vh !important;
+    margin:0 0 0.3vh 0 !important;
+
+    font-size:0.75vw !important;
+    line-height:1.7vh !important;
+    font-weight:900 !important;
+}
+
+
+/* JOLLY GRANDE COME I NUMERI */
+#seJolly span{
+    width:5.3vw !important;
+    height:5.3vw !important;
+    min-width:5.3vw !important;
+    min-height:5.3vw !important;
+
+    font-size:2.35vw !important;
+}
+
+
+/* SUPERSTAR GRANDE COME I NUMERI */
+#seSuperstar span{
+    width:5.3vw !important;
+    height:5.3vw !important;
+    min-width:5.3vw !important;
+    min-height:5.3vw !important;
+
+    font-size:2.35vw !important;
+}
    
 </style>
 
