@@ -2249,6 +2249,101 @@ body{
 body > .schermo:first-of-type{
     display:none !important;
 }
+
+/* =====================================================
+   SCHERMATA 2 - LAYOUT 16:9 CORRETTO
+===================================================== */
+
+.schermo2{
+    display:grid !important;
+
+    width:100% !important;
+    height:90vh !important;
+
+    box-sizing:border-box !important;
+
+    padding:1vh 0.8vw !important;
+
+    grid-template-columns:1fr !important;
+
+    grid-template-rows:
+        34% 
+        32% 
+        32% !important;
+
+    gap:1vh !important;
+
+    background:#082716 !important;
+}
+
+
+/* SUPERENALOTTO - TUTTA LA LARGHEZZA */
+
+.schermo2 > .superenalotto{
+    width:100% !important;
+    height:100% !important;
+
+    box-sizing:border-box !important;
+
+    grid-column:1 !important;
+    grid-row:1 !important;
+}
+
+
+/* RIGA CENTRALE */
+
+.schermo2-centro{
+    width:100% !important;
+    height:100% !important;
+
+    display:grid !important;
+
+    grid-template-columns:
+        1fr 1fr !important;
+
+    gap:1vw !important;
+
+    grid-column:1 !important;
+    grid-row:2 !important;
+}
+
+
+/* RIGA INFERIORE */
+
+.schermo2-basso{
+    width:100% !important;
+    height:100% !important;
+
+    display:grid !important;
+
+    grid-template-columns:
+        1fr 1fr !important;
+
+    gap:1vw !important;
+
+    grid-column:1 !important;
+    grid-row:3 !important;
+}
+
+
+/* TUTTI I BOX INTERNI */
+
+.schermo2 .box{
+    width:100% !important;
+    height:100% !important;
+
+    box-sizing:border-box !important;
+
+    margin:0 !important;
+}
+
+
+/* ANGOLI COME SCHERMATA 1 */
+
+.schermo2 .box{
+    border-radius:0.8vw !important;
+    overflow:hidden !important;
+}
    
 </style>
 
