@@ -18,6 +18,8 @@ HEADERS = {
 DATA_FILE = Path("data.json")
 
 URL_MILLIONDAY = "https://www.estrazioni.it/millionday/"
+URL_SUPERENALOTTO = "https://www.superenalotto.it/archivio-estrazioni"
+
 ADM_BASE = (
     "https://www.adm.gov.it/portale/monopoli/giochi/"
     "gioco-del-lotto/lotto_g/lotto_estr"
@@ -770,6 +772,151 @@ def calcola_10elotto(dati):
     )
 
 # --------------------------------------------------
+# SUPERENALOTTO
+# --------------------------------------------------
+
+def aggiorna_superenalotto(dati):
+    try:
+        html = get_text(URL_SUPERENALOTTO)
+
+        soup = BeautifulSoup(
+            html,
+            "html.parser"
+        )
+
+        testo = soup.get_text(
+            " ",
+            strip=True
+        )
+
+        pattern = re.compile(
+            r"Concorso\s*N[º°]?\s*"
+            r"(\d+)\s+del\s+"
+            r"(\d{1,2})\s+"
+            r"([A-Za-zÀ-ÿ]+)\s+"
+            r"(\d{4})\s+"
+            r"(\d{1,2})\s+"
+            r"(\d{1,2})\s+"
+            r"(\d{1,2})\s+"
+            r"(\d{1,2})\s+"
+            r"(\d{1,2})\s+"
+            r"(\d{1,2})\s+"
+            r"(\d{1,2})\s+"
+            r"(\d{1,2})",
+            re.I
+        )
+
+        risultati = []
+
+        mesi = {
+            "gennaio": 1,
+            "febbraio": 2,
+            "marzo": 3,
+            "aprile": 4,
+            "maggio": 5,
+            "giugno": 6,
+            "luglio": 7,
+            "agosto": 8,
+            "settembre": 9,
+            "ottobre": 10,
+            "novembre": 11,
+            "dicembre": 12
+        }
+
+        for m in pattern.finditer(testo):
+
+            concorso = int(m.group(1))
+
+            giorno = int(m.group(2))
+            mese_nome = m.group(3).lower()
+            anno = int(m.group(4))
+
+            if mese_nome not in mesi:
+                continue
+
+            mese = mesi[mese_nome]
+
+            numeri = [
+                int(m.group(5)),
+                int(m.group(6)),
+                int(m.group(7)),
+                int(m.group(8)),
+                int(m.group(9)),
+                int(m.group(10))
+            ]
+
+            jolly = int(m.group(11))
+            superstar = int(m.group(12))
+
+            data_dt = date(
+                anno,
+                mese,
+                giorno
+            )
+
+            oggi = datetime.now(
+                ZoneInfo("Europe/Rome")
+            ).date()
+
+            if data_dt > oggi:
+                continue
+
+            risultati.append({
+                "data_dt": data_dt,
+                "concorso": concorso,
+                "numeri": numeri,
+                "jolly": jolly,
+                "superstar": superstar
+            })
+
+        if not risultati:
+            raise RuntimeError(
+                "Nessuna estrazione SuperEnalotto valida trovata"
+            )
+
+        ultima = max(
+            risultati,
+            key=lambda x: (
+                x["data_dt"],
+                x["concorso"]
+            )
+        )
+
+        data_it = ultima[
+            "data_dt"
+        ].strftime(
+            "%d/%m/%Y"
+        )
+
+        dati["superenalotto"] = {
+            "giorno": giorno_italiano(
+                data_it
+            ),
+            "data": data_it,
+            "concorso": ultima["concorso"],
+            "numeri": ultima["numeri"],
+            "jolly": ultima["jolly"],
+            "superstar": ultima["superstar"]
+        }
+
+        print(
+            "SuperEnalotto OK:",
+            dati["superenalotto"]["concorso"],
+            dati["superenalotto"]["data"],
+            dati["superenalotto"]["numeri"],
+            "Jolly:",
+            dati["superenalotto"]["jolly"],
+            "SuperStar:",
+            dati["superenalotto"]["superstar"]
+        )
+
+    except Exception as e:
+        print(
+            "ATTENZIONE SuperEnalotto:",
+            repr(e)
+        )
+
+# --------------------------------------------------
 # SCHERMATA 2 - STRUTTURA DATI
 # --------------------------------------------------
 
@@ -841,18 +988,22 @@ def main():
         "=== AGGIORNAMENTO ESTRAZIONI ==="
     )
 
-    aggiorna_millionday(
+   aggiorna_millionday(
+    dati
+)
+
+aggiorna_superenalotto(
+    dati
+)
+
+try:
+    aggiorna_lotto_adm(
         dati
     )
 
-    try:
-        aggiorna_lotto_adm(
-            dati
-        )
-
-        calcola_10elotto(
-            dati
-        )
+    calcola_10elotto(
+        dati
+    )
 
     except Exception as e:
         print(
