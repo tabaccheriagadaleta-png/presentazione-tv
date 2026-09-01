@@ -149,10 +149,13 @@
   "numeri": [5, 13, 14, 20, 30]
 },
 
+},
+
 "eurojackpot": {
   "giorno": "Venerdì",
   "data": "28/08/2026",
   "concorso": 70,
   "numeri": [23, 34, 39, 45, 49],
   "euronumeri": [1, 4]
+}
 }
