@@ -4052,7 +4052,192 @@ document.getElementById(
 
     .join("");
 
+/* =========================================================
+   SCHERMATA 2 - DATI
+========================================================= */
 
+
+/* SUPERENALOTTO */
+
+var se =
+    d.superenalotto
+    || {};
+
+document.getElementById(
+    "seData"
+).textContent =
+    se.giorno && se.data
+    ? se.giorno.toUpperCase() + " " + se.data
+    : "--";
+
+document.getElementById(
+    "seConcorso"
+).textContent =
+    se.concorso
+    || "--";
+
+document.getElementById(
+    "seNumeri"
+).innerHTML =
+    (se.numeri || [])
+    .map(function(n){
+
+        return `
+            <span>${pad(n)}</span>
+        `;
+
+    })
+    .join("");
+
+document.getElementById(
+    "seJolly"
+).innerHTML =
+    se.jolly !== undefined && se.jolly !== ""
+    ? `<span>${pad(se.jolly)}</span>`
+    : "--";
+
+document.getElementById(
+    "seSuperstar"
+).innerHTML =
+    se.superstar !== undefined && se.superstar !== ""
+    ? `<span>${pad(se.superstar)}</span>`
+    : "--";
+
+
+/* SUPER WIN FOR LIFE */
+
+var swfl =
+    d.superwinforlife
+    || {};
+
+document.getElementById(
+    "swflData"
+).textContent =
+    swfl.giorno && swfl.data
+    ? swfl.giorno.toUpperCase() + " " + swfl.data
+    : "--";
+
+document.getElementById(
+    "swflConcorso"
+).textContent =
+    swfl.concorso
+    || "--";
+
+document.getElementById(
+    "swflNumeri"
+).innerHTML =
+    (swfl.numeri || [])
+    .map(function(n){
+
+        return `<span>${pad(n)}</span>`;
+
+    })
+    .join("");
+
+
+/* SI VINCETUTTO */
+
+var svt =
+    d.sivincetutto
+    || {};
+
+document.getElementById(
+    "svtData"
+).textContent =
+    svt.giorno && svt.data
+    ? svt.giorno.toUpperCase() + " " + svt.data
+    : "--";
+
+document.getElementById(
+    "svtConcorso"
+).textContent =
+    svt.concorso
+    || "--";
+
+document.getElementById(
+    "svtNumeri"
+).innerHTML =
+    (svt.numeri || [])
+    .map(function(n){
+
+        return `<span>${pad(n)}</span>`;
+
+    })
+    .join("");
+
+
+/* VINCICASA */
+
+var vc =
+    d.vincicasa
+    || {};
+
+document.getElementById(
+    "vcData"
+).textContent =
+    vc.giorno && vc.data
+    ? vc.giorno.toUpperCase() + " " + vc.data
+    : "--";
+
+document.getElementById(
+    "vcConcorso"
+).textContent =
+    vc.concorso
+    || "--";
+
+document.getElementById(
+    "vcNumeri"
+).innerHTML =
+    (vc.numeri || [])
+    .map(function(n){
+
+        return `<span>${pad(n)}</span>`;
+
+    })
+    .join("");
+
+
+/* EUROJACKPOT */
+
+var ej =
+    d.eurojackpot
+    || {};
+
+document.getElementById(
+    "ejData"
+).textContent =
+    ej.giorno && ej.data
+    ? ej.giorno.toUpperCase() + " " + ej.data
+    : "--";
+
+document.getElementById(
+    "ejConcorso"
+).textContent =
+    ej.concorso
+    || "--";
+
+document.getElementById(
+    "ejNumeri"
+).innerHTML =
+    (ej.numeri || [])
+    .map(function(n){
+
+        return `<span>${pad(n)}</span>`;
+
+    })
+    .join("");
+
+document.getElementById(
+    "ejEuronumeri"
+).innerHTML =
+    (ej.euronumeri || [])
+    .map(function(n){
+
+        return `<span>${pad(n)}</span>`;
+
+    })
+    .join("");
+   
 
 /* =========================================================
    FOOTER
