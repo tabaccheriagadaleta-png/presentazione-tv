@@ -1417,18 +1417,18 @@ def aggiorna_eurojackpot(dati):
             "dicembre": 12
         }
 
+        # Formato reale:
+        # Concorso Nº 70 del 28 Agosto 2026
+        # 23 34 39 45 49
+        # 1 4
         pattern = re.compile(
-            r"Concorso\s*N[º°]?\s*"
-            r"(\d+)\s+del\s+"
-            r"(\d{1,2})\s+"
-            r"([A-Za-zÀ-ÿ]+)\s+"
-            r"(\d{4})\s+"
+            r"Concorso\s+N[º°]?\s*(\d+)\s+del\s+"
+            r"(\d{1,2})\s+([A-Za-zÀ-ÿ]+)\s+(\d{4})\s+"
             r"(\d{1,2})\s+"
             r"(\d{1,2})\s+"
             r"(\d{1,2})\s+"
             r"(\d{1,2})\s+"
             r"(\d{1,2})\s+"
-            r"EURONUMERI\s+"
             r"(\d{1,2})\s+"
             r"(\d{1,2})",
             re.I
@@ -1442,22 +1442,10 @@ def aggiorna_eurojackpot(dati):
 
         for m in pattern.finditer(testo):
 
-            concorso = int(
-                m.group(1)
-            )
-
-            giorno = int(
-                m.group(2)
-            )
-
-            mese_nome = (
-                m.group(3)
-                .lower()
-            )
-
-            anno = int(
-                m.group(4)
-            )
+            concorso = int(m.group(1))
+            giorno = int(m.group(2))
+            mese_nome = m.group(3).lower()
+            anno = int(m.group(4))
 
             if mese_nome not in mesi:
                 continue
@@ -1483,6 +1471,19 @@ def aggiorna_eurojackpot(dati):
                 int(m.group(10)),
                 int(m.group(11))
             ]
+
+            # Controlli di sicurezza
+            if not all(
+                1 <= n <= 50
+                for n in numeri
+            ):
+                continue
+
+            if not all(
+                1 <= n <= 12
+                for n in euronumeri
+            ):
+                continue
 
             estrazioni.append({
                 "data_dt": data_dt,
