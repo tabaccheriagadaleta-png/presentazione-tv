@@ -1,106 +1,208 @@
 {
-  "ultimo_aggiornamento": "31/08/2026 22:03:42",
-
+  "ultimo_aggiornamento": "01/09/2026 10:24:10",
   "millionday": {
     "13": {
       "giorno": "Lunedì",
       "data": "31/08/2026",
       "concorso": 485,
-      "numeri": [2, 12, 24, 30, 52],
-      "extra": [8, 19, 26, 33, 44]
+      "numeri": [
+        2,
+        12,
+        24,
+        30,
+        52
+      ],
+      "extra": [
+        8,
+        19,
+        26,
+        33,
+        44
+      ]
     },
-
     "2030": {
       "giorno": "Lunedì",
       "data": "31/08/2026",
       "concorso": 486,
-      "numeri": [11, 31, 37, 45, 50],
-      "extra": [6, 7, 15, 32, 39]
+      "numeri": [
+        11,
+        31,
+        37,
+        45,
+        50
+      ],
+      "extra": [
+        6,
+        7,
+        15,
+        32,
+        39
+      ]
     }
   },
-
   "lotto": {
     "giorno": "Sabato",
     "data": "29/08/2026",
     "concorso": "139",
-
     "ruote": {
       "Bari": {
-        "numeri": [65, 47, 4, 89, 30],
+        "numeri": [
+          65,
+          47,
+          4,
+          89,
+          30
+        ],
         "oro": 30
       },
-
       "Cagliari": {
-        "numeri": [72, 57, 10, 2, 43],
+        "numeri": [
+          72,
+          57,
+          10,
+          2,
+          43
+        ],
         "oro": 43
       },
-
       "Firenze": {
-        "numeri": [32, 5, 71, 73, 41],
+        "numeri": [
+          32,
+          5,
+          71,
+          73,
+          41
+        ],
         "oro": 41
       },
-
       "Genova": {
-        "numeri": [33, 86, 65, 40, 14],
+        "numeri": [
+          33,
+          86,
+          65,
+          40,
+          14
+        ],
         "oro": 14
       },
-
       "Milano": {
-        "numeri": [9, 52, 43, 1, 45],
+        "numeri": [
+          9,
+          52,
+          43,
+          1,
+          45
+        ],
         "oro": 45
       },
-
       "Napoli": {
-        "numeri": [76, 53, 69, 64, 50],
+        "numeri": [
+          76,
+          53,
+          69,
+          64,
+          50
+        ],
         "oro": 50
       },
-
       "Palermo": {
-        "numeri": [39, 8, 61, 57, 18],
+        "numeri": [
+          39,
+          8,
+          61,
+          57,
+          18
+        ],
         "oro": 18
       },
-
       "Roma": {
-        "numeri": [25, 40, 52, 75, 57],
+        "numeri": [
+          25,
+          40,
+          52,
+          75,
+          57
+        ],
         "oro": 57
       },
-
       "Torino": {
-        "numeri": [86, 71, 17, 70, 79],
+        "numeri": [
+          86,
+          71,
+          17,
+          70,
+          79
+        ],
         "oro": 79
       },
-
       "Venezia": {
-        "numeri": [16, 50, 79, 27, 48],
+        "numeri": [
+          16,
+          50,
+          79,
+          27,
+          48
+        ],
         "oro": 48
       },
-
       "Nazionale": {
-        "numeri": [88, 68, 50, 43, 6],
+        "numeri": [
+          88,
+          68,
+          50,
+          43,
+          6
+        ],
         "oro": 6
       }
     }
   },
-
   "10elotto": {
     "numeri": [
-      4, 5, 8, 9, 16, 25, 32, 33, 39, 40,
-      47, 50, 52, 53, 57, 65, 71, 72, 76, 86
+      4,
+      5,
+      8,
+      9,
+      16,
+      25,
+      32,
+      33,
+      39,
+      40,
+      47,
+      50,
+      52,
+      53,
+      57,
+      65,
+      71,
+      72,
+      76,
+      86
     ],
-
     "oro": 65,
-
     "doppio_oro": [
       65,
       47
     ],
-
     "extra": [
-      1, 2, 10, 17, 27, 30, 43, 61, 64, 69,
-      70, 73, 75, 79, 89
+      1,
+      2,
+      10,
+      17,
+      27,
+      30,
+      43,
+      61,
+      64,
+      69,
+      70,
+      73,
+      75,
+      79,
+      89
     ]
   },
-
   "simbolotto": {
     "numeri": [
       4,
@@ -109,7 +211,6 @@
       12,
       38
     ],
-
     "simboli": [
       "Maiale",
       "Cacio",
@@ -118,42 +219,75 @@
       "Pigna"
     ]
   },
-
   "superenalotto": {
-  "giorno": "Sabato",
-  "data": "29/08/2026",
-  "concorso": 139,
-  "numeri": [12, 17, 45, 59, 74, 77],
-  "jolly": 62,
-  "superstar": 62
-},
-
-"superwinforlife": {
-  "giorno": "Sabato",
-  "data": "29/08/2026",
-  "concorso": 88,
-  "numeri": [17, 46, 54, 68, 75, 78, 81, 83]
-},
-
-"sivincetutto": {
-  "giorno": "Mercoledì",
-  "data": "26/08/2026",
-  "concorso": 34,
-  "numeri": [12, 38, 49, 57, 68, 77]
-},
-
-"vincicasa": {
-  "giorno": "Lunedì",
-  "data": "31/08/2026",
-  "concorso": 243,
-  "numeri": [5, 13, 14, 20, 30]
-},
-
-"eurojackpot": {
-  "giorno": "Venerdì",
-  "data": "28/08/2026",
-  "concorso": 70,
-  "numeri": [23, 34, 39, 45, 49],
-  "euronumeri": [1, 4]
-}
+    "giorno": "Sabato",
+    "data": "29/08/2026",
+    "concorso": 139,
+    "numeri": [
+      12,
+      17,
+      45,
+      59,
+      74,
+      77
+    ],
+    "jolly": 62,
+    "superstar": 62
+  },
+  "superwinforlife": {
+    "giorno": "Sabato",
+    "data": "29/08/2026",
+    "concorso": 88,
+    "numeri": [
+      17,
+      46,
+      54,
+      68,
+      75,
+      78,
+      81,
+      83
+    ]
+  },
+  "sivincetutto": {
+    "giorno": "Mercoledì",
+    "data": "26/08/2026",
+    "concorso": 34,
+    "numeri": [
+      12,
+      38,
+      49,
+      57,
+      68,
+      77
+    ]
+  },
+  "vincicasa": {
+    "giorno": "Lunedì",
+    "data": "31/08/2026",
+    "concorso": 243,
+    "numeri": [
+      5,
+      13,
+      14,
+      20,
+      30
+    ]
+  },
+  "eurojackpot": {
+    "giorno": "Venerdì",
+    "data": "28/08/2026",
+    "concorso": 70,
+    "numeri": [
+      23,
+      34,
+      39,
+      45,
+      49
+    ],
+    "euronumeri": [
+      1,
+      4
+    ]
+  }
 }
