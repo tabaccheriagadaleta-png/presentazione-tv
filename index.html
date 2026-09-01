@@ -2903,21 +2903,8 @@ body{
    ROTAZIONE SCHERMATE TV
 -------------------------------------------------- */
 
-.schermo,
-.schermo2{
-    width:100%;
-}
-
 .schermo-tv-nascosta{
     display:none !important;
-}
-
-.schermo-tv-visibile{
-    display:block !important;
-}
-
-.schermo2.schermo-tv-visibile{
-    display:grid !important;
 }
    
 </style>
@@ -4937,56 +4924,45 @@ function avviaRotazioneSchermate(){
         return;
     }
 
-    var mostraPrima = true;
+    /* All'avvio mostriamo la schermata 1 */
+    schermata1.classList.remove(
+        "schermo-tv-nascosta"
+    );
 
-    function aggiornaSchermata(){
+    schermata2.classList.add(
+        "schermo-tv-nascosta"
+    );
 
-        if(mostraPrima){
+    var mostraSchermata1 = true;
 
-            schermata1.classList.remove(
-                "schermo-tv-nascosta"
-            );
+    setInterval(function(){
+
+        if(mostraSchermata1){
 
             schermata1.classList.add(
-                "schermo-tv-visibile"
+                "schermo-tv-nascosta"
             );
 
             schermata2.classList.remove(
-                "schermo-tv-visibile"
-            );
-
-            schermata2.classList.add(
                 "schermo-tv-nascosta"
             );
+
+            mostraSchermata1 = false;
 
         }else{
 
-            schermata1.classList.remove(
-                "schermo-tv-visibile"
-            );
-
-            schermata1.classList.add(
-                "schermo-tv-nascosta"
-            );
-
-            schermata2.classList.remove(
-                "schermo-tv-nascosta"
-            );
-
             schermata2.classList.add(
-                "schermo-tv-visibile"
+                "schermo-tv-nascosta"
             );
+
+            schermata1.classList.remove(
+                "schermo-tv-nascosta"
+            );
+
+            mostraSchermata1 = true;
         }
 
-        mostraPrima = !mostraPrima;
-    }
-
-    aggiornaSchermata();
-
-    setInterval(
-        aggiornaSchermata,
-        35000
-    );
+    }, 35000);
 }
 
 window.addEventListener(
