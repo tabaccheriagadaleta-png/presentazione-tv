@@ -4001,8 +4001,9 @@ document.getElementById(
     "md13data"
 ).textContent =
 
-    dataEstrazione(
-        m13
+    dataEstrazioneSchermata1(
+        m13.data,
+        m13.giorno
     );
 
 
@@ -4011,8 +4012,9 @@ document.getElementById(
     "md20data"
 ).textContent =
 
-    dataEstrazione(
-        m20
+    dataEstrazioneSchermata1(
+        m20.data,
+        m20.giorno
     );
 
 
@@ -4237,12 +4239,10 @@ var lotto =
 
 
 
-document.getElementById(
-    "lottoData"
-).textContent =
-
-    dataEstrazione(
-        lotto
+document.getElementById("lottoData").textContent =
+    dataEstrazioneSchermata1(
+        lotto.data,
+        lotto.giorno
     );
 
 
@@ -4538,6 +4538,57 @@ document.getElementById(
 
     .join("");
 
+function dataEstrazioneSchermata1(data, giorno){
+
+    if(!data){
+        return "--";
+    }
+
+    var parti = data.split("/");
+
+    if(parti.length !== 3){
+        return data;
+    }
+
+    var mesi = [
+        "",
+        "Gennaio",
+        "Febbraio",
+        "Marzo",
+        "Aprile",
+        "Maggio",
+        "Giugno",
+        "Luglio",
+        "Agosto",
+        "Settembre",
+        "Ottobre",
+        "Novembre",
+        "Dicembre"
+    ];
+
+    var numeroGiorno = parseInt(
+        parti[0],
+        10
+    );
+
+    var mese = parseInt(
+        parti[1],
+        10
+    );
+
+    var anno = parti[2];
+
+    return (
+        (giorno || "") +
+        " " +
+        numeroGiorno +
+        " " +
+        mesi[mese] +
+        " " +
+        anno
+    ).trim();
+}
+   
    /* =========================================================
    FORMATO DATA SCHERMATA 2
    Esempio: Sabato 29 Agosto 2026
