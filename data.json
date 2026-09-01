@@ -120,40 +120,39 @@
   },
 
   "superenalotto": {
-    "giorno": "",
-    "data": "",
-    "concorso": "",
-    "numeri": [],
-    "jolly": "",
-    "superstar": ""
-  },
+  "giorno": "Sabato",
+  "data": "29/08/2026",
+  "concorso": 139,
+  "numeri": [12, 17, 45, 59, 74, 77],
+  "jolly": 62,
+  "superstar": 62
+},
 
-  "superwinforlife": {
-    "giorno": "",
-    "data": "",
-    "concorso": "",
-    "numeri": []
-  },
+"superwinforlife": {
+  "giorno": "Sabato",
+  "data": "29/08/2026",
+  "concorso": 88,
+  "numeri": [17, 46, 54, 68, 75, 78, 81, 83]
+},
 
-  "sivincetutto": {
-    "giorno": "",
-    "data": "",
-    "concorso": "",
-    "numeri": []
-  },
+"sivincetutto": {
+  "giorno": "Mercoledì",
+  "data": "26/08/2026",
+  "concorso": 34,
+  "numeri": [12, 38, 49, 57, 68, 77]
+},
 
-  "vincicasa": {
-    "giorno": "",
-    "data": "",
-    "concorso": "",
-    "numeri": []
-  },
+"vincicasa": {
+  "giorno": "Lunedì",
+  "data": "31/08/2026",
+  "concorso": 243,
+  "numeri": [5, 13, 14, 20, 30]
+},
 
-  "eurojackpot": {
-    "giorno": "",
-    "data": "",
-    "concorso": "",
-    "numeri": [],
-    "euronumeri": []
-  }
+"eurojackpot": {
+  "giorno": "Venerdì",
+  "data": "28/08/2026",
+  "concorso": 70,
+  "numeri": [23, 34, 39, 45, 49],
+  "euronumeri": [1, 4]
 }
