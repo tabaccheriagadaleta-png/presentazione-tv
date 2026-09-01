@@ -769,6 +769,64 @@ def calcola_10elotto(dati):
         "Extra"
     )
 
+# --------------------------------------------------
+# SCHERMATA 2 - STRUTTURA DATI
+# --------------------------------------------------
+
+def assicura_schermata2(dati):
+
+    dati.setdefault(
+        "superenalotto",
+        {
+            "giorno": "",
+            "data": "",
+            "concorso": "",
+            "numeri": [],
+            "jolly": "",
+            "superstar": ""
+        }
+    )
+
+    dati.setdefault(
+        "superwinforlife",
+        {
+            "giorno": "",
+            "data": "",
+            "concorso": "",
+            "numeri": []
+        }
+    )
+
+    dati.setdefault(
+        "sivincetutto",
+        {
+            "giorno": "",
+            "data": "",
+            "concorso": "",
+            "numeri": []
+        }
+    )
+
+    dati.setdefault(
+        "vincicasa",
+        {
+            "giorno": "",
+            "data": "",
+            "concorso": "",
+            "numeri": []
+        }
+    )
+
+    dati.setdefault(
+        "eurojackpot",
+        {
+            "giorno": "",
+            "data": "",
+            "concorso": "",
+            "numeri": [],
+            "euronumeri": []
+        }
+    )
 
 # --------------------------------------------------
 # MAIN
@@ -776,6 +834,8 @@ def calcola_10elotto(dati):
 
 def main():
     dati = carica_dati()
+
+    assicura_schermata2(dati)
 
     print(
         "=== AGGIORNAMENTO ESTRAZIONI ==="
