@@ -988,22 +988,22 @@ def main():
         "=== AGGIORNAMENTO ESTRAZIONI ==="
     )
 
-   aggiorna_millionday(
-    dati
-)
-
-aggiorna_superenalotto(
-    dati
-)
-
-try:
-    aggiorna_lotto_adm(
+    aggiorna_millionday(
         dati
     )
 
-    calcola_10elotto(
+    aggiorna_superenalotto(
         dati
     )
+
+    try:
+        aggiorna_lotto_adm(
+            dati
+        )
+
+        calcola_10elotto(
+            dati
+        )
 
     except Exception as e:
         print(
