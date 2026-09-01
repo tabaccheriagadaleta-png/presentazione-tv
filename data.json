@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "01/09/2026 20:56:55",
+  "ultimo_aggiornamento": "01/09/2026 21:11:24",
   "millionday": {
     "13": {
       "giorno": "Martedì",
@@ -275,19 +275,19 @@
     ]
   },
   "eurojackpot": {
-    "giorno": "Venerdì",
-    "data": "28/08/2026",
-    "concorso": 70,
+    "giorno": "Martedì",
+    "data": "01/09/2026",
+    "concorso": 71,
     "numeri": [
-      23,
-      34,
-      39,
-      45,
-      49
+      9,
+      14,
+      35,
+      43,
+      50
     ],
     "euronumeri": [
-      1,
-      4
+      3,
+      7
     ]
   }
 }
