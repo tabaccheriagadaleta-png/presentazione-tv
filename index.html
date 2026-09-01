@@ -8,7 +8,6 @@
 
 <title>Estrazioni TV</title>
 
-
    
 <style>
 
@@ -2247,10 +2246,7 @@ body{
     font-weight:900;
 }
 
-/* NASCONDE TEMPORANEAMENTE LA SCHERMATA 1 */
-body > .schermo:first-of-type{
-    display:none !important;
-}
+
 
 /* =====================================================
    SCHERMATA 2 - LAYOUT 16:9 CORRETTO
@@ -2901,6 +2897,27 @@ body > .schermo:first-of-type{
 /* EUROJACKPOT - BLU CHIARO */
 .schermo2 .eurojackpot{
     background:#E5EEFF !important;
+}
+
+/* --------------------------------------------------
+   ROTAZIONE SCHERMATE TV
+-------------------------------------------------- */
+
+.schermo,
+.schermo2{
+    width:100%;
+}
+
+.schermo-tv-nascosta{
+    display:none !important;
+}
+
+.schermo-tv-visibile{
+    display:block !important;
+}
+
+.schermo2.schermo-tv-visibile{
+    display:grid !important;
 }
    
 </style>
@@ -4899,7 +4916,84 @@ setInterval(
 
 );
 
+/* --------------------------------------------------
+   ROTAZIONE AUTOMATICA SCHERMATE - 35 SECONDI
+-------------------------------------------------- */
 
+function avviaRotazioneSchermate(){
+
+    var schermata1 = document.querySelector(
+        "body > .schermo:first-of-type"
+    );
+
+    var schermata2 = document.querySelector(
+        ".schermo2"
+    );
+
+    if(!schermata1 || !schermata2){
+        console.log(
+            "Rotazione schermate: schermate non trovate"
+        );
+        return;
+    }
+
+    var mostraPrima = true;
+
+    function aggiornaSchermata(){
+
+        if(mostraPrima){
+
+            schermata1.classList.remove(
+                "schermo-tv-nascosta"
+            );
+
+            schermata1.classList.add(
+                "schermo-tv-visibile"
+            );
+
+            schermata2.classList.remove(
+                "schermo-tv-visibile"
+            );
+
+            schermata2.classList.add(
+                "schermo-tv-nascosta"
+            );
+
+        }else{
+
+            schermata1.classList.remove(
+                "schermo-tv-visibile"
+            );
+
+            schermata1.classList.add(
+                "schermo-tv-nascosta"
+            );
+
+            schermata2.classList.remove(
+                "schermo-tv-nascosta"
+            );
+
+            schermata2.classList.add(
+                "schermo-tv-visibile"
+            );
+        }
+
+        mostraPrima = !mostraPrima;
+    }
+
+    aggiornaSchermata();
+
+    setInterval(
+        aggiornaSchermata,
+        35000
+    );
+}
+
+window.addEventListener(
+    "load",
+    avviaRotazioneSchermate
+);
+   
 </script>
 
 
