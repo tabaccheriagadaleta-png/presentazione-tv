@@ -1317,7 +1317,7 @@ aggiorna_sivincetutto(
     dati
 )
 
-try:
+    try:
         aggiorna_lotto_adm(
             dati
         )
