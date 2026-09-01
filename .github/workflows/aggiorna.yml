@@ -3,12 +3,14 @@ name: Aggiorna estrazioni
 on:
   workflow_dispatch:
 
-  schedule:
+   schedule:
+    - cron: "0 5 * * *"
     - cron: "0,5,10,15,20,25,30,35,40,45,50,55 11-12 * * *"
     - cron: "0,5,10,15,20,25,30,35,40,45,50,55 18-19 * * *"
 
 permissions:
   contents: write
+
 
 jobs:
   aggiorna:
