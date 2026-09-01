@@ -1134,19 +1134,19 @@ def main():
         "=== AGGIORNAMENTO ESTRAZIONI ==="
     )
 
-   aggiorna_millionday(
-    dati
-)
+    aggiorna_millionday(
+        dati
+    )
 
-aggiorna_superenalotto(
-    dati
-)
+    aggiorna_superenalotto(
+        dati
+    )
 
-aggiorna_superwinforlife(
-    dati
-)
+    aggiorna_superwinforlife(
+        dati
+    )
 
-try:
+    try:
         aggiorna_lotto_adm(
             dati
         )
