@@ -923,13 +923,26 @@ def aggiorna_superenalotto(dati):
 
 def aggiorna_superwinforlife(dati):
     try:
-        html = get_text(URL_SUPERWINFORLIFE)
+        risposta = requests.get(
+            URL_SUPERWINFORLIFE,
+            headers=HEADERS,
+            timeout=90
+        )
+
+        print(
+            "HTTP",
+            risposta.status_code,
+            URL_SUPERWINFORLIFE
+        )
+
+        risposta.raise_for_status()
+
+        html = risposta.text
 
         soup = BeautifulSoup(
             html,
             "html.parser"
         )
-
         estrazioni = []
 
         mesi = {
