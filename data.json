@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "07/09/2026 20:30:01",
+  "ultimo_aggiornamento": "07/09/2026 20:47:12",
   "millionday": {
     "13": {
       "giorno": "Lunedì",
@@ -21,22 +21,22 @@
       ]
     },
     "2030": {
-      "giorno": "Domenica",
-      "data": "06/09/2026",
-      "concorso": 498,
+      "giorno": "Lunedì",
+      "data": "07/09/2026",
+      "concorso": 500,
       "numeri": [
         1,
-        4,
         6,
-        41,
-        51
+        27,
+        39,
+        55
       ],
       "extra": [
-        12,
-        17,
-        18,
-        23,
-        46
+        7,
+        21,
+        41,
+        46,
+        49
       ]
     }
   },
