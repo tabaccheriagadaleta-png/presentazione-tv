@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "08/09/2026 20:49:38",
+  "ultimo_aggiornamento": "08/09/2026 21:00:39",
   "millionday": {
     "13": {
       "giorno": "Martedì",
@@ -220,19 +220,19 @@
     ]
   },
   "superenalotto": {
-    "giorno": "Sabato",
-    "data": "05/09/2026",
-    "concorso": 143,
+    "giorno": "Martedì",
+    "data": "08/09/2026",
+    "concorso": 144,
     "numeri": [
-      12,
-      24,
-      28,
-      32,
-      37,
-      78
+      23,
+      26,
+      41,
+      52,
+      59,
+      85
     ],
-    "jolly": 40,
-    "superstar": 16
+    "jolly": 49,
+    "superstar": 47
   },
   "superwinforlife": {
     "giorno": "Martedì",
