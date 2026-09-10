@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "09/09/2026 22:56:05",
+  "ultimo_aggiornamento": "10/09/2026 07:01:58",
   "millionday": {
     "13": {
       "giorno": "Mercoledì",
@@ -251,15 +251,15 @@
   },
   "sivincetutto": {
     "giorno": "Mercoledì",
-    "data": "02/09/2026",
-    "concorso": 35,
+    "data": "09/09/2026",
+    "concorso": 36,
     "numeri": [
-      1,
+      4,
       8,
-      16,
-      39,
-      75,
-      81
+      14,
+      23,
+      45,
+      60
     ]
   },
   "vincicasa": {
