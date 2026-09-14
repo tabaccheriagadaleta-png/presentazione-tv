@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "14/09/2026 20:10:59",
+  "ultimo_aggiornamento": "14/09/2026 20:31:36",
   "millionday": {
     "13": {
       "giorno": "Lunedì",
@@ -235,18 +235,18 @@
     "superstar": 54
   },
   "superwinforlife": {
-    "giorno": "Domenica",
-    "data": "13/09/2026",
-    "concorso": 103,
+    "giorno": "Lunedì",
+    "data": "14/09/2026",
+    "concorso": 104,
     "numeri": [
-      25,
-      46,
-      52,
+      11,
+      14,
+      18,
+      29,
+      43,
+      50,
       66,
-      68,
-      73,
-      75,
-      81
+      82
     ]
   },
   "sivincetutto": {
