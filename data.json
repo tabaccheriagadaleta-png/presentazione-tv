@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "15/09/2026 22:19:15",
+  "ultimo_aggiornamento": "15/09/2026 22:32:03",
   "millionday": {
     "13": {
       "giorno": "Martedì",
@@ -263,31 +263,31 @@
     ]
   },
   "vincicasa": {
-    "giorno": "Lunedì",
-    "data": "14/09/2026",
-    "concorso": 257,
+    "giorno": "Martedì",
+    "data": "15/09/2026",
+    "concorso": 258,
     "numeri": [
-      2,
-      18,
-      29,
-      33,
-      36
+      3,
+      7,
+      10,
+      16,
+      34
     ]
   },
   "eurojackpot": {
-    "giorno": "Venerdì",
-    "data": "11/09/2026",
-    "concorso": 74,
+    "giorno": "Martedì",
+    "data": "15/09/2026",
+    "concorso": 75,
     "numeri": [
-      14,
-      21,
-      35,
-      37,
-      49
+      5,
+      6,
+      10,
+      27,
+      42
     ],
     "euronumeri": [
       1,
-      12
+      8
     ]
   }
 }
