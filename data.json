@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "19/09/2026 21:56:32",
+  "ultimo_aggiornamento": "19/09/2026 22:11:15",
   "millionday": {
     "13": {
       "giorno": "Sabato",
@@ -263,14 +263,14 @@
     ]
   },
   "vincicasa": {
-    "giorno": "Venerdì",
-    "data": "18/09/2026",
-    "concorso": 261,
+    "giorno": "Sabato",
+    "data": "19/09/2026",
+    "concorso": 262,
     "numeri": [
       5,
-      10,
-      25,
-      26,
+      22,
+      29,
+      33,
       40
     ]
   },
