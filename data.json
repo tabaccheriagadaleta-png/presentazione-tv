@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "20/09/2026 20:41:28",
+  "ultimo_aggiornamento": "20/09/2026 20:51:19",
   "millionday": {
     "13": {
       "giorno": "Domenica",
@@ -21,22 +21,22 @@
       ]
     },
     "2030": {
-      "giorno": "Sabato",
-      "data": "19/09/2026",
-      "concorso": 524,
+      "giorno": "Domenica",
+      "data": "20/09/2026",
+      "concorso": 526,
       "numeri": [
+        6,
+        12,
         17,
-        22,
-        23,
-        44,
+        20,
         45
       ],
       "extra": [
-        2,
-        3,
-        7,
-        21,
-        25
+        16,
+        24,
+        26,
+        37,
+        38
       ]
     }
   },
@@ -263,15 +263,15 @@
     ]
   },
   "vincicasa": {
-    "giorno": "Domenica",
-    "data": "20/09/2026",
-    "concorso": 263,
+    "giorno": "Sabato",
+    "data": "19/09/2026",
+    "concorso": 262,
     "numeri": [
-      2,
-      18,
-      25,
-      30,
-      33
+      5,
+      22,
+      29,
+      33,
+      40
     ]
   },
   "eurojackpot": {
