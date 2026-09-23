@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "23/09/2026 22:04:42",
+  "ultimo_aggiornamento": "23/09/2026 22:22:12",
   "millionday": {
     "13": {
       "giorno": "Mercoledì",
@@ -263,15 +263,15 @@
     ]
   },
   "vincicasa": {
-    "giorno": "Martedì",
-    "data": "22/09/2026",
-    "concorso": 265,
+    "giorno": "Mercoledì",
+    "data": "23/09/2026",
+    "concorso": 266,
     "numeri": [
+      1,
       5,
-      25,
-      26,
-      29,
-      38
+      9,
+      18,
+      24
     ]
   },
   "eurojackpot": {
