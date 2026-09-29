@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "29/09/2026 20:53:12",
+  "ultimo_aggiornamento": "29/09/2026 21:06:23",
   "millionday": {
     "13": {
       "giorno": "Martedì",
@@ -220,19 +220,19 @@
     ]
   },
   "superenalotto": {
-    "giorno": "Sabato",
-    "data": "26/09/2026",
-    "concorso": 155,
+    "giorno": "Martedì",
+    "data": "29/09/2026",
+    "concorso": 156,
     "numeri": [
-      52,
-      54,
-      55,
-      64,
-      68,
-      78
+      16,
+      26,
+      28,
+      30,
+      43,
+      72
     ],
-    "jolly": 31,
-    "superstar": 6
+    "jolly": 5,
+    "superstar": 32
   },
   "superwinforlife": {
     "giorno": "Martedì",
@@ -263,15 +263,15 @@
     ]
   },
   "vincicasa": {
-    "giorno": "Martedì",
-    "data": "29/09/2026",
-    "concorso": 272,
+    "giorno": "Lunedì",
+    "data": "28/09/2026",
+    "concorso": 271,
     "numeri": [
-      8,
       15,
+      24,
       28,
-      29,
-      39
+      30,
+      36
     ]
   },
   "eurojackpot": {
