@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "30/09/2026 20:12:02",
+  "ultimo_aggiornamento": "01/10/2026 00:17:29",
   "millionday": {
     "13": {
       "giorno": "Mercoledì",
@@ -21,22 +21,22 @@
       ]
     },
     "2030": {
-      "giorno": "Martedì",
-      "data": "29/09/2026",
-      "concorso": 544,
+      "giorno": "Mercoledì",
+      "data": "30/09/2026",
+      "concorso": 546,
       "numeri": [
-        7,
+        5,
         14,
-        23,
-        33,
-        34
+        18,
+        46,
+        50
       ],
       "extra": [
-        6,
-        15,
-        27,
-        40,
-        48
+        2,
+        10,
+        33,
+        36,
+        42
       ]
     }
   },
@@ -263,14 +263,14 @@
     ]
   },
   "vincicasa": {
-    "giorno": "Martedì",
-    "data": "29/09/2026",
-    "concorso": 272,
+    "giorno": "Mercoledì",
+    "data": "30/09/2026",
+    "concorso": 273,
     "numeri": [
       8,
-      15,
-      28,
-      29,
+      10,
+      27,
+      32,
       39
     ]
   },
