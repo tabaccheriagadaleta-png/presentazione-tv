@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "02/10/2026 00:21:24",
+  "ultimo_aggiornamento": "02/10/2026 12:45:50",
   "millionday": {
     "13": {
       "giorno": "Giovedì",
@@ -251,14 +251,14 @@
   },
   "sivincetutto": {
     "giorno": "Mercoledì",
-    "data": "23/09/2026",
-    "concorso": 38,
+    "data": "30/09/2026",
+    "concorso": 39,
     "numeri": [
-      14,
-      51,
+      9,
+      25,
+      33,
       56,
-      73,
-      85,
+      58,
       88
     ]
   },
