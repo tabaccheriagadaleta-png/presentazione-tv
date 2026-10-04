@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "04/10/2026 01:19:02",
+  "ultimo_aggiornamento": "04/10/2026 12:47:46",
   "millionday": {
     "13": {
       "giorno": "Sabato",
@@ -251,27 +251,27 @@
   },
   "sivincetutto": {
     "giorno": "Mercoledì",
-    "data": "30/09/2026",
-    "concorso": 39,
+    "data": "23/09/2026",
+    "concorso": 38,
     "numeri": [
-      9,
-      25,
-      33,
+      14,
+      51,
       56,
-      58,
+      73,
+      85,
       88
     ]
   },
   "vincicasa": {
-    "giorno": "Sabato",
-    "data": "03/10/2026",
-    "concorso": 276,
+    "giorno": "Venerdì",
+    "data": "02/10/2026",
+    "concorso": 275,
     "numeri": [
-      10,
-      15,
-      18,
-      22,
-      31
+      2,
+      14,
+      19,
+      34,
+      38
     ]
   },
   "eurojackpot": {
