@@ -1,23 +1,23 @@
 {
-  "ultimo_aggiornamento": "04/10/2026 12:47:46",
+  "ultimo_aggiornamento": "04/10/2026 17:35:55",
   "millionday": {
     "13": {
-      "giorno": "Sabato",
-      "data": "03/10/2026",
-      "concorso": 551,
+      "giorno": "Domenica",
+      "data": "04/10/2026",
+      "concorso": 553,
       "numeri": [
-        14,
-        20,
-        36,
-        38,
-        40
+        27,
+        35,
+        43,
+        45,
+        54
       ],
       "extra": [
-        4,
-        17,
-        19,
-        34,
-        52
+        3,
+        36,
+        42,
+        46,
+        55
       ]
     },
     "2030": {
@@ -251,27 +251,27 @@
   },
   "sivincetutto": {
     "giorno": "Mercoledì",
-    "data": "23/09/2026",
-    "concorso": 38,
+    "data": "30/09/2026",
+    "concorso": 39,
     "numeri": [
-      14,
-      51,
+      9,
+      25,
+      33,
       56,
-      73,
-      85,
+      58,
       88
     ]
   },
   "vincicasa": {
-    "giorno": "Venerdì",
-    "data": "02/10/2026",
-    "concorso": 275,
+    "giorno": "Sabato",
+    "data": "03/10/2026",
+    "concorso": 276,
     "numeri": [
-      2,
-      14,
-      19,
-      34,
-      38
+      10,
+      15,
+      18,
+      22,
+      31
     ]
   },
   "eurojackpot": {
