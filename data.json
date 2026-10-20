@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "20/10/2026 20:36:45",
+  "ultimo_aggiornamento": "20/10/2026 23:14:31",
   "millionday": {
     "13": {
       "giorno": "Martedì",
@@ -21,22 +21,22 @@
       ]
     },
     "2030": {
-      "giorno": "Lunedì",
-      "data": "19/10/2026",
-      "concorso": 584,
+      "giorno": "Martedì",
+      "data": "20/10/2026",
+      "concorso": 586,
       "numeri": [
         7,
+        20,
         29,
-        41,
         44,
-        48
+        53
       ],
       "extra": [
-        2,
-        14,
-        24,
-        30,
-        35
+        6,
+        21,
+        33,
+        43,
+        51
       ]
     }
   },
@@ -220,19 +220,19 @@
     ]
   },
   "superenalotto": {
-    "giorno": "Sabato",
-    "data": "17/10/2026",
-    "concorso": 167,
+    "giorno": "Martedì",
+    "data": "20/10/2026",
+    "concorso": 168,
     "numeri": [
-      23,
+      13,
       25,
       37,
-      55,
-      77,
-      86
+      45,
+      50,
+      72
     ],
-    "jolly": 80,
-    "superstar": 50
+    "jolly": 3,
+    "superstar": 49
   },
   "superwinforlife": {
     "giorno": "Martedì",
@@ -263,30 +263,30 @@
     ]
   },
   "vincicasa": {
-    "giorno": "Lunedì",
-    "data": "19/10/2026",
-    "concorso": 292,
+    "giorno": "Martedì",
+    "data": "20/10/2026",
+    "concorso": 293,
     "numeri": [
-      5,
-      15,
+      1,
+      4,
+      17,
       20,
-      31,
-      34
+      29
     ]
   },
   "eurojackpot": {
-    "giorno": "Venerdì",
-    "data": "16/10/2026",
-    "concorso": 84,
+    "giorno": "Martedì",
+    "data": "20/10/2026",
+    "concorso": 85,
     "numeri": [
-      12,
-      24,
-      25,
-      29,
-      45
+      5,
+      16,
+      32,
+      34,
+      38
     ],
     "euronumeri": [
-      1,
+      8,
       9
     ]
   }
