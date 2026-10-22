@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "22/10/2026 20:43:12",
+  "ultimo_aggiornamento": "22/10/2026 23:11:49",
   "millionday": {
     "13": {
       "giorno": "Giovedì",
@@ -41,198 +41,197 @@
     }
   },
   "lotto": {
-    "giorno": "Martedì",
-    "data": "20/10/2026",
-    "concorso": "168",
+    "giorno": "Giovedì",
+    "data": "22/10/2026",
+    "concorso": "169",
     "ruote": {
       "Bari": {
         "numeri": [
-          54,
-          19,
-          90,
-          65,
-          23
-        ],
-        "oro": 23
-      },
-      "Cagliari": {
-        "numeri": [
-          7,
-          78,
-          44,
-          23,
-          64
-        ],
-        "oro": 64
-      },
-      "Firenze": {
-        "numeri": [
-          85,
-          52,
-          78,
-          37,
-          21
-        ],
-        "oro": 21
-      },
-      "Genova": {
-        "numeri": [
-          14,
-          88,
+          89,
           68,
-          18,
-          29
-        ],
-        "oro": 29
-      },
-      "Milano": {
-        "numeri": [
-          69,
-          16,
-          29,
-          53,
-          22
-        ],
-        "oro": 22
-      },
-      "Napoli": {
-        "numeri": [
-          1,
-          76,
-          64,
-          21,
-          31
-        ],
-        "oro": 31
-      },
-      "Palermo": {
-        "numeri": [
-          14,
-          18,
-          47,
-          37,
-          51
-        ],
-        "oro": 51
-      },
-      "Roma": {
-        "numeri": [
-          86,
-          88,
-          64,
-          26,
-          34
-        ],
-        "oro": 34
-      },
-      "Torino": {
-        "numeri": [
-          21,
-          64,
-          52,
-          62,
-          40
-        ],
-        "oro": 40
-      },
-      "Venezia": {
-        "numeri": [
-          29,
-          87,
-          64,
-          40,
+          23,
+          7,
           50
         ],
         "oro": 50
       },
+      "Cagliari": {
+        "numeri": [
+          21,
+          80,
+          4,
+          51,
+          43
+        ],
+        "oro": 43
+      },
+      "Firenze": {
+        "numeri": [
+          34,
+          25,
+          5,
+          77,
+          90
+        ],
+        "oro": 90
+      },
+      "Genova": {
+        "numeri": [
+          77,
+          34,
+          37,
+          90,
+          54
+        ],
+        "oro": 54
+      },
+      "Milano": {
+        "numeri": [
+          18,
+          7,
+          61,
+          35,
+          3
+        ],
+        "oro": 3
+      },
+      "Napoli": {
+        "numeri": [
+          41,
+          90,
+          40,
+          76,
+          78
+        ],
+        "oro": 78
+      },
+      "Palermo": {
+        "numeri": [
+          18,
+          80,
+          78,
+          12,
+          84
+        ],
+        "oro": 84
+      },
+      "Roma": {
+        "numeri": [
+          40,
+          3,
+          7,
+          86,
+          30
+        ],
+        "oro": 30
+      },
+      "Torino": {
+        "numeri": [
+          34,
+          56,
+          21,
+          10,
+          41
+        ],
+        "oro": 41
+      },
+      "Venezia": {
+        "numeri": [
+          63,
+          78,
+          43,
+          68,
+          80
+        ],
+        "oro": 80
+      },
       "Nazionale": {
         "numeri": [
-          3,
-          52,
-          85,
-          23,
-          42
+          76,
+          38,
+          65,
+          21,
+          3
         ],
-        "oro": 42
+        "oro": 3
       }
     }
   },
   "10elotto": {
     "numeri": [
-      1,
-      7,
-      14,
-      16,
-      18,
-      19,
-      21,
-      29,
-      44,
-      52,
-      54,
-      64,
-      69,
-      76,
-      78,
-      85,
-      86,
-      87,
-      88,
-      90
-    ],
-    "oro": 54,
-    "doppio_oro": [
-      54,
-      19
-    ],
-    "extra": [
       3,
-      22,
+      4,
+      5,
+      7,
+      18,
+      21,
       23,
-      26,
-      31,
+      25,
       34,
       37,
       40,
-      47,
+      41,
+      56,
+      63,
+      68,
+      77,
+      78,
+      80,
+      89,
+      90
+    ],
+    "oro": 89,
+    "doppio_oro": [
+      89,
+      68
+    ],
+    "extra": [
+      10,
+      12,
+      30,
+      35,
+      38,
+      43,
       50,
       51,
-      53,
-      62,
+      54,
+      61,
       65,
-      68
+      76,
+      84,
+      86
     ]
   },
   "simbolotto": {
     "numeri": [
-      25,
-      16,
-      13,
-      20,
-      43
+      12,
+      17,
+      4,
+      39,
+      25
     ],
     "simboli": [
-      "Natale",
-      "Naso",
-      "Rana",
-      "Festa",
-      "Funghi"
+      "Soldato",
+      "Sfortuna",
+      "Maiale",
+      "Forbici",
+      "Natale"
     ]
   },
   "superenalotto": {
-    "giorno": "Martedì",
-    "data": "20/10/2026",
-    "concorso": 168,
+    "giorno": "Giovedì",
+    "data": "22/10/2026",
+    "concorso": 169,
     "numeri": [
+      3,
       13,
-      25,
-      37,
-      45,
-      50,
-      72
+      14,
+      18,
+      62,
+      82
     ],
-    "jolly": 3,
-    "superstar": 49
+    "jolly": 46,
+    "superstar": 84
   },
   "superwinforlife": {
     "giorno": "Giovedì",
