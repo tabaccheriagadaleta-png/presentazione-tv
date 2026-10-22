@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "22/10/2026 17:45:20",
+  "ultimo_aggiornamento": "22/10/2026 20:43:12",
   "millionday": {
     "13": {
       "giorno": "Giovedì",
@@ -21,22 +21,22 @@
       ]
     },
     "2030": {
-      "giorno": "Mercoledì",
-      "data": "21/10/2026",
-      "concorso": 588,
+      "giorno": "Giovedì",
+      "data": "22/10/2026",
+      "concorso": 590,
       "numeri": [
-        10,
-        18,
-        26,
-        34,
-        38
+        2,
+        6,
+        9,
+        16,
+        22
       ],
       "extra": [
-        3,
-        6,
-        22,
-        25,
-        31
+        29,
+        40,
+        43,
+        45,
+        52
       ]
     }
   },
@@ -235,18 +235,18 @@
     "superstar": 49
   },
   "superwinforlife": {
-    "giorno": "Mercoledì",
-    "data": "21/10/2026",
-    "concorso": 141,
+    "giorno": "Giovedì",
+    "data": "22/10/2026",
+    "concorso": 142,
     "numeri": [
-      8,
-      12,
-      41,
-      49,
-      60,
-      73,
-      81,
-      82
+      1,
+      22,
+      45,
+      57,
+      61,
+      65,
+      72,
+      89
     ]
   },
   "sivincetutto": {
@@ -263,15 +263,15 @@
     ]
   },
   "vincicasa": {
-    "giorno": "Mercoledì",
-    "data": "21/10/2026",
-    "concorso": 294,
+    "giorno": "Giovedì",
+    "data": "22/10/2026",
+    "concorso": 295,
     "numeri": [
-      2,
-      4,
-      29,
-      35,
-      37
+      9,
+      16,
+      23,
+      30,
+      32
     ]
   },
   "eurojackpot": {
