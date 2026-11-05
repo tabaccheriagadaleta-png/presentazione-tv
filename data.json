@@ -1,42 +1,42 @@
 {
-  "ultimo_aggiornamento": "05/11/2026 00:13:04",
+  "ultimo_aggiornamento": "05/11/2026 13:48:32",
   "millionday": {
     "13": {
-      "giorno": "Martedì",
-      "data": "03/11/2026",
-      "concorso": 613,
+      "giorno": "Mercoledì",
+      "data": "04/11/2026",
+      "concorso": 615,
       "numeri": [
-        6,
-        25,
-        34,
-        35,
-        47
+        7,
+        20,
+        23,
+        41,
+        48
       ],
       "extra": [
-        9,
+        4,
         13,
-        20,
-        38,
-        49
+        17,
+        24,
+        27
       ]
     },
     "2030": {
-      "giorno": "Martedì",
-      "data": "03/11/2026",
-      "concorso": 614,
+      "giorno": "Mercoledì",
+      "data": "04/11/2026",
+      "concorso": 616,
       "numeri": [
-        18,
-        27,
-        41,
-        43,
-        51
+        20,
+        40,
+        44,
+        52,
+        53
       ],
       "extra": [
-        8,
-        29,
-        30,
-        42,
-        55
+        1,
+        9,
+        37,
+        45,
+        47
       ]
     }
   },
