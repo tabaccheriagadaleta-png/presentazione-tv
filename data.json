@@ -1,5 +1,5 @@
 {
-  "ultimo_aggiornamento": "07/11/2026 19:58:59",
+  "ultimo_aggiornamento": "07/11/2026 22:26:39",
   "millionday": {
     "13": {
       "giorno": "Venerdì",
@@ -220,33 +220,33 @@
     ]
   },
   "superenalotto": {
-    "giorno": "Venerdì",
-    "data": "06/11/2026",
-    "concorso": 178,
+    "giorno": "Sabato",
+    "data": "07/11/2026",
+    "concorso": 179,
     "numeri": [
-      5,
-      20,
-      28,
-      47,
-      50,
-      67
-    ],
-    "jolly": 87,
-    "superstar": 14
-  },
-  "superwinforlife": {
-    "giorno": "Venerdì",
-    "data": "06/11/2026",
-    "concorso": 157,
-    "numeri": [
-      6,
-      19,
-      23,
-      26,
-      53,
-      78,
+      38,
+      41,
+      54,
+      59,
       80,
       85
+    ],
+    "jolly": 50,
+    "superstar": 39
+  },
+  "superwinforlife": {
+    "giorno": "Sabato",
+    "data": "07/11/2026",
+    "concorso": 158,
+    "numeri": [
+      4,
+      10,
+      16,
+      19,
+      51,
+      73,
+      88,
+      89
     ]
   },
   "sivincetutto": {
